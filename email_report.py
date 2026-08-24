@@ -10,6 +10,7 @@ Environment variables:
     EMAIL_WEB_APP_URL  — Google Apps Script Web App URL for sending email
     EMAIL_RECIPIENTS   — Comma-separated email addresses
     DASHBOARD_URL      — URL to the GitHub Pages dashboard
+    GOOGLE_SHEET_URL   — Link to the Google Sheet (optional; hides button if unset)
 """
 
 import json
@@ -141,6 +142,13 @@ def generate_email_html(data: dict, results: list[dict]) -> tuple[str, str]:
         </div>"""
 
     dashboard_url = os.environ.get("DASHBOARD_URL", "https://shunyalabsai.github.io/vak-automation/")
+    sheet_url = os.environ.get("GOOGLE_SHEET_URL", "")
+    sheet_button = ""
+    if sheet_url:
+        sheet_button = f"""
+      <a href="{sheet_url}" style="display:inline-block;background:#f59e0b;color:#fff;text-decoration:none;padding:12px 28px;border-radius:8px;font-weight:600;font-size:14px;margin:6px;">
+        📋 View Test Cases
+      </a>"""
 
     html = f"""<!DOCTYPE html>
 <html>
@@ -202,10 +210,7 @@ def generate_email_html(data: dict, results: list[dict]) -> tuple[str, str]:
     <div style="text-align:center;padding:16px 32px 28px;">
       <a href="{dashboard_url}" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;padding:12px 28px;border-radius:8px;font-weight:600;font-size:14px;margin:6px;">
         📊 View Full Dashboard
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/1ZTzLCCaw13sGsdeo5AQBak51z_NpfFnUQmPZfH2wXu4/edit?gid=382470529#gid=382470529" style="display:inline-block;background:#f59e0b;color:#fff;text-decoration:none;padding:12px 28px;border-radius:8px;font-weight:600;font-size:14px;margin:6px;">
-        📋 View Test Cases
-      </a>
+      </a>{sheet_button}
     </div>
 
     <!-- Footer -->

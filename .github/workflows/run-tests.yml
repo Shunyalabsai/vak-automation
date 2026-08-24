@@ -87,6 +87,7 @@ jobs:
           EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
           EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
           DASHBOARD_URL: https://shunyalabsai.github.io/vak-automation/
+          GOOGLE_SHEET_URL: ${{ secrets.GOOGLE_SHEET_URL }}
         run: python email_report.py
 
       - name: Fail job if tests failed
@@ -113,6 +114,7 @@ jobs:
           EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
           EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
           DASHBOARD_URL: https://shunyalabsai.github.io/vak-automation/
+          GOOGLE_SHEET_URL: ${{ secrets.GOOGLE_SHEET_URL }}
         run: python email_report.py
 
   daily-digest:

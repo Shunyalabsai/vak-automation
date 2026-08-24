@@ -29,8 +29,11 @@ from clients import ASRClient, TranslateClient, TTSClient
 from generate_dashboard import generate_dashboard
 
 # ── Google Apps Script Web App URL ──
-# After deploying the Apps Script, paste the URL here:
-APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxhP5uUl48vWntyM8K7djZPqNwW32UcwbjPK5iNHItr_N6c8qoUP76dZaCMd3THn62Cbw/exec"
+# Set APPS_SCRIPT_URL in GitHub Actions secrets (or env locally).
+DEFAULT_APPS_SCRIPT_URL = (
+    "https://script.google.com/macros/s/AKfycbwnhRUSe1giRIeZCuKC2aSaorIpuiGSEHSzJJfPKAXdKNB7d70yZifJP3C0NauNTgbS/exec"
+)
+APPS_SCRIPT_URL = os.environ.get("APPS_SCRIPT_URL", DEFAULT_APPS_SCRIPT_URL)
 
 IST = timezone(timedelta(hours=5, minutes=30))
 
@@ -359,7 +362,7 @@ def run_pipeline_tests():
 def push_to_sheet(results: list[dict]):
     """Send results to Google Sheets via Apps Script Web App."""
     if not APPS_SCRIPT_URL:
-        print("\n⚠  APPS_SCRIPT_URL not set in report_to_sheet.py")
+        print("\n⚠  APPS_SCRIPT_URL not set")
         print("   Deploy the Apps Script and paste the URL to enable auto-reporting.")
         return False
 

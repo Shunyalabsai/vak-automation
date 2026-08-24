@@ -1,6 +1,12 @@
 /**
  * Google Apps Script — Vak API Test Reporter with Audio Playback
  *
+ * Deploy as Web App (Execute as: Me, Who has access: Anyone) and set GitHub secret:
+ *   APPS_SCRIPT_URL → deployment exec URL
+ *
+ * Optional GitHub secret for failure emails:
+ *   GOOGLE_SHEET_URL → link to this bound spreadsheet
+ *
  * Audio playback: stores audio in a hidden sheet, serves HTML player via doGet.
  * NO Drive permission needed.
  */
