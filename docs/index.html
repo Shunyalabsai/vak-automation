@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vak API — Test Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg-primary: #0c0d14;
+  --bg-secondary: #141522;
+  --bg-card: #1a1b2a;
+  --bg-card-hover: #1f2037;
+  --border: #26283a;
+  --text-primary: #f8fafc;
+  --text-muted: #9ca3af;
+  --text-dimmed: #6b7280;
+  --accent: #8b5cf6;
+  --accent-soft: rgba(139, 92, 246, 0.2);
+  --green: #22c55e;
+  --green-soft: rgba(34, 197, 94, 0.15);
+  --red: #ef4444;
+  --red-soft: rgba(239, 68, 68, 0.15);
+  --amber: #f59e0b;
+  --amber-soft: rgba(245, 158, 11, 0.15);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  background: radial-gradient(ellipse at 20% 0%, #1a1830 0%, #0c0d14 50%, #090a10 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* ===== Header ===== */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(12, 13, 20, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 14px; }
+.logo {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #6d28d9);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 16px; color: #fff;
+}
+.header h1 { font-size: 17px; font-weight: 700; }
+.header-sub { font-size: 12px; color: var(--text-muted); }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.total-runs-badge {
+  background: var(--green-soft); color: var(--green);
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 12px; font-weight: 600;
+}
+.last-run {
+  font-size: 12px; color: var(--text-muted);
+  background: var(--bg-card); padding: 6px 12px; border-radius: 20px;
+  border: 1px solid var(--border);
+}
+.btn-export {
+  background: var(--accent); color: #fff; border: none;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: opacity .2s; position: relative;
+}
+.btn-export:hover { opacity: 0.85; }
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content {
+  display: none; position: absolute; right: 0; top: 100%; margin-top: 4px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); box-shadow: var(--shadow);
+  min-width: 140px; z-index: 200;
+}
+.dropdown-content a {
+  display: block; padding: 10px 16px; color: var(--text-primary);
+  text-decoration: none; font-size: 13px; transition: background .15s;
+}
+.dropdown-content a:hover { background: var(--bg-card-hover); }
+.dropdown:hover .dropdown-content { display: block; }
+.btn-print {
+  background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border);
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: border-color .2s;
+}
+.btn-print:hover { border-color: var(--accent); }
+
+/* ===== Tabs ===== */
+.tabs {
+  display: flex; gap: 0; border-bottom: 1px solid var(--border);
+  padding: 0 28px; background: rgba(12, 13, 20, 0.5);
+}
+.tab {
+  padding: 14px 20px; font-size: 14px; font-weight: 500;
+  color: var(--text-muted); cursor: pointer; border: none;
+  background: none; border-bottom: 2px solid transparent;
+  transition: all .2s;
+}
+.tab:hover { color: var(--text-primary); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ===== Main ===== */
+.main { padding: 24px 28px; max-width: 1440px; margin: 0 auto; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ===== Stats Grid ===== */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+  box-shadow: var(--shadow); transition: transform .2s, border-color .2s;
+}
+.stat-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.stat-label {
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .5px; color: var(--text-muted); margin-bottom: 8px;
+}
+.stat-value { font-size: 28px; font-weight: 700; }
+.stat-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.stat-value.green { color: var(--green); }
+.stat-value.red { color: var(--red); }
+.stat-value.amber { color: var(--amber); }
+.stat-value.accent { color: var(--accent); }
+
+/* ===== Charts Grid ===== */
+.charts-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+  margin-bottom: 24px;
+}
+.chart-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+}
+.chart-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.chart-wrap { position: relative; height: 220px; }
+
+/* ===== Category Cards ===== */
+.section-title {
+  font-size: 16px; font-weight: 700; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title::before {
+  content: ''; width: 4px; height: 20px;
+  background: var(--accent); border-radius: 2px;
+}
+.cat-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px; margin-bottom: 32px;
+}
+.cat-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px;
+  box-shadow: var(--shadow); cursor: pointer; transition: all .2s;
+}
+.cat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.cat-name { font-size: 14px; font-weight: 600; }
+.cat-rate { font-size: 13px; font-weight: 700; }
+.cat-rate.perfect { color: var(--green); }
+.cat-rate.partial { color: var(--amber); }
+.cat-rate.zero { color: var(--red); }
+.cat-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 10px; }
+.cat-bar-fill { height: 100%; border-radius: 3px; transition: width .6s ease; }
+.cat-bar-fill.perfect { background: var(--green); }
+.cat-bar-fill.partial { background: var(--amber); }
+.cat-bar-fill.zero { background: var(--red); }
+.cat-stats { display: flex; gap: 12px; font-size: 12px; color: var(--text-muted); }
+.cat-stats span { display: flex; align-items: center; gap: 4px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.dot.pass { background: var(--green); }
+.dot.fail { background: var(--red); }
+
+/* ===== Test Results Table ===== */
+.table-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); margin-bottom: 24px;
+}
+.table-toolbar {
+  padding: 16px 20px; display: flex; justify-content: space-between;
+  align-items: center; border-bottom: 1px solid var(--border);
+}
+.table-toolbar h3 { font-size: 14px; font-weight: 600; }
+.filter-group { display: flex; gap: 6px; }
+.filter-btn {
+  padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  background: none; color: var(--text-muted); font-size: 12px;
+  font-weight: 500; cursor: pointer; transition: all .2s;
+}
+.filter-btn.active { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+.filter-btn:hover { border-color: var(--accent); }
+.search-input {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  color: var(--text-primary); padding: 7px 14px; border-radius: 20px;
+  font-size: 13px; outline: none; width: 220px; transition: border-color .2s;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-dimmed); }
+table { width: 100%; border-collapse: collapse; }
+thead { position: sticky; top: 0; z-index: 10; }
+thead th {
+  text-align: left; padding: 12px 16px; font-size: 12px;
+  font-weight: 600; text-transform: uppercase; letter-spacing: .5px;
+  color: var(--text-muted); background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+tbody td {
+  padding: 10px 16px; font-size: 13px; border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+tbody tr { transition: background .15s; }
+tbody tr:hover { background: var(--bg-card-hover); }
+tbody tr:last-child td { border-bottom: none; }
+.pill {
+  display: inline-block; padding: 3px 10px; border-radius: 12px;
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+}
+.pill.pass { background: var(--green-soft); color: var(--green); }
+.pill.fail { background: var(--red-soft); color: var(--red); }
+.mono { font-family: 'Fira Code', monospace; font-size: 12px; }
+td a { color: var(--accent); text-decoration: none; font-weight: 600; }
+td a:hover { color: #a78bfa; text-decoration: underline; }
+
+/* ===== Pipeline Cards ===== */
+.pipeline-step-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+.pipeline-step {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 14px;
+}
+.pipeline-step-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+}
+.pipeline-step-name { font-size: 13px; font-weight: 600; color: var(--accent); }
+.pipeline-step-body { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+.pipeline-step-body .label { color: var(--text-dimmed); font-size: 11px; text-transform: uppercase; letter-spacing: .3px; }
+.pipeline-step-body .value { color: var(--text-primary); word-break: break-word; }
+.pipeline-step-latency { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.lat-chip {
+  font-size: 11px; padding: 2px 8px; border-radius: 10px;
+  background: var(--accent-soft); color: var(--accent);
+  font-family: 'Fira Code', monospace;
+}
+
+/* ===== Calendar ===== */
+.cal-nav {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+}
+.cal-nav-btn {
+  background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary);
+  padding: 8px 16px; border-radius: var(--radius-sm); cursor: pointer;
+  font-size: 13px; font-weight: 600; transition: border-color .2s;
+}
+.cal-nav-btn:hover { border-color: var(--accent); }
+.cal-month { font-size: 20px; font-weight: 700; }
+.cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px;
+}
+.cal-header {
+  text-align: center; font-size: 12px; font-weight: 600;
+  color: var(--text-muted); padding: 8px 0; text-transform: uppercase;
+}
+.cal-day {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); min-height: 90px; padding: 10px;
+  transition: all .2s;
+}
+.cal-day:hover { border-color: var(--accent); }
+.cal-day.today { border-color: var(--accent); box-shadow: 0 0 12px rgba(139,92,246,0.3); }
+.cal-day.empty { background: transparent; border-color: transparent; min-height: auto; }
+.cal-day-num { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.cal-day-runs { font-size: 11px; color: var(--text-muted); }
+.cal-day-rate { font-size: 12px; font-weight: 600; margin-top: 2px; }
+.cal-day-rate.perfect { color: var(--green); }
+.cal-day-rate.partial { color: var(--amber); }
+.cal-day-rate.zero { color: var(--red); }
+.cal-day.has-runs { border-color: var(--green); border-width: 2px; }
+.cal-day.has-fails { border-color: var(--amber); border-width: 2px; }
+
+/* ===== Run History ===== */
+.history-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-bottom: 24px;
+}
+.history-list { display: flex; flex-direction: column; gap: 10px; }
+.run-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all .2s; box-shadow: var(--shadow);
+}
+.run-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.run-left { display: flex; align-items: center; gap: 14px; }
+.run-indicator { width: 10px; height: 10px; border-radius: 50%; }
+.run-indicator.perfect { background: var(--green); box-shadow: 0 0 8px var(--green); }
+.run-indicator.partial { background: var(--amber); box-shadow: 0 0 8px var(--amber); }
+.run-indicator.zero { background: var(--red); box-shadow: 0 0 8px var(--red); }
+.run-time { font-size: 14px; font-weight: 600; }
+.run-id { font-size: 12px; color: var(--text-muted); font-family: 'Fira Code', monospace; }
+.run-right { display: flex; align-items: center; gap: 20px; }
+.run-stat { text-align: center; }
+.run-stat-val { font-size: 16px; font-weight: 700; }
+.run-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+
+/* ===== Latency Tab ===== */
+.latency-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;
+}
+.latency-chart-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+}
+.latency-chart-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.latency-chart-wrap { position: relative; height: 300px; }
+
+/* ===== Loading ===== */
+.loading {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 400px; flex-direction: column; gap: 16px;
+}
+.spinner {
+  width: 40px; height: 40px; border: 3px solid var(--border);
+  border-top-color: var(--accent); border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+  .charts-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .stats-grid, .history-stats { grid-template-columns: repeat(2, 1fr); }
+  .charts-grid, .latency-grid { grid-template-columns: 1fr; }
+  .cal-grid { gap: 4px; }
+  .cal-day { min-height: 70px; padding: 6px; }
+}
+@media (max-width: 600px) {
+  .stats-grid, .history-stats { grid-template-columns: 1fr; }
+  .header { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+  .main { padding: 16px; }
+  .tabs { padding: 0 16px; overflow-x: auto; }
+  .table-toolbar { flex-direction: column; gap: 10px; }
+}
+@media print {
+  .header, .tabs { display: none; }
+  .tab-content { display: block !important; }
+  body { background: #fff; color: #000; }
+  .stat-card, .chart-card, .cat-card, .table-card { box-shadow: none; border: 1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-left">
+    <div class="logo">V</div>
+    <div>
+      <h1>Vak API — Test Dashboard</h1>
+      <div class="header-sub">ASR + Translate + TTS Automation Report</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="total-runs-badge" id="totalRunsBadge">Total Runs: 0</span>
+    <span class="last-run" id="lastRun">Loading...</span>
+    <div class="dropdown">
+      <button class="btn-export">Export &#9662;</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="exportJSON();return false;">Export JSON</a>
+        <a href="#" onclick="exportCSV();return false;">Export CSV</a>
+      </div>
+    </div>
+    <button class="btn-print" onclick="window.print()">Print</button>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab active" data-tab="current">Current Run</button>
+  <button class="tab" data-tab="details">Test Details</button>
+  <button class="tab" data-tab="pipeline">Pipeline Breakdown</button>
+  <button class="tab" data-tab="latency">Latency Analysis</button>
+  <button class="tab" data-tab="history">Run History</button>
+  <button class="tab" data-tab="calendar">Calendar View</button>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <span style="color:var(--text-muted);font-size:14px;">Loading dashboard data...</span>
+  </div>
+
+  <!-- Tab: Current Run -->
+  <div class="tab-content active" id="tab-current" style="display:none;">
+    <div class="stats-grid" id="statsGrid"></div>
+    <div class="charts-grid">
+      <div class="chart-card"><h3>Status Distribution</h3><div class="chart-wrap"><canvas id="chartDoughnut"></canvas></div></div>
+      <div class="chart-card"><h3>Pass Rate by Endpoint</h3><div class="chart-wrap"><canvas id="chartCatBar"></canvas></div></div>
+      <div class="chart-card"><h3>Pass Rate Trend</h3><div class="chart-wrap"><canvas id="chartTrend"></canvas></div></div>
+    </div>
+    <div class="section-title">Endpoint Breakdown</div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+
+  <!-- Tab: Test Details -->
+  <div class="tab-content" id="tab-details">
+    <div class="table-card">
+      <div class="table-toolbar">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <h3>All Test Results</h3>
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="pass">Passed</button>
+            <button class="filter-btn" data-filter="fail">Failed</button>
+          </div>
+        </div>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search tests...">
+      </div>
+      <div style="overflow:auto;max-height:75vh;">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Test Name</th><th>Category</th>
+              <th>Status</th><th>Latency</th><th>Audio Size</th>
+              <th>Format</th><th>Audio</th><th>Notes</th><th>Response</th>
+            </tr>
+          </thead>
+          <tbody id="testTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab: Pipeline Breakdown -->
+  <div class="tab-content" id="tab-pipeline">
+    <div class="stats-grid" id="pipelineStats"></div>
+    <div class="section-title">Pipeline Results (ASR &rarr; Translate &rarr; TTS)</div>
+    <div class="pipeline-step-grid" id="pipelineGrid"></div>
+  </div>
+
+  <!-- Tab: Latency Analysis -->
+  <div class="tab-content" id="tab-latency">
+    <div class="stats-grid" id="latencyStats"></div>
+    <div class="latency-grid">
+      <div class="latency-chart-card"><h3>Latency by Endpoint (avg ms)</h3><div class="latency-chart-wrap"><canvas id="chartLatencyBar"></canvas></div></div>
+      <div class="latency-chart-card"><h3>Latency Distribution</h3><div class="latency-chart-wrap"><canvas id="chartLatencyDist"></canvas></div></div>
+    </div>
+    <div class="latency-grid">
+      <div class="latency-chart-card"><h3>Latency Range by Endpoint</h3><div class="latency-chart-wrap"><canvas id="chartLatencyRange"></canvas></div></div>
+      <div class="latency-chart-card"><h3>Pipeline Step Latency</h3><div class="latency-chart-wrap"><canvas id="chartPipelineLatency"></canvas></div></div>
+    </div>
+  </div>
+
+  <!-- Tab: Run History -->
+  <div class="tab-content" id="tab-history">
+    <div class="history-stats" id="historyStats"></div>
+    <div class="section-title">All Runs</div>
+    <div class="history-list" id="historyList"></div>
+  </div>
+
+  <!-- Tab: Calendar View -->
+  <div class="tab-content" id="tab-calendar">
+    <div class="cal-nav">
+      <button class="cal-nav-btn" onclick="calPrev()">&laquo; Prev</button>
+      <span class="cal-month" id="calMonth"></span>
+      <button class="cal-nav-btn" onclick="calNext()">Next &raquo;</button>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+  </div>
+
+</div>
+
+<script>
+let DATA = null;
+let chartInstances = {};
+let calYear, calMonth;
+
+async function init() {
+  try {
+    const resp = await fetch('data.json');
+    DATA = await resp.json();
+    document.getElementById('loading').style.display = 'none';
+    renderAll();
+  } catch (e) {
+    document.getElementById('loading').innerHTML =
+      '<span style="color:var(--red);font-size:14px;">Failed to load data.json. Run: python generate_dashboard.py</span>';
+  }
+}
+
+function renderAll() {
+  const run = DATA.current;
+  if (!run) return;
+
+  document.getElementById('lastRun').textContent = 'Last run: ' + run.timestamp;
+  document.getElementById('totalRunsBadge').textContent = 'Total Runs: ' + DATA.runs.length;
+
+  renderStats(run);
+  renderCharts(run);
+  renderCategories(run);
+  renderTestTable(run);
+  renderPipeline(run);
+  renderLatency(run);
+  renderHistory();
+
+  // Init calendar to current month
+  const now = new Date();
+  calYear = now.getFullYear();
+  calMonth = now.getMonth();
+  renderCalendar();
+
+  document.getElementById('tab-current').style.display = 'block';
+}
+
+// ===== Stats =====
+function renderStats(run) {
+  document.getElementById('statsGrid').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-label">Total Tests</div>
+      <div class="stat-value accent">${run.total}</div>
+      <div class="stat-sub">${(run.total_ms / 1000).toFixed(1)}s total runtime</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Passed</div>
+      <div class="stat-value green">${run.passed}</div>
+      <div class="stat-sub">${run.pass_rate}% pass rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Failed</div>
+      <div class="stat-value ${run.failed > 0 ? 'red' : 'green'}">${run.failed}</div>
+      <div class="stat-sub">${run.errors} error(s)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Avg Latency</div>
+      <div class="stat-value">${run.avg_latency}<span style="font-size:14px;color:var(--text-muted)">ms</span></div>
+      <div class="stat-sub">${run.categories.length} endpoints tested</div>
+    </div>`;
+}
+
+// ===== Charts =====
+function renderCharts(run) {
+  destroyChart('chartDoughnut');
+  chartInstances['chartDoughnut'] = new Chart(document.getElementById('chartDoughnut'), {
+    type: 'doughnut',
+    data: { labels: ['Passed','Failed'], datasets: [{ data: [run.passed, run.failed], backgroundColor: ['#22c55e','#ef4444'], borderWidth: 0, hoverOffset: 6 }] },
+    options: { responsive: true, maintainAspectRatio: false, cutout: '65%', plugins: { legend: { position: 'bottom', labels: { color: '#9ca3af', padding: 16, font: { size: 12 } } } } }
+  });
+
+  const catNames = run.categories.map(c => c.name);
+  const catRates = run.categories.map(c => c.pass_rate);
+  const catColors = catRates.map(r => r === 100 ? '#22c55e' : r > 0 ? '#f59e0b' : '#ef4444');
+  destroyChart('chartCatBar');
+  chartInstances['chartCatBar'] = new Chart(document.getElementById('chartCatBar'), {
+    type: 'bar',
+    data: { labels: catNames, datasets: [{ data: catRates, backgroundColor: catColors, borderRadius: 4, barThickness: 22 }] },
+    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      scales: { x: { max: 100, grid: { color: '#26283a' }, ticks: { color: '#9ca3af' } }, y: { grid: { display: false }, ticks: { color: '#f8fafc', font: { size: 12 } } } },
+      plugins: { legend: { display: false } } }
+  });
+
+  const runs = DATA.runs.slice(-12);
+  const labels = runs.map(r => { const p = r.timestamp.split(' ')[0].split('-'); return p[2]+'/'+p[1]; });
+  destroyChart('chartTrend');
+  chartInstances['chartTrend'] = new Chart(document.getElementById('chartTrend'), {
+    type: 'line',
+    data: { labels, datasets: [{ data: runs.map(r => r.pass_rate), borderColor: '#8b5cf6', backgroundColor: 'rgba(139,92,246,0.1)', fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#8b5cf6' }] },
+    options: { responsive: true, maintainAspectRatio: false,
+      scales: { y: { min: 0, max: 100, grid: { color: '#26283a' }, ticks: { color: '#9ca3af', callback: v => v+'%' } }, x: { grid: { display: false }, ticks: { color: '#9ca3af', font: { size: 11 } } } },
+      plugins: { legend: { display: false } } }
+  });
+}
+
+function destroyChart(id) { if (chartInstances[id]) { chartInstances[id].destroy(); delete chartInstances[id]; } }
+
+// ===== Categories =====
+function renderCategories(run) {
+  document.getElementById('catGrid').innerHTML = run.categories.map(c => {
+    const cls = c.pass_rate === 100 ? 'perfect' : c.pass_rate > 0 ? 'partial' : 'zero';
+    return `<div class="cat-card" onclick="filterByCategory('${c.name}')">
+      <div class="cat-header"><span class="cat-name">${c.name}</span><span class="cat-rate ${cls}">${c.pass_rate}%</span></div>
+      <div class="cat-bar"><div class="cat-bar-fill ${cls}" style="width:${c.pass_rate}%"></div></div>
+      <div class="cat-stats">
+        <span><span class="dot pass"></span> ${c.pass} passed</span>
+        <span><span class="dot fail"></span> ${c.fail} failed</span>
+        <span style="margin-left:auto;">${c.avg_latency}ms avg</span>
+      </div></div>`;
+  }).join('');
+}
+
+function filterByCategory(n) { switchTab('details'); document.getElementById('searchInput').value = n; filterTable(); }
+
+// ===== Test Table with Audio =====
+function renderTestTable(run) {
+  window._allTests = run.tests;
+  renderFilteredTable(run.tests);
+}
+
+function renderFilteredTable(tests) {
+  document.getElementById('testTableBody').innerHTML = tests.map(t => {
+    const statusCls = t.status.toLowerCase();
+    const size = t.audio_bytes > 1024 ? (t.audio_bytes / 1024).toFixed(1) + ' KB' : (t.audio_bytes > 0 ? t.audio_bytes + ' B' : '-');
+    const audioLink = t.audio_url
+      ? `<a href="${t.audio_url}" target="_blank">&#9654; Play</a>`
+      : '<span style="color:var(--text-dimmed)">-</span>';
+    const notes = t.error || t.notes || '';
+    // For failures only: show the received/generated response besides the error note
+    const response = (t.status === 'FAIL') ? (t.response || t.notes || '') : '';
+    const notesCell = notes
+      ? `<td style="color:${t.status === 'FAIL' ? 'var(--red)' : 'var(--text-dimmed)'};font-size:12px;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escAttr(notes)}">${escHtml(notes)}</td>`
+      : `<td style="color:var(--text-dimmed)">-</td>`;
+    const responseCell = response
+      ? `<td style="color:var(--text-muted);font-size:12px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${escAttr(response)}">${escHtml(response)}</td>`
+      : `<td style="color:var(--text-dimmed)">-</td>`;
+    return `<tr>
+      <td class="mono">${t.id}</td>
+      <td>${t.name}</td>
+      <td style="color:var(--text-muted)">${t.category}</td>
+      <td><span class="pill ${statusCls}">${t.status}</span></td>
+      <td class="mono">${t.duration_ms}ms</td>
+      <td class="mono">${size}</td>
+      <td style="color:var(--text-muted)">${t.output_format}</td>
+      <td>${audioLink}</td>
+      ${notesCell}
+      ${responseCell}
+    </tr>`;
+  }).join('');
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function escAttr(s) {
+  return escHtml(s).replace(/"/g,'&quot;');
+}
+
+function filterTable() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const f = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+  let tests = window._allTests || [];
+  if (f !== 'all') tests = tests.filter(t => t.status.toLowerCase() === f);
+  if (search) tests = tests.filter(t => t.id.toLowerCase().includes(search) || t.name.toLowerCase().includes(search) || t.category.toLowerCase().includes(search));
+  renderFilteredTable(tests);
+}
+
+// ===== Pipeline =====
+function renderPipeline(run) {
+  const pt = run.tests.filter(t => t.category === 'Pipeline');
+  const passed = pt.filter(t => t.status === 'PASS').length;
+  const failed = pt.filter(t => t.status === 'FAIL').length;
+  const lats = pt.filter(t => t.duration_ms > 0).map(t => t.duration_ms);
+  const avg = lats.length > 0 ? Math.round(lats.reduce((a,b) => a+b, 0) / lats.length) : 0;
+
+  document.getElementById('pipelineStats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">Pipeline Tests</div><div class="stat-value accent">${pt.length}</div></div>
+    <div class="stat-card"><div class="stat-label">Passed</div><div class="stat-value green">${passed}</div></div>
+    <div class="stat-card"><div class="stat-label">Failed</div><div class="stat-value ${failed>0?'red':'green'}">${failed}</div></div>
+    <div class="stat-card"><div class="stat-label">Avg E2E Latency</div><div class="stat-value">${avg}<span style="font-size:14px;color:var(--text-muted)">ms</span></div></div>`;
+
+  document.getElementById('pipelineGrid').innerHTML = pt.map(t => {
+    const sc = t.status === 'PASS' ? 'var(--green)' : 'var(--red)';
+    const audioBtn = t.audio_url ? `<a href="${t.audio_url}" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:600;font-size:12px;">&#9654; Play Audio</a>` : '';
+    return `<div class="pipeline-step">
+      <div class="pipeline-step-header">
+        <span class="pipeline-step-name">${t.source_lang} &rarr; ${t.target_lang}</span>
+        <span style="color:${sc};font-weight:600;font-size:12px;">${t.status}</span>
+      </div>
+      <div class="pipeline-step-body">
+        ${t.asr_text ? `<div style="margin-bottom:6px"><span class="label">ASR Output:</span><br><span class="value">${truncate(t.asr_text,120)}</span></div>` : ''}
+        ${t.translated_text ? `<div style="margin-bottom:6px"><span class="label">Translation:</span><br><span class="value">${truncate(t.translated_text,120)}</span></div>` : ''}
+        ${t.error ? `<div style="margin-bottom:6px"><span class="label" style="color:var(--red)">Error:</span><br><span class="value" style="color:var(--red)">${truncate(t.error,150)}</span></div>` : ''}
+        ${t.status === 'FAIL' && t.response ? `<div style="margin-bottom:6px"><span class="label">Received response:</span><br><span class="value">${truncate(t.response,200)}</span></div>` : ''}
+      </div>
+      <div class="pipeline-step-latency">
+        ${t.asr_latency_ms ? `<span class="lat-chip">ASR: ${t.asr_latency_ms}ms</span>` : ''}
+        ${t.translate_latency_ms ? `<span class="lat-chip">Translate: ${t.translate_latency_ms}ms</span>` : ''}
+        ${t.tts_latency_ms ? `<span class="lat-chip">TTS: ${t.tts_latency_ms}ms</span>` : ''}
+        <span class="lat-chip" style="background:rgba(34,197,94,0.15);color:var(--green);">Total: ${t.duration_ms}ms</span>
+        ${audioBtn ? `<span style="margin-left:auto;">${audioBtn}</span>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function truncate(s, n) { return !s ? '' : s.length > n ? s.substring(0, n) + '...' : s; }
+
+// ===== Latency =====
+function renderLatency(run) {
+  const allLat = run.tests.filter(t => t.duration_ms > 0).map(t => t.duration_ms);
+  if (!allLat.length) return;
+  const avg = Math.round(allLat.reduce((a,b) => a+b, 0) / allLat.length);
+  const sorted = [...allLat].sort((a,b) => a-b);
+  const min = Math.round(sorted[0]), max = Math.round(sorted[sorted.length-1]);
+  const p95 = Math.round(sorted[Math.floor(sorted.length * 0.95)]);
+
+  document.getElementById('latencyStats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">Average</div><div class="stat-value">${avg}<span style="font-size:14px;color:var(--text-muted)">ms</span></div></div>
+    <div class="stat-card"><div class="stat-label">Minimum</div><div class="stat-value green">${min}<span style="font-size:14px;color:var(--text-muted)">ms</span></div></div>
+    <div class="stat-card"><div class="stat-label">Maximum</div><div class="stat-value amber">${max}<span style="font-size:14px;color:var(--text-muted)">ms</span></div></div>
+    <div class="stat-card"><div class="stat-label">P95</div><div class="stat-value accent">${p95}<span style="font-size:14px;color:var(--text-muted)">ms</span></div></div>`;
+
+  const cats = run.categories;
+  destroyChart('chartLatencyBar');
+  chartInstances['chartLatencyBar'] = new Chart(document.getElementById('chartLatencyBar'), {
+    type: 'bar', data: { labels: cats.map(c=>c.name), datasets: [{ data: cats.map(c=>c.avg_latency), backgroundColor: '#8b5cf6', borderRadius: 4, barThickness: 22 }] },
+    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#26283a' }, ticks: { color: '#9ca3af', callback: v=>v+'ms' } }, y: { grid: { display: false }, ticks: { color: '#f8fafc' } } }, plugins: { legend: { display: false } } }
+  });
+
+  const buckets = [0,100,500,1000,2000,5000,10000,15000,20000];
+  const counts = [];
+  for (let i=0; i<buckets.length-1; i++) counts.push(run.tests.filter(t => t.duration_ms >= buckets[i] && t.duration_ms < buckets[i+1]).length);
+  counts.push(run.tests.filter(t => t.duration_ms >= buckets[buckets.length-1]).length);
+  const bLabels = buckets.map((b,i) => i<buckets.length-1 ? `${b}-${buckets[i+1]}` : `${b}+`);
+  destroyChart('chartLatencyDist');
+  chartInstances['chartLatencyDist'] = new Chart(document.getElementById('chartLatencyDist'), {
+    type: 'bar', data: { labels: bLabels, datasets: [{ data: counts, backgroundColor: 'rgba(139,92,246,0.6)', borderColor: '#8b5cf6', borderWidth: 1, borderRadius: 4 }] },
+    options: { responsive: true, maintainAspectRatio: false, scales: { y: { grid: { color: '#26283a' }, ticks: { color: '#9ca3af' } }, x: { grid: { display: false }, ticks: { color: '#9ca3af', font: { size: 10 } } } }, plugins: { legend: { display: false } } }
+  });
+
+  destroyChart('chartLatencyRange');
+  chartInstances['chartLatencyRange'] = new Chart(document.getElementById('chartLatencyRange'), {
+    type: 'bar', data: { labels: cats.map(c=>c.name), datasets: [
+      { label: 'Min', data: cats.map(c=>c.min_latency), backgroundColor: '#22c55e', borderRadius: 4, barThickness: 14 },
+      { label: 'Avg', data: cats.map(c=>c.avg_latency), backgroundColor: '#8b5cf6', borderRadius: 4, barThickness: 14 },
+      { label: 'Max', data: cats.map(c=>c.max_latency), backgroundColor: '#ef4444', borderRadius: 4, barThickness: 14 }
+    ] },
+    options: { responsive: true, maintainAspectRatio: false, scales: { y: { grid: { color: '#26283a' }, ticks: { color: '#9ca3af', callback: v=>v+'ms' } }, x: { grid: { display: false }, ticks: { color: '#9ca3af' } } }, plugins: { legend: { position: 'top', labels: { color: '#9ca3af', font: { size: 11 }, padding: 12 } } } }
+  });
+
+  const pTests = run.tests.filter(t => t.category === 'Pipeline' && t.asr_latency_ms);
+  if (pTests.length > 0) {
+    destroyChart('chartPipelineLatency');
+    chartInstances['chartPipelineLatency'] = new Chart(document.getElementById('chartPipelineLatency'), {
+      type: 'bar', data: { labels: pTests.map(t => t.source_lang+' > '+t.target_lang), datasets: [
+        { label: 'ASR', data: pTests.map(t=>t.asr_latency_ms||0), backgroundColor: '#3b82f6', borderRadius: 2 },
+        { label: 'Translate', data: pTests.map(t=>t.translate_latency_ms||0), backgroundColor: '#8b5cf6', borderRadius: 2 },
+        { label: 'TTS', data: pTests.map(t=>t.tts_latency_ms||0), backgroundColor: '#22c55e', borderRadius: 2 }
+      ] },
+      options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true, grid: { display: false }, ticks: { color: '#9ca3af' } }, y: { stacked: true, grid: { color: '#26283a' }, ticks: { color: '#9ca3af', callback: v=>v+'ms' } } }, plugins: { legend: { position: 'top', labels: { color: '#9ca3af', font: { size: 11 }, padding: 12 } } } }
+    });
+  }
+}
+
+// ===== Run History =====
+function renderHistory() {
+  const runs = DATA.runs.slice().reverse();
+  const perfect = runs.filter(r => r.pass_rate === 100).length;
+  const avgRate = runs.length > 0 ? (runs.reduce((a,r) => a+r.pass_rate, 0) / runs.length).toFixed(1) : 0;
+
+  document.getElementById('historyStats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">Total Runs</div><div class="stat-value accent">${runs.length}</div></div>
+    <div class="stat-card"><div class="stat-label">Perfect Runs</div><div class="stat-value green">${perfect}</div></div>
+    <div class="stat-card"><div class="stat-label">Avg Pass Rate</div><div class="stat-value">${avgRate}%</div></div>
+    <div class="stat-card"><div class="stat-label">Latest Result</div><div class="stat-value ${runs[0]?.pass_rate===100?'green':'amber'}">${runs[0]?.pass_rate||0}%</div></div>`;
+
+  document.getElementById('historyList').innerHTML = runs.map(r => {
+    const cls = r.pass_rate === 100 ? 'perfect' : r.pass_rate > 0 ? 'partial' : 'zero';
+    return `<div class="run-card">
+      <div class="run-left">
+        <div class="run-indicator ${cls}"></div>
+        <div><div class="run-time">${r.timestamp}</div><div class="run-id">${r.run_id}</div></div>
+      </div>
+      <div class="run-right">
+        <div class="run-stat"><div class="run-stat-val" style="color:var(--green)">${r.passed}</div><div class="run-stat-label">Passed</div></div>
+        <div class="run-stat"><div class="run-stat-val" style="color:var(--red)">${r.failed}</div><div class="run-stat-label">Failed</div></div>
+        <div class="run-stat"><div class="run-stat-val">${r.pass_rate}%</div><div class="run-stat-label">Rate</div></div>
+        <div class="run-stat"><div class="run-stat-val">${r.avg_latency}ms</div><div class="run-stat-label">Avg Lat</div></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ===== Calendar View =====
+function calPrev() { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCalendar(); }
+function calNext() { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCalendar(); }
+
+function renderCalendar() {
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('calMonth').textContent = monthNames[calMonth] + ' ' + calYear;
+
+  // Group runs by date (YYYY-MM-DD)
+  const byDate = {};
+  DATA.runs.forEach(r => {
+    const date = r.timestamp.split(' ')[0]; // YYYY-MM-DD
+    if (!byDate[date]) byDate[date] = [];
+    byDate[date].push(r);
+  });
+
+  const firstDay = new Date(calYear, calMonth, 1).getDay(); // 0=Sun
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  const today = new Date();
+  const todayStr = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+
+  let html = '';
+  // Day headers
+  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d => {
+    html += `<div class="cal-header">${d}</div>`;
+  });
+
+  // Empty cells before first day
+  for (let i = 0; i < firstDay; i++) {
+    html += '<div class="cal-day empty"></div>';
+  }
+
+  // Day cells
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = calYear + '-' + String(calMonth+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    const runs = byDate[dateStr] || [];
+    const isToday = dateStr === todayStr;
+
+    let dayClass = 'cal-day';
+    if (isToday) dayClass += ' today';
+    if (runs.length > 0) {
+      const allPass = runs.every(r => r.pass_rate === 100);
+      dayClass += allPass ? ' has-runs' : ' has-fails';
+    }
+
+    let content = `<div class="cal-day-num">${d}</div>`;
+    if (runs.length > 0) {
+      const totalRuns = runs.length;
+      const avgRate = (runs.reduce((a,r) => a+r.pass_rate, 0) / totalRuns).toFixed(0);
+      const rateCls = avgRate == 100 ? 'perfect' : avgRate > 0 ? 'partial' : 'zero';
+      content += `<div class="cal-day-runs">${totalRuns} run${totalRuns>1?'s':''}</div>`;
+      content += `<div class="cal-day-rate ${rateCls}">${avgRate}% pass</div>`;
+    }
+
+    html += `<div class="${dayClass}">${content}</div>`;
+  }
+
+  document.getElementById('calGrid').innerHTML = html;
+}
+
+// ===== Tab switching =====
+function switchTab(tabId) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => { t.classList.remove('active'); t.style.display = 'none'; });
+  document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+  const el = document.getElementById('tab-' + tabId);
+  el.classList.add('active'); el.style.display = 'block';
+}
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+});
+
+// ===== Filters =====
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active'); filterTable();
+  });
+});
+document.getElementById('searchInput').addEventListener('input', filterTable);
+
+// ===== Export =====
+function exportJSON() {
+  const blob = new Blob([JSON.stringify(DATA, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'vak_test_data.json'; a.click();
+  URL.revokeObjectURL(url);
+}
+function exportCSV() {
+  const tests = DATA.current?.tests || [];
+  const headers = ['ID','Name','Category','Status','Latency (ms)','Audio Size','Format','Error'];
+  const rows = tests.map(t => [t.id, t.name, t.category, t.status, t.duration_ms, t.audio_bytes, t.output_format, t.error||''].map(v => '"'+String(v).replace(/"/g,'""')+'"').join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'vak_test_results.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+init();
+</script>
+</body>
+</html>

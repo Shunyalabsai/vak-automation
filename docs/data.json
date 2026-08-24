@@ -1,0 +1,5101 @@
+{
+  "current": {
+    "run_id": "cb32542e",
+    "timestamp": "2026-08-14 10:46:30 IST",
+    "total": 16,
+    "passed": 16,
+    "failed": 0,
+    "errors": 0,
+    "pass_rate": 100.0,
+    "avg_latency": 10636,
+    "total_ms": 170178,
+    "categories": [
+      {
+        "name": "ASR",
+        "total": 1,
+        "pass": 1,
+        "fail": 0,
+        "error": 0,
+        "pass_rate": 100.0,
+        "avg_latency": 14335,
+        "min_latency": 14335,
+        "max_latency": 14335
+      },
+      {
+        "name": "Translate",
+        "total": 7,
+        "pass": 7,
+        "fail": 0,
+        "error": 0,
+        "pass_rate": 100.0,
+        "avg_latency": 83,
+        "min_latency": 65,
+        "max_latency": 133
+      },
+      {
+        "name": "TTS",
+        "total": 3,
+        "pass": 3,
+        "fail": 0,
+        "error": 0,
+        "pass_rate": 100.0,
+        "avg_latency": 1788,
+        "min_latency": 1687,
+        "max_latency": 1967
+      },
+      {
+        "name": "Pipeline",
+        "total": 5,
+        "pass": 5,
+        "fail": 0,
+        "error": 0,
+        "pass_rate": 100.0,
+        "avg_latency": 29980,
+        "min_latency": 27028,
+        "max_latency": 35752
+      }
+    ],
+    "tests": [
+      {
+        "id": "T001",
+        "name": "ASR - doctor.mp3",
+        "category": "ASR",
+        "status": "PASS",
+        "duration_ms": 14334.9,
+        "audio_bytes": 0,
+        "output_format": "-",
+        "audio_url": "",
+        "error": "",
+        "notes": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई ग",
+        "response": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर एलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वल आई नॉट शुर व्हाट इट वाज एक्चु",
+        "input": "doctor.mp3",
+        "source_lang": "Hindi",
+        "target_lang": "-"
+      },
+      {
+        "id": "T002",
+        "name": "Translate en→hi",
+        "category": "Translate",
+        "status": "PASS",
+        "duration_ms": 90.0,
+        "audio_bytes": 0,
+        "output_format": "-",
+        "audio_url": "",
+        "error": "",
+        "notes": "नमस्ते, आप कैसे हैं?",
+        "response": "नमस्ते, आप कैसे हैं?",
+        "input": "Hello, how are you?",
+        "source_lang": "en",
+        "target_lang": "hi"
+      },
+      {
+        "id": "T003",
+        "name": "Translate hi→mr",
+        "category": "Translate",
+        "status": "PASS",
+        "duration_ms": 78.0,
+        "audio_bytes": 0,
+        "output_format": "-",
+        "audio_url": "",
+        "error": "",
+        "notes": "एसी 22 डिग्री वर सेट करा",
+        "response": "एसी 22 डिग्री वर सेट करा",
+        "input": "AC को २२ डिग्री पर सेट करो",
+        "source_lang": "hi",
+        "target_lang": "mr"
+      },
+      {
+        "id": "T004",
+        "name": "Translate hi→bn",
+        "category": "Translate",
+        "status": "PASS",
+        "duration_ms": 65.0,
+        "audio_bytes": 0,
+        "output_format": "-",
+        "audio_url": "",
+        "error": "",
+        "notes": "নমস্কার, কেমন আছো?",
+        "response": "নমস্কার, কেমন আছো?",
+        "input": "नमस्कार, आप कैसे हैं?",
+        "source_lang": "hi",
+        "target_lang": "bn"
+      },
+      {
+        "id": "T005",
+        "name": "Translate en→doi",
+        "category": "Translate",
+        "status": "PASS",
+        "duration_ms": 73.0,
+        "audio_bytes": 0,
+        "output_format": "-",
+        "audio_url": "",
+        "error": "",
+        "notes": "नमस्ते, आप कैसे हैं?",
+        "response": "नमस्ते, आप कैसे हैं?",
+        "input": "Hello, how are you?",
+        "source_lang": "en",
+        "target_lang": "doi"
+      },
+      {
+        "id": "T006",
+        "name": "Translate en→ta",
+        "category": "Translate",
+        "status": "PASS",
+        "duration_ms": 70.0,
+        "audio_bytes": 0,
+        "output_format": "-",
+        "audio_url": "",
+        "error": "",
+        "notes": "வணக்கம், எப்படி இருக்கிறீர்கள்?",
+        "response": "வணக்கம், எப்படி இருக்கிறீர்கள்?",
+        "input": "Hello, how are you?",
+        "source_lang": "en",
+        "target_lang": "ta"
+      },
+      {
+        "id": "T007",
+        "name": "Translate en→te",
+        "category": "Translate",
+        "status": "PASS",
+        "duration_ms": 71.0,
+        "audio_bytes": 0,
+        "output_format": "-",
+        "audio_url": "",
+        "error": "",
+        "notes": "హలో, మీరు ఎలా ఉన్నారు?",
+        "response": "హలో, మీరు ఎలా ఉన్నారు?",
+        "input": "Hello, how are you?",
+        "source_lang": "en",
+        "target_lang": "te"
+      },
+      {
+        "id": "T008",
+        "name": "Supported Languages",
+        "category": "Translate",
+        "status": "PASS",
+        "duration_ms": 132.9,
+        "audio_bytes": 0,
+        "output_format": "-",
+        "audio_url": "",
+        "error": "",
+        "notes": "{'status': 'ok', 'asr_loaded': True, 'tts_loaded': True, 'tts_backend': 'triton', 'tts_speakers': ['",
+        "response": "{'status': 'ok', 'asr_loaded': True, 'tts_loaded': True, 'tts_backend': 'triton', 'tts_speakers': ['Arushi', 'Ayush', 'Riya', 'Rohan'], 'edge_tts_loaded': True, 'edge_tts_models': ['kantha-hi-medium-female-edge', 'kantha-hi-medium-male-edge', 'kantha-bn-medium-female-edge', 'kantha-bn-medium-male-edge', 'kantha-en-in-medium-male-edge', 'kantha-en-in-medium-female-edge'], 'omni_voice_loaded': True, 'omni_voice_model': 'k2-fsa/OmniVoice', 'omni_voice_voices': ['Arushi', 'Ayush', 'Riya', 'Rohan'], ",
+        "input": "GET /health",
+        "source_lang": "-",
+        "target_lang": "-"
+      },
+      {
+        "id": "T009",
+        "name": "TTS - tts_report_en.wav",
+        "category": "TTS",
+        "status": "PASS",
+        "duration_ms": 1966.6,
+        "audio_bytes": 94406,
+        "output_format": "wav",
+        "audio_url": "audio/tts_report_en.wav",
+        "error": "",
+        "notes": "tts_report_en.wav",
+        "response": "tts_report_en.wav",
+        "input": "Hello, welcome to Shunyalabs.",
+        "source_lang": "-",
+        "target_lang": "-"
+      },
+      {
+        "id": "T010",
+        "name": "TTS - tts_report_hi.wav",
+        "category": "TTS",
+        "status": "PASS",
+        "duration_ms": 1709.3,
+        "audio_bytes": 87122,
+        "output_format": "wav",
+        "audio_url": "audio/tts_report_hi.wav",
+        "error": "",
+        "notes": "tts_report_hi.wav",
+        "response": "tts_report_hi.wav",
+        "input": "नमस्कार, आप कैसे हैं?",
+        "source_lang": "-",
+        "target_lang": "-"
+      },
+      {
+        "id": "T011",
+        "name": "TTS - tts_report_emotion.wav",
+        "category": "TTS",
+        "status": "PASS",
+        "duration_ms": 1686.9,
+        "audio_bytes": 80884,
+        "output_format": "wav",
+        "audio_url": "audio/tts_report_emotion.wav",
+        "error": "",
+        "notes": "tts_report_emotion.wav",
+        "response": "tts_report_emotion.wav",
+        "input": "<Happy> This is a happy message!",
+        "source_lang": "-",
+        "target_lang": "-"
+      },
+      {
+        "id": "T012",
+        "name": "Pipeline hi→en",
+        "category": "Pipeline",
+        "status": "PASS",
+        "duration_ms": 29718.1,
+        "audio_bytes": 5743956,
+        "output_format": "wav",
+        "audio_url": "audio/pipeline_hi_en_doctor.wav",
+        "error": "",
+        "notes": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ",
+        "response": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ | Translate: Hello Mr. Phillips Take a seat Thank you Now What Seems to Be the Problem I'm Not Feeling Very Well I Got a Terrible Column One And I Keep Forring Up Have You Head and diarrhea no i have had long eve ",
+        "input": "doctor.mp3",
+        "source_lang": "hi",
+        "target_lang": "en",
+        "asr_latency_ms": 14109.1,
+        "translate_latency_ms": 531.9,
+        "tts_latency_ms": 13576.9,
+        "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
+        "translated_text": "Hello Mr. Phillips Take a seat Thank you Now What Seems to Be the Problem I'm Not Feeling Very Well I Got a Terrible Column One And I Keep Forring Up Have You Head and diarrhea no i have had long eve beam feeling like this sin late last night do not know if you are allergic to anything no not the i know of what eve You recently ate Well My Two Children Cook Dinner for My Wife and Me Last Night It Was Awarded in Anniversary This C&D Wanted to Surprise As Was a Nice Thought What did you have I've "
+      },
+      {
+        "id": "T013",
+        "name": "Pipeline hi→mr",
+        "category": "Pipeline",
+        "status": "PASS",
+        "duration_ms": 35751.8,
+        "audio_bytes": 8505358,
+        "output_format": "wav",
+        "audio_url": "audio/pipeline_hi_mr_doctor.wav",
+        "error": "",
+        "notes": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ",
+        "response": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ | Translate: नमस्कार, मिस्टर फिलिप्स, सीट घ्या. धन्यवाद. मला काय वाटते? हेड अँड डायरिया नो आय हेव्हेंट हॉव लॉंग एव्हन बीम फीलिंग लाइक दिस सन्स लेट लास्ट नाइट डू नो इफ यूअर अॅलर्जी टू एनिथिंग नो नॉट द आय नो ऑफ व्हा",
+        "input": "doctor.mp3",
+        "source_lang": "hi",
+        "target_lang": "mr",
+        "asr_latency_ms": 14320.3,
+        "translate_latency_ms": 1972.6,
+        "tts_latency_ms": 17958.7,
+        "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
+        "translated_text": "नमस्कार, मिस्टर फिलिप्स, सीट घ्या. धन्यवाद. मला काय वाटते? हेड अँड डायरिया नो आय हेव्हेंट हॉव लॉंग एव्हन बीम फीलिंग लाइक दिस सन्स लेट लास्ट नाइट डू नो इफ यूअर अॅलर्जी टू एनिथिंग नो नॉट द आय नो ऑफ व्हाट एव्हन आपण अलीकडेच माझ्या मुलांसाठी डिनर तयार केले आहे, माझ्या पत्नी आणि मी गेल्या रात्री ते पुरस्कार मिळवले आहेत, याबद्दल आश्चर्यचकित व्हा मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी माझ्या पत्नीला खूप आनंदी आहे, मी तिल"
+      },
+      {
+        "id": "T014",
+        "name": "Pipeline hi→bn",
+        "category": "Pipeline",
+        "status": "PASS",
+        "duration_ms": 27476.5,
+        "audio_bytes": 5862300,
+        "output_format": "wav",
+        "audio_url": "audio/pipeline_hi_bn_doctor.wav",
+        "error": "",
+        "notes": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ",
+        "response": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ | Translate: হ্যালো মিস্টার ফিলিপস, একটা সিট নিন, ধন্যবাদ। এখন কি সমস্যা? আমি খুব ভালো অনুভব করছি না। হেড অ্যান্ড ডায়রিয়া নো আই হ্যাভেনট হাও লং অ্যাভেন বিম ফিলিং লাইক দ্য সিনস লেট লাস্ট নাইট ডু নো ইফ ইউ অ্যালার্",
+        "input": "doctor.mp3",
+        "source_lang": "hi",
+        "target_lang": "bn",
+        "asr_latency_ms": 14448.6,
+        "translate_latency_ms": 701.5,
+        "tts_latency_ms": 10826.3,
+        "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
+        "translated_text": "হ্যালো মিস্টার ফিলিপস, একটা সিট নিন, ধন্যবাদ। এখন কি সমস্যা? আমি খুব ভালো অনুভব করছি না। হেড অ্যান্ড ডায়রিয়া নো আই হ্যাভেনট হাও লং অ্যাভেন বিম ফিলিং লাইক দ্য সিনস লেট লাস্ট নাইট ডু নো ইফ ইউ অ্যালার্জি টু এনথিং নো নো দ্য আই নো অফ হোয়াট অ্যাভেন আপনি সম্প্রতি আমার দুই সন্তানকে ভালভাবে খাওয়ালেন আমার স্ত্রী ও আমার জন্য ডিনার রান্না করা শেষ রাতে এটি একটি পুরস্কার ছিল এই সিএন্ডডি এর জন্য একটি চমৎকার ধারণা ছিল আপনি কি করেছেন তা আমি লক্ষ্য করেছি এটি আসলে একই ধরণের খাবার এবং পাস্তা ডিশ যা দীর্ঘ সময় র"
+      },
+      {
+        "id": "T015",
+        "name": "Pipeline hi→ta",
+        "category": "Pipeline",
+        "status": "PASS",
+        "duration_ms": 29926.1,
+        "audio_bytes": 6528892,
+        "output_format": "wav",
+        "audio_url": "audio/pipeline_hi_ta_doctor.wav",
+        "error": "",
+        "notes": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ",
+        "response": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ | Translate: வணக்கம் திரு பிலிப்ஸ், ஒரு இருக்கை எடுத்துக்கொள்ளுங்கள். நன்றி. இப்போது என்ன பிரச்சனை? நான் நன்றாக உணரவில்லை. ஹெட் அன் டயரியா நோ ஐ ஹேவ் எவ் லொங் ஏவன் பீம் ஃபீலிங் லைக் திஸ் சின்ஸ் லேட் லாஸ்ட் நைட் டூ ",
+        "input": "doctor.mp3",
+        "source_lang": "hi",
+        "target_lang": "ta",
+        "asr_latency_ms": 14003.8,
+        "translate_latency_ms": 798.1,
+        "tts_latency_ms": 13624.1,
+        "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
+        "translated_text": "வணக்கம் திரு பிலிப்ஸ், ஒரு இருக்கை எடுத்துக்கொள்ளுங்கள். நன்றி. இப்போது என்ன பிரச்சனை? நான் நன்றாக உணரவில்லை. ஹெட் அன் டயரியா நோ ஐ ஹேவ் எவ் லொங் ஏவன் பீம் ஃபீலிங் லைக் திஸ் சின்ஸ் லேட் லாஸ்ட் நைட் டூ நோ ஐ யு ஆர் அலெர்ஜிக் டு என்ஹிதிங் நோ நோ ஐ ஹேவ் எவ் லொங் ஏவன் நீங்கள் சமீபத்தில் என் குழந்தைகளுக்கு உணவு சமைத்தீர்கள் என் மனைவி மற்றும் நான் கடைசி இரவு அதை ஆண்டுவிழாவில் விருது பெற்றோம் இந்த சி & டி விரும்பியவர் ஆச்சரியமாக இருந்தார் நீங்கள் என்ன செய்தீர்கள் என்று நான் கவனிக்கவில்லை, அது உண்மையில் ஒர"
+      },
+      {
+        "id": "T016",
+        "name": "Pipeline hi→te",
+        "category": "Pipeline",
+        "status": "PASS",
+        "duration_ms": 27028.4,
+        "audio_bytes": 6190892,
+        "output_format": "wav",
+        "audio_url": "audio/pipeline_hi_te_doctor.wav",
+        "error": "",
+        "notes": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ",
+        "response": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ | Translate: హలో మిస్టర్ ఫిలిప్స్ టేక్ ఎ సీట్ థాంక్స్ యు నో వాట్ సీమ్స్ టూ బీ ది ప్రోబ్లం ఐ నో ఫీలింగ్ వెరీ వెల్ ఐ గట్ ఎ టెర్రర్ కోల్బమ్ వన్ అండ్ ఐ కీప్ ఫోర్రింగ్ అప్ హవ్ యు హెడ్ అండ్ డైరియా నో ఐ హేవెంట్ హోవ్ లాంగ",
+        "input": "doctor.mp3",
+        "source_lang": "hi",
+        "target_lang": "te",
+        "asr_latency_ms": 14040.1,
+        "translate_latency_ms": 1055.1,
+        "tts_latency_ms": 10433.1,
+        "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
+        "translated_text": "హలో మిస్టర్ ఫిలిప్స్ టేక్ ఎ సీట్ థాంక్స్ యు నో వాట్ సీమ్స్ టూ బీ ది ప్రోబ్లం ఐ నో ఫీలింగ్ వెరీ వెల్ ఐ గట్ ఎ టెర్రర్ కోల్బమ్ వన్ అండ్ ఐ కీప్ ఫోర్రింగ్ అప్ హవ్ యు హెడ్ అండ్ డైరియా నో ఐ హేవెంట్ హోవ్ లాంగ్ ఎవెన్స్ బీమ్ ఫీలింగ్ లైక్ ది సిన్స్ లేట్ లాస్ట్ నైట్ డూ నో ఐ యు ఆర్ అలెర్జిక్ టు ఎనిథింగ్ నో నో ఐ నో ఆఫ్ వాట్ ఎవెన్స్ మీరు ఇటీవల నా పిల్లలకు వంటకం తయారు చేశారు నా భార్య మరియు నాకు చివరి రాత్రి అది వార్ వార్ అవార్డు వార్షికోత్సవం ఈ సీ & డి వంటకం నాకు ఆశ్చర్యం కలిగించింది వాట్ డిడ్ యు హవ్ వాల్ ఐ నోట"
+      }
+    ],
+    "failed_tests": []
+  },
+  "runs": [
+    {
+      "run_id": "b70e6abf",
+      "timestamp": "2026-07-15 12:40:19 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10321,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0c09d470",
+      "timestamp": "2026-07-15 14:40:09 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 13798,
+      "failed_tests": [
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "25264c9b",
+      "timestamp": "2026-07-15 18:39:44 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 22623,
+      "failed_tests": [
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "a48170cf",
+      "timestamp": "2026-07-15 20:39:57 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8906,
+      "failed_tests": []
+    },
+    {
+      "run_id": "55fa3dcf",
+      "timestamp": "2026-07-15 22:40:09 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9883,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e546e775",
+      "timestamp": "2026-07-16 00:40:14 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11204,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ac50a576",
+      "timestamp": "2026-07-16 02:40:01 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9240,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a74bb13f",
+      "timestamp": "2026-07-16 04:40:29 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9877,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0a8ac2c7",
+      "timestamp": "2026-07-16 06:40:18 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10260,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b080130d",
+      "timestamp": "2026-07-16 08:40:21 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9612,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3df73815",
+      "timestamp": "2026-07-16 10:40:33 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8642,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7db01d3c",
+      "timestamp": "2026-07-16 12:40:11 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10185,
+      "failed_tests": []
+    },
+    {
+      "run_id": "784e22eb",
+      "timestamp": "2026-07-16 14:40:12 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 9203,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "740f8705",
+      "timestamp": "2026-07-16 16:40:29 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8686,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0954143d",
+      "timestamp": "2026-07-16 18:40:19 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10969,
+      "failed_tests": []
+    },
+    {
+      "run_id": "218c4757",
+      "timestamp": "2026-07-16 20:42:00 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10114,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f94bb169",
+      "timestamp": "2026-07-17 00:38:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12010,
+      "failed_tests": []
+    },
+    {
+      "run_id": "d5c8a81f",
+      "timestamp": "2026-07-17 02:40:39 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9334,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b9e766a7",
+      "timestamp": "2026-07-17 04:40:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9405,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6a8b136e",
+      "timestamp": "2026-07-17 06:40:10 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10193,
+      "failed_tests": []
+    },
+    {
+      "run_id": "73a46ddc",
+      "timestamp": "2026-07-17 08:40:43 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9170,
+      "failed_tests": []
+    },
+    {
+      "run_id": "cff8ce17",
+      "timestamp": "2026-07-17 10:40:05 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9169,
+      "failed_tests": []
+    },
+    {
+      "run_id": "66578a98",
+      "timestamp": "2026-07-17 12:39:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9754,
+      "failed_tests": []
+    },
+    {
+      "run_id": "73f844b5",
+      "timestamp": "2026-07-17 14:40:10 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 16242,
+      "failed_tests": [
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "ca58a2d0",
+      "timestamp": "2026-07-17 16:39:44 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8700,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6fc2cec0",
+      "timestamp": "2026-07-17 18:40:01 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 14957,
+      "failed_tests": [
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "3c021a16",
+      "timestamp": "2026-07-17 20:40:00 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 9847,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "57be36b9",
+      "timestamp": "2026-07-17 22:41:09 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8693,
+      "failed_tests": []
+    },
+    {
+      "run_id": "74dd380b",
+      "timestamp": "2026-07-18 00:40:12 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9520,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ff0d4261",
+      "timestamp": "2026-07-18 02:40:30 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8957,
+      "failed_tests": []
+    },
+    {
+      "run_id": "755a3385",
+      "timestamp": "2026-07-18 04:39:39 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8885,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f3a5c993",
+      "timestamp": "2026-07-18 06:39:16 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8979,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c25f7ac3",
+      "timestamp": "2026-07-18 08:40:59 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8166,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6cf24c1b",
+      "timestamp": "2026-07-18 10:40:00 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9628,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0866e2bb",
+      "timestamp": "2026-07-18 12:40:33 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9193,
+      "failed_tests": []
+    },
+    {
+      "run_id": "fd2eeb0c",
+      "timestamp": "2026-07-18 14:40:36 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8972,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e046589c",
+      "timestamp": "2026-07-18 16:40:38 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10380,
+      "failed_tests": []
+    },
+    {
+      "run_id": "73b6b4c7",
+      "timestamp": "2026-07-18 18:39:41 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8779,
+      "failed_tests": []
+    },
+    {
+      "run_id": "22b66997",
+      "timestamp": "2026-07-18 20:40:41 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 15431,
+      "failed_tests": [
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "c6cb52ce",
+      "timestamp": "2026-07-18 22:40:16 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9318,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f57dea61",
+      "timestamp": "2026-07-19 00:40:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11776,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a7d58b76",
+      "timestamp": "2026-07-19 02:40:41 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9759,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ff721827",
+      "timestamp": "2026-07-19 04:40:20 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8836,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0f45d7ff",
+      "timestamp": "2026-07-19 06:40:26 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8885,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6333c438",
+      "timestamp": "2026-07-19 08:39:52 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 9231,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "33ce8156",
+      "timestamp": "2026-07-19 10:41:12 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9508,
+      "failed_tests": []
+    },
+    {
+      "run_id": "db350f7d",
+      "timestamp": "2026-07-19 12:39:10 IST",
+      "total": 16,
+      "passed": 10,
+      "failed": 6,
+      "pass_rate": 62.5,
+      "avg_latency": 123540,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "c7fbbffe",
+      "timestamp": "2026-07-19 14:40:36 IST",
+      "total": 16,
+      "passed": 10,
+      "failed": 6,
+      "pass_rate": 62.5,
+      "avg_latency": 123922,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "cdb3cc4b",
+      "timestamp": "2026-07-19 16:40:40 IST",
+      "total": 16,
+      "passed": 10,
+      "failed": 6,
+      "pass_rate": 62.5,
+      "avg_latency": 94410,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "a37f1b49",
+      "timestamp": "2026-07-19 18:40:18 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11332,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c3adf082",
+      "timestamp": "2026-07-19 20:40:13 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8688,
+      "failed_tests": []
+    },
+    {
+      "run_id": "190b4707",
+      "timestamp": "2026-07-19 22:39:59 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9360,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a22c1418",
+      "timestamp": "2026-07-20 00:40:39 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10386,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3ece8e16",
+      "timestamp": "2026-07-20 02:39:05 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9658,
+      "failed_tests": []
+    },
+    {
+      "run_id": "73e9e659",
+      "timestamp": "2026-07-20 04:40:35 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9198,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8be3883a",
+      "timestamp": "2026-07-20 08:38:45 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 13592,
+      "failed_tests": [
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "a3bff980",
+      "timestamp": "2026-07-20 10:40:10 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8614,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6e5aca62",
+      "timestamp": "2026-07-20 12:38:01 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10182,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7ebce5da",
+      "timestamp": "2026-07-20 16:40:16 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9950,
+      "failed_tests": []
+    },
+    {
+      "run_id": "da3d0ca2",
+      "timestamp": "2026-07-20 18:40:27 IST",
+      "total": 16,
+      "passed": 10,
+      "failed": 6,
+      "pass_rate": 62.5,
+      "avg_latency": 123886,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "b3a75370",
+      "timestamp": "2026-07-20 20:39:31 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9613,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4a4f2f9b",
+      "timestamp": "2026-07-20 22:40:42 IST",
+      "total": 16,
+      "passed": 10,
+      "failed": 6,
+      "pass_rate": 62.5,
+      "avg_latency": 82111,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "64b4dc59",
+      "timestamp": "2026-07-21 00:40:49 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11585,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3876d5c4",
+      "timestamp": "2026-07-21 02:40:24 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 14459,
+      "failed_tests": [
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "e7ad85be",
+      "timestamp": "2026-07-21 04:40:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8527,
+      "failed_tests": []
+    },
+    {
+      "run_id": "d69eb7ee",
+      "timestamp": "2026-07-21 06:40:53 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9402,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4d3d6248",
+      "timestamp": "2026-07-21 08:41:04 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 9290,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    {
+      "run_id": "8ed0c1f8",
+      "timestamp": "2026-07-21 10:40:13 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9074,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3a6ce74b",
+      "timestamp": "2026-07-21 12:41:01 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10394,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8371097f",
+      "timestamp": "2026-07-21 14:39:34 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9983,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8f61609e",
+      "timestamp": "2026-07-21 16:40:48 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9200,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c014db33",
+      "timestamp": "2026-07-21 18:39:57 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10907,
+      "failed_tests": []
+    },
+    {
+      "run_id": "75f4ee25",
+      "timestamp": "2026-07-21 20:40:50 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9031,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e5d0e158",
+      "timestamp": "2026-07-21 22:41:10 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10329,
+      "failed_tests": []
+    },
+    {
+      "run_id": "673e9f69",
+      "timestamp": "2026-07-22 00:41:47 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10425,
+      "failed_tests": []
+    },
+    {
+      "run_id": "15ea4f41",
+      "timestamp": "2026-07-22 02:40:40 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10307,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4660ab24",
+      "timestamp": "2026-07-22 04:43:35 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10833,
+      "failed_tests": []
+    },
+    {
+      "run_id": "d9c7bd2d",
+      "timestamp": "2026-07-22 06:40:51 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 9030,
+      "failed_tests": []
+    },
+    {
+      "run_id": "608e38ea",
+      "timestamp": "2026-07-22 08:40:20 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8712,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6663facf",
+      "timestamp": "2026-07-22 10:43:45 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10190,
+      "failed_tests": []
+    },
+    {
+      "run_id": "15dc0715",
+      "timestamp": "2026-07-22 12:39:39 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 15186,
+      "failed_tests": []
+    },
+    {
+      "run_id": "937fc045",
+      "timestamp": "2026-07-22 14:40:42 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 8812,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1b85f88d",
+      "timestamp": "2026-07-22 16:40:08 IST",
+      "total": 16,
+      "passed": 10,
+      "failed": 6,
+      "pass_rate": 62.5,
+      "avg_latency": 123372,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "0c3ed0f5",
+      "timestamp": "2026-07-22 18:40:46 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 14967,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5c3f9638",
+      "timestamp": "2026-07-22 20:43:48 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 15076,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0dcb36a6",
+      "timestamp": "2026-07-22 22:38:24 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11460,
+      "failed_tests": []
+    },
+    {
+      "run_id": "430249dc",
+      "timestamp": "2026-07-23 00:41:07 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 18288,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a37a1ad0",
+      "timestamp": "2026-07-23 02:40:16 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12892,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3c1b5a09",
+      "timestamp": "2026-07-23 04:40:25 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12706,
+      "failed_tests": []
+    },
+    {
+      "run_id": "81dbff85",
+      "timestamp": "2026-07-23 06:40:31 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 79914,
+      "failed_tests": [
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "420b6935",
+      "timestamp": "2026-07-23 08:48:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12749,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6d975a3c",
+      "timestamp": "2026-07-23 10:40:50 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13694,
+      "failed_tests": []
+    },
+    {
+      "run_id": "57c41158",
+      "timestamp": "2026-07-23 12:40:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 18116,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9d1c6fb4",
+      "timestamp": "2026-07-23 14:42:51 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10955,
+      "failed_tests": []
+    },
+    {
+      "run_id": "05ba9e7b",
+      "timestamp": "2026-07-23 16:40:37 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 64213,
+      "failed_tests": [
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "c04d4a76",
+      "timestamp": "2026-07-23 19:08:34 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12782,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c094fb16",
+      "timestamp": "2026-07-23 20:40:08 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 14286,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f362ee7d",
+      "timestamp": "2026-07-23 22:41:10 IST",
+      "total": 16,
+      "passed": 11,
+      "failed": 5,
+      "pass_rate": 68.8,
+      "avg_latency": 120349,
+      "failed_tests": [
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "da9a2c7b",
+      "timestamp": "2026-07-24 00:42:26 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 16784,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "b6151c47",
+      "timestamp": "2026-07-24 02:40:33 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13492,
+      "failed_tests": []
+    },
+    {
+      "run_id": "832daae7",
+      "timestamp": "2026-07-24 04:44:34 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12713,
+      "failed_tests": []
+    },
+    {
+      "run_id": "06c4e13f",
+      "timestamp": "2026-07-24 06:40:49 IST",
+      "total": 16,
+      "passed": 13,
+      "failed": 3,
+      "pass_rate": 81.2,
+      "avg_latency": 80558,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "390f8a85",
+      "timestamp": "2026-07-24 08:40:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11121,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f0e87563",
+      "timestamp": "2026-07-24 10:40:49 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12595,
+      "failed_tests": []
+    },
+    {
+      "run_id": "890a0302",
+      "timestamp": "2026-07-24 12:40:40 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 19389,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8ee8021e",
+      "timestamp": "2026-07-24 14:41:36 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11076,
+      "failed_tests": []
+    },
+    {
+      "run_id": "203875da",
+      "timestamp": "2026-07-24 16:40:40 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 53750,
+      "failed_tests": [
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "15375845",
+      "timestamp": "2026-07-24 20:52:29 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13814,
+      "failed_tests": []
+    },
+    {
+      "run_id": "69fdefe9",
+      "timestamp": "2026-07-24 22:43:04 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 38831,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "46b6edac",
+      "timestamp": "2026-07-25 00:40:45 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13740,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ef53a44c",
+      "timestamp": "2026-07-25 02:41:27 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 15989,
+      "failed_tests": []
+    },
+    {
+      "run_id": "18a94fe7",
+      "timestamp": "2026-07-25 04:41:00 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11237,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0293ec1f",
+      "timestamp": "2026-07-25 06:40:13 IST",
+      "total": 16,
+      "passed": 13,
+      "failed": 3,
+      "pass_rate": 81.2,
+      "avg_latency": 71808,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "d46852d3",
+      "timestamp": "2026-07-25 08:40:55 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10806,
+      "failed_tests": []
+    },
+    {
+      "run_id": "79fa627e",
+      "timestamp": "2026-07-25 10:40:52 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11542,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f2ad025b",
+      "timestamp": "2026-07-25 12:40:56 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 15433,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a28b6b87",
+      "timestamp": "2026-07-25 14:38:38 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12915,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b6ffa339",
+      "timestamp": "2026-07-25 16:40:58 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 51379,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "a654bf94",
+      "timestamp": "2026-07-25 18:40:57 IST",
+      "total": 16,
+      "passed": 12,
+      "failed": 4,
+      "pass_rate": 75.0,
+      "avg_latency": 104150,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "ea0e1551",
+      "timestamp": "2026-07-25 20:40:56 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11248,
+      "failed_tests": []
+    },
+    {
+      "run_id": "734c406d",
+      "timestamp": "2026-07-25 22:40:42 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 20404,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c418f3bf",
+      "timestamp": "2026-07-26 00:41:01 IST",
+      "total": 16,
+      "passed": 13,
+      "failed": 3,
+      "pass_rate": 81.2,
+      "avg_latency": 84720,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "bdc97b87",
+      "timestamp": "2026-07-26 02:44:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11905,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9857c572",
+      "timestamp": "2026-07-26 04:41:02 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 16881,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4e74ddca",
+      "timestamp": "2026-07-26 06:41:10 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 32841,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "4e3d3021",
+      "timestamp": "2026-07-26 08:41:39 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10921,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8c53f527",
+      "timestamp": "2026-07-26 10:42:31 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10813,
+      "failed_tests": []
+    },
+    {
+      "run_id": "15a7f0bd",
+      "timestamp": "2026-07-26 12:40:50 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11064,
+      "failed_tests": []
+    },
+    {
+      "run_id": "18fe31f5",
+      "timestamp": "2026-07-26 14:41:15 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11152,
+      "failed_tests": []
+    },
+    {
+      "run_id": "128d489b",
+      "timestamp": "2026-07-26 16:40:41 IST",
+      "total": 16,
+      "passed": 12,
+      "failed": 4,
+      "pass_rate": 75.0,
+      "avg_latency": 90649,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "9ec9b227",
+      "timestamp": "2026-07-26 18:41:18 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13662,
+      "failed_tests": []
+    },
+    {
+      "run_id": "426d9825",
+      "timestamp": "2026-07-26 20:41:21 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11021,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0aaf90c4",
+      "timestamp": "2026-07-26 22:41:09 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 18536,
+      "failed_tests": []
+    },
+    {
+      "run_id": "50107637",
+      "timestamp": "2026-07-27 00:41:03 IST",
+      "total": 16,
+      "passed": 11,
+      "failed": 5,
+      "pass_rate": 68.8,
+      "avg_latency": 121957,
+      "failed_tests": [
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "21543b84",
+      "timestamp": "2026-07-27 02:41:32 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13680,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ed06ec80",
+      "timestamp": "2026-07-27 04:41:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 17142,
+      "failed_tests": []
+    },
+    {
+      "run_id": "72f58dc5",
+      "timestamp": "2026-07-27 06:51:57 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 31413,
+      "failed_tests": []
+    },
+    {
+      "run_id": "47afd66e",
+      "timestamp": "2026-07-27 08:41:13 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10694,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9c0080f1",
+      "timestamp": "2026-07-27 10:40:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12582,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c017c8af",
+      "timestamp": "2026-07-27 12:39:37 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11785,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ad99d7e2",
+      "timestamp": "2026-07-27 14:42:15 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10744,
+      "failed_tests": []
+    },
+    {
+      "run_id": "12e47163",
+      "timestamp": "2026-07-27 16:40:26 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11594,
+      "failed_tests": []
+    },
+    {
+      "run_id": "73a31281",
+      "timestamp": "2026-07-27 18:41:38 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 68565,
+      "failed_tests": [
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "TTS transient failure after retries: peer closed connection without sending complete message body (received 1060945 bytes, expected 6632512)",
+          "response": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ | Translate: வணக்கம் திரு பிலிப்ஸ், ஒரு இருக்கை எடுத்துக்கொள்ளுங்கள். நன்றி. இப்போது என்ன பிரச்சனை? நான் நன்றாக உணரவில்லை. ஹெட் அன் டயரியா நோ ஐ ஹேவ் எவ் லொங் ஏவன் பீம் ஃபீலிங் லைக் திஸ் சின்ஸ் லேட் லாஸ்ட் நைட் டூ"
+        }
+      ]
+    },
+    {
+      "run_id": "0087f626",
+      "timestamp": "2026-07-27 20:41:10 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11395,
+      "failed_tests": []
+    },
+    {
+      "run_id": "df008edb",
+      "timestamp": "2026-07-27 22:41:40 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13086,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7c36f6a1",
+      "timestamp": "2026-07-28 00:41:26 IST",
+      "total": 16,
+      "passed": 11,
+      "failed": 5,
+      "pass_rate": 68.8,
+      "avg_latency": 122289,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "aa642d32",
+      "timestamp": "2026-07-28 02:41:17 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 16245,
+      "failed_tests": []
+    },
+    {
+      "run_id": "d3221643",
+      "timestamp": "2026-07-28 04:40:35 IST",
+      "total": 16,
+      "passed": 14,
+      "failed": 2,
+      "pass_rate": 87.5,
+      "avg_latency": 37392,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "5b8ed614",
+      "timestamp": "2026-07-28 06:41:38 IST",
+      "total": 16,
+      "passed": 13,
+      "failed": 3,
+      "pass_rate": 81.2,
+      "avg_latency": 93799,
+      "failed_tests": [
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "7b4424ad",
+      "timestamp": "2026-07-28 08:41:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10786,
+      "failed_tests": []
+    },
+    {
+      "run_id": "53603cc7",
+      "timestamp": "2026-07-28 10:40:48 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11763,
+      "failed_tests": []
+    },
+    {
+      "run_id": "365f37cd",
+      "timestamp": "2026-07-28 12:40:41 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 16052,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a4188d4e",
+      "timestamp": "2026-07-28 14:40:16 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11140,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b90d025f",
+      "timestamp": "2026-07-28 16:39:56 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10694,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6ccdca75",
+      "timestamp": "2026-07-28 18:46:42 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10458,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9cd2da8e",
+      "timestamp": "2026-07-28 20:41:50 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11379,
+      "failed_tests": []
+    },
+    {
+      "run_id": "12e4187c",
+      "timestamp": "2026-07-28 22:51:52 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10589,
+      "failed_tests": []
+    },
+    {
+      "run_id": "38ba3beb",
+      "timestamp": "2026-07-29 00:40:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10738,
+      "failed_tests": []
+    },
+    {
+      "run_id": "d6120c78",
+      "timestamp": "2026-07-29 02:41:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10453,
+      "failed_tests": []
+    },
+    {
+      "run_id": "77dc1d4c",
+      "timestamp": "2026-07-29 04:41:10 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10873,
+      "failed_tests": []
+    },
+    {
+      "run_id": "139b18e5",
+      "timestamp": "2026-07-29 06:41:27 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10569,
+      "failed_tests": []
+    },
+    {
+      "run_id": "52e3d4c6",
+      "timestamp": "2026-07-29 08:40:44 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11148,
+      "failed_tests": []
+    },
+    {
+      "run_id": "29dc172c",
+      "timestamp": "2026-07-29 10:41:01 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11043,
+      "failed_tests": []
+    },
+    {
+      "run_id": "19b339b0",
+      "timestamp": "2026-07-29 12:43:04 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11717,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1a0d9049",
+      "timestamp": "2026-07-29 14:44:45 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11968,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7017cf87",
+      "timestamp": "2026-07-29 16:42:21 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10691,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b4b374b9",
+      "timestamp": "2026-07-29 18:40:45 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10802,
+      "failed_tests": []
+    },
+    {
+      "run_id": "d4439727",
+      "timestamp": "2026-07-29 20:41:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10767,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8f4a40c1",
+      "timestamp": "2026-07-29 22:41:36 IST",
+      "total": 16,
+      "passed": 10,
+      "failed": 6,
+      "pass_rate": 62.5,
+      "avg_latency": 123851,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "b825e209",
+      "timestamp": "2026-07-30 00:45:04 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 15523,
+      "failed_tests": []
+    },
+    {
+      "run_id": "073df765",
+      "timestamp": "2026-07-30 02:41:14 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10633,
+      "failed_tests": []
+    },
+    {
+      "run_id": "44337a77",
+      "timestamp": "2026-07-30 04:41:33 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10596,
+      "failed_tests": []
+    },
+    {
+      "run_id": "13b33284",
+      "timestamp": "2026-07-30 06:42:05 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10575,
+      "failed_tests": []
+    },
+    {
+      "run_id": "74e51010",
+      "timestamp": "2026-07-30 08:57:25 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11719,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ef241939",
+      "timestamp": "2026-07-30 10:41:44 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10736,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6f0ad6da",
+      "timestamp": "2026-07-30 12:41:40 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12747,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c46d9d04",
+      "timestamp": "2026-07-30 14:41:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10865,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9411d119",
+      "timestamp": "2026-07-30 16:41:10 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10552,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7bfd287d",
+      "timestamp": "2026-07-30 18:41:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10588,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1ffb37cb",
+      "timestamp": "2026-07-30 20:41:47 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10663,
+      "failed_tests": []
+    },
+    {
+      "run_id": "45db1da1",
+      "timestamp": "2026-07-30 22:41:37 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10412,
+      "failed_tests": []
+    },
+    {
+      "run_id": "80148099",
+      "timestamp": "2026-07-31 00:41:32 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11475,
+      "failed_tests": []
+    },
+    {
+      "run_id": "97231743",
+      "timestamp": "2026-07-31 02:41:24 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10334,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4f60cd7f",
+      "timestamp": "2026-07-31 04:41:44 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10417,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c1cbf6da",
+      "timestamp": "2026-07-31 06:40:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10539,
+      "failed_tests": []
+    },
+    {
+      "run_id": "65e61823",
+      "timestamp": "2026-07-31 08:42:05 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10790,
+      "failed_tests": []
+    },
+    {
+      "run_id": "27753cf4",
+      "timestamp": "2026-07-31 10:42:00 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10458,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b97fa4d9",
+      "timestamp": "2026-07-31 12:40:40 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12563,
+      "failed_tests": []
+    },
+    {
+      "run_id": "88377bab",
+      "timestamp": "2026-07-31 14:41:04 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10843,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5b747186",
+      "timestamp": "2026-07-31 16:40:41 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10704,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7d5c989f",
+      "timestamp": "2026-07-31 18:41:55 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10572,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ca01d67b",
+      "timestamp": "2026-07-31 21:28:17 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11143,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1389a79f",
+      "timestamp": "2026-07-31 22:44:32 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10347,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8c552234",
+      "timestamp": "2026-08-01 00:41:13 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10466,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3796d1d2",
+      "timestamp": "2026-08-01 02:41:18 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10618,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7010a924",
+      "timestamp": "2026-08-01 04:41:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10520,
+      "failed_tests": []
+    },
+    {
+      "run_id": "776643de",
+      "timestamp": "2026-08-01 06:41:30 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10366,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ca336cba",
+      "timestamp": "2026-08-01 08:41:35 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10604,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b2d99c1b",
+      "timestamp": "2026-08-01 10:54:14 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10464,
+      "failed_tests": []
+    },
+    {
+      "run_id": "069e2031",
+      "timestamp": "2026-08-01 12:40:34 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10543,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3029a3c0",
+      "timestamp": "2026-08-01 14:39:43 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11206,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b74a4bb5",
+      "timestamp": "2026-08-01 16:44:35 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10407,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c25df63d",
+      "timestamp": "2026-08-01 18:38:41 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10815,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7bca5ffb",
+      "timestamp": "2026-08-01 20:42:04 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10499,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b664093b",
+      "timestamp": "2026-08-01 22:41:47 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10508,
+      "failed_tests": []
+    },
+    {
+      "run_id": "66c6aff4",
+      "timestamp": "2026-08-02 00:41:42 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10828,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9e52b5fc",
+      "timestamp": "2026-08-02 02:41:25 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10730,
+      "failed_tests": []
+    },
+    {
+      "run_id": "883c8755",
+      "timestamp": "2026-08-02 04:41:45 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10739,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5602ac5e",
+      "timestamp": "2026-08-02 06:41:38 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10626,
+      "failed_tests": []
+    },
+    {
+      "run_id": "82129345",
+      "timestamp": "2026-08-02 08:41:43 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10751,
+      "failed_tests": []
+    },
+    {
+      "run_id": "29fcbbab",
+      "timestamp": "2026-08-02 10:41:27 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10663,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6f8194f5",
+      "timestamp": "2026-08-02 12:49:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10431,
+      "failed_tests": []
+    },
+    {
+      "run_id": "adac5b13",
+      "timestamp": "2026-08-02 14:42:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10613,
+      "failed_tests": []
+    },
+    {
+      "run_id": "385b48f9",
+      "timestamp": "2026-08-02 16:42:15 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10605,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c8a58dda",
+      "timestamp": "2026-08-02 18:40:29 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10625,
+      "failed_tests": []
+    },
+    {
+      "run_id": "40431ef2",
+      "timestamp": "2026-08-02 20:41:31 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10601,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c93cf4fe",
+      "timestamp": "2026-08-02 22:41:20 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10444,
+      "failed_tests": []
+    },
+    {
+      "run_id": "00e10757",
+      "timestamp": "2026-08-03 00:42:17 IST",
+      "total": 16,
+      "passed": 10,
+      "failed": 6,
+      "pass_rate": 62.5,
+      "avg_latency": 123813,
+      "failed_tests": [
+        {
+          "id": "T001",
+          "name": "ASR - doctor.mp3",
+          "category": "ASR",
+          "test_type": "Individual",
+          "input": "doctor.mp3",
+          "source_lang": "Hindi",
+          "target_lang": "-",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T012",
+          "name": "Pipeline hi→en",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "en",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T013",
+          "name": "Pipeline hi→mr",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "mr",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T014",
+          "name": "Pipeline hi→bn",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "bn",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        },
+        {
+          "id": "T016",
+          "name": "Pipeline hi→te",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "te",
+          "error": "ASR transient failure after retries: The read operation timed out",
+          "response": "ASR transient failure after retries: The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run_id": "4b70df65",
+      "timestamp": "2026-08-03 02:41:30 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10675,
+      "failed_tests": []
+    },
+    {
+      "run_id": "921dc751",
+      "timestamp": "2026-08-03 04:41:10 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10842,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6cfeccf8",
+      "timestamp": "2026-08-03 06:41:38 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10591,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c6932239",
+      "timestamp": "2026-08-03 08:38:52 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10814,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4f9d174c",
+      "timestamp": "2026-08-03 10:41:15 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10619,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6dbafc63",
+      "timestamp": "2026-08-03 15:44:25 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11144,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a69735ac",
+      "timestamp": "2026-08-03 16:44:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10683,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6bcb9600",
+      "timestamp": "2026-08-03 18:41:24 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10679,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f8ab592c",
+      "timestamp": "2026-08-03 20:42:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13099,
+      "failed_tests": []
+    },
+    {
+      "run_id": "dd82a692",
+      "timestamp": "2026-08-03 22:41:47 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10729,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0873fcbc",
+      "timestamp": "2026-08-04 00:39:50 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10900,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4b78527b",
+      "timestamp": "2026-08-04 02:42:13 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10537,
+      "failed_tests": []
+    },
+    {
+      "run_id": "75ffe88a",
+      "timestamp": "2026-08-04 04:42:19 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10769,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7ef4d553",
+      "timestamp": "2026-08-04 06:41:23 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10640,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e6cdf9ce",
+      "timestamp": "2026-08-04 08:42:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12815,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9bbba8e5",
+      "timestamp": "2026-08-04 10:41:33 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10642,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b970ad31",
+      "timestamp": "2026-08-04 12:41:37 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10611,
+      "failed_tests": []
+    },
+    {
+      "run_id": "daf914af",
+      "timestamp": "2026-08-04 14:41:53 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13141,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7652fc68",
+      "timestamp": "2026-08-04 16:41:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10464,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c5711efe",
+      "timestamp": "2026-08-04 18:42:04 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10622,
+      "failed_tests": []
+    },
+    {
+      "run_id": "400b0efb",
+      "timestamp": "2026-08-04 20:42:07 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13140,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8bb4ea78",
+      "timestamp": "2026-08-04 22:41:55 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10669,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a8248f02",
+      "timestamp": "2026-08-05 00:41:49 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10622,
+      "failed_tests": []
+    },
+    {
+      "run_id": "815a8fda",
+      "timestamp": "2026-08-05 04:10:41 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10633,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e668dbe8",
+      "timestamp": "2026-08-05 04:41:24 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10618,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1b2fc3f5",
+      "timestamp": "2026-08-05 06:42:01 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10582,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7f89d6bf",
+      "timestamp": "2026-08-05 08:41:55 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13230,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4792c2e0",
+      "timestamp": "2026-08-05 10:41:47 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10647,
+      "failed_tests": []
+    },
+    {
+      "run_id": "41c2ed0a",
+      "timestamp": "2026-08-05 12:41:59 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10701,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6559efd0",
+      "timestamp": "2026-08-05 14:43:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10687,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5d759474",
+      "timestamp": "2026-08-05 16:43:06 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10745,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4a0fcffc",
+      "timestamp": "2026-08-05 18:43:02 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10618,
+      "failed_tests": []
+    },
+    {
+      "run_id": "19a8d8ed",
+      "timestamp": "2026-08-05 21:06:27 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12363,
+      "failed_tests": []
+    },
+    {
+      "run_id": "17324f4c",
+      "timestamp": "2026-08-05 22:50:13 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10518,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b7d09529",
+      "timestamp": "2026-08-06 00:42:29 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10824,
+      "failed_tests": []
+    },
+    {
+      "run_id": "83842c46",
+      "timestamp": "2026-08-06 02:47:43 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11187,
+      "failed_tests": []
+    },
+    {
+      "run_id": "72e32a7d",
+      "timestamp": "2026-08-06 04:44:32 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10488,
+      "failed_tests": []
+    },
+    {
+      "run_id": "eaf84fa9",
+      "timestamp": "2026-08-06 06:42:19 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10639,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1a96aa82",
+      "timestamp": "2026-08-06 08:43:04 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10622,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8d64ac92",
+      "timestamp": "2026-08-06 10:41:09 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10809,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3d3cfba3",
+      "timestamp": "2026-08-06 12:42:11 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10607,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e01acc13",
+      "timestamp": "2026-08-06 14:43:26 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10636,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4c8044bb",
+      "timestamp": "2026-08-06 16:42:00 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10658,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1c7d34c7",
+      "timestamp": "2026-08-06 18:40:34 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10697,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9253aab8",
+      "timestamp": "2026-08-06 20:43:18 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10880,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5cb48141",
+      "timestamp": "2026-08-07 04:55:17 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11172,
+      "failed_tests": []
+    },
+    {
+      "run_id": "424066a3",
+      "timestamp": "2026-08-07 06:43:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10461,
+      "failed_tests": []
+    },
+    {
+      "run_id": "cecc8761",
+      "timestamp": "2026-08-07 08:42:59 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10428,
+      "failed_tests": []
+    },
+    {
+      "run_id": "49837746",
+      "timestamp": "2026-08-07 10:43:20 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10526,
+      "failed_tests": []
+    },
+    {
+      "run_id": "012b748e",
+      "timestamp": "2026-08-07 12:42:46 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10366,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6499793d",
+      "timestamp": "2026-08-07 14:40:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10996,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a0d1d8e6",
+      "timestamp": "2026-08-07 16:42:06 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10767,
+      "failed_tests": []
+    },
+    {
+      "run_id": "457fb211",
+      "timestamp": "2026-08-07 18:40:53 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11381,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f89eaa5b",
+      "timestamp": "2026-08-07 20:44:01 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11403,
+      "failed_tests": []
+    },
+    {
+      "run_id": "411db6d6",
+      "timestamp": "2026-08-07 22:39:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12249,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c29e3e98",
+      "timestamp": "2026-08-08 00:39:17 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10564,
+      "failed_tests": []
+    },
+    {
+      "run_id": "09acc845",
+      "timestamp": "2026-08-08 02:43:10 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10615,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9bc02a3d",
+      "timestamp": "2026-08-08 05:25:35 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10700,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b34b81a4",
+      "timestamp": "2026-08-08 06:42:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10966,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b3fc467e",
+      "timestamp": "2026-08-08 08:42:20 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10532,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e0af3792",
+      "timestamp": "2026-08-08 10:42:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10576,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1b8296ad",
+      "timestamp": "2026-08-08 12:41:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10940,
+      "failed_tests": []
+    },
+    {
+      "run_id": "433c26b1",
+      "timestamp": "2026-08-08 14:39:27 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11123,
+      "failed_tests": []
+    },
+    {
+      "run_id": "40af24bc",
+      "timestamp": "2026-08-08 16:41:57 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10696,
+      "failed_tests": []
+    },
+    {
+      "run_id": "73a3d21a",
+      "timestamp": "2026-08-08 18:42:38 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10337,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7c643e64",
+      "timestamp": "2026-08-08 20:41:49 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10777,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5e314ab6",
+      "timestamp": "2026-08-08 22:55:05 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10460,
+      "failed_tests": []
+    },
+    {
+      "run_id": "24c66016",
+      "timestamp": "2026-08-09 00:41:09 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11036,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5521859d",
+      "timestamp": "2026-08-09 02:42:28 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10745,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5f50277b",
+      "timestamp": "2026-08-09 04:42:29 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10680,
+      "failed_tests": []
+    },
+    {
+      "run_id": "158d192c",
+      "timestamp": "2026-08-09 06:42:23 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11045,
+      "failed_tests": []
+    },
+    {
+      "run_id": "293d425a",
+      "timestamp": "2026-08-09 08:42:08 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10700,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b96f9376",
+      "timestamp": "2026-08-09 10:41:54 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10748,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f1a312fc",
+      "timestamp": "2026-08-09 12:42:53 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10609,
+      "failed_tests": []
+    },
+    {
+      "run_id": "a5be048b",
+      "timestamp": "2026-08-09 14:40:09 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10970,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3e0bd717",
+      "timestamp": "2026-08-09 16:40:48 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10577,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c7c7826e",
+      "timestamp": "2026-08-09 18:42:31 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12450,
+      "failed_tests": []
+    },
+    {
+      "run_id": "164f9b3d",
+      "timestamp": "2026-08-09 20:42:04 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10761,
+      "failed_tests": []
+    },
+    {
+      "run_id": "35033144",
+      "timestamp": "2026-08-09 22:42:18 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11138,
+      "failed_tests": []
+    },
+    {
+      "run_id": "2cc2f34a",
+      "timestamp": "2026-08-10 00:39:08 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10623,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5ca3bb4e",
+      "timestamp": "2026-08-10 02:42:21 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10434,
+      "failed_tests": []
+    },
+    {
+      "run_id": "bb1b6aa5",
+      "timestamp": "2026-08-10 04:42:45 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10601,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e273fd61",
+      "timestamp": "2026-08-10 06:43:21 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10522,
+      "failed_tests": []
+    },
+    {
+      "run_id": "bd2d0900",
+      "timestamp": "2026-08-10 08:42:21 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10582,
+      "failed_tests": []
+    },
+    {
+      "run_id": "9781f911",
+      "timestamp": "2026-08-10 10:42:51 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10636,
+      "failed_tests": []
+    },
+    {
+      "run_id": "344a5a65",
+      "timestamp": "2026-08-10 12:41:07 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10814,
+      "failed_tests": []
+    },
+    {
+      "run_id": "051fd1f9",
+      "timestamp": "2026-08-10 14:42:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10548,
+      "failed_tests": []
+    },
+    {
+      "run_id": "7f3d6706",
+      "timestamp": "2026-08-10 16:41:16 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11313,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3e7b29d3",
+      "timestamp": "2026-08-10 18:42:34 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10742,
+      "failed_tests": []
+    },
+    {
+      "run_id": "fa81c60a",
+      "timestamp": "2026-08-10 20:43:26 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11171,
+      "failed_tests": []
+    },
+    {
+      "run_id": "2391e258",
+      "timestamp": "2026-08-10 22:43:29 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10704,
+      "failed_tests": []
+    },
+    {
+      "run_id": "efe34a4d",
+      "timestamp": "2026-08-11 00:44:17 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10365,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5fc0c3f4",
+      "timestamp": "2026-08-11 02:43:54 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10620,
+      "failed_tests": []
+    },
+    {
+      "run_id": "cd2a0d09",
+      "timestamp": "2026-08-11 04:42:05 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 30082,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b9d64eb5",
+      "timestamp": "2026-08-11 06:42:47 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10650,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5255b1b5",
+      "timestamp": "2026-08-11 08:43:47 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10889,
+      "failed_tests": []
+    },
+    {
+      "run_id": "af3a39cb",
+      "timestamp": "2026-08-11 10:42:58 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10554,
+      "failed_tests": []
+    },
+    {
+      "run_id": "203b7f0b",
+      "timestamp": "2026-08-11 13:05:11 IST",
+      "total": 16,
+      "passed": 15,
+      "failed": 1,
+      "pass_rate": 93.8,
+      "avg_latency": 13733,
+      "failed_tests": [
+        {
+          "id": "T015",
+          "name": "Pipeline hi→ta",
+          "category": "Pipeline",
+          "test_type": "Pipeline",
+          "input": "doctor.mp3",
+          "source_lang": "hi",
+          "target_lang": "ta",
+          "error": "Server error '520 <none>' for url 'https://tts.shunyalabs.ai/v1/audio/speech'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/520",
+          "response": "ASR: हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ | Translate: வணக்கம் திரு பிலிப்ஸ், ஒரு இருக்கை எடுத்துக்கொள்ளுங்கள். நன்றி. இப்போது என்ன பிரச்சனை? நான் நன்றாக உணரவில்லை. ஹெட் அன் டயரியா நோ ஐ ஹேவ் எவ் லொங் ஏவன் பீம் ஃபீலிங் லைக் திஸ் சின்ஸ் லேட் லாஸ்ட் நைட் டூ  | API: <!DOCTYPE html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-"
+        }
+      ]
+    },
+    {
+      "run_id": "27c848e3",
+      "timestamp": "2026-08-11 14:40:24 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10788,
+      "failed_tests": []
+    },
+    {
+      "run_id": "1a6c0b95",
+      "timestamp": "2026-08-11 16:43:27 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10839,
+      "failed_tests": []
+    },
+    {
+      "run_id": "cd489bc9",
+      "timestamp": "2026-08-11 19:12:47 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10769,
+      "failed_tests": []
+    },
+    {
+      "run_id": "598c27b4",
+      "timestamp": "2026-08-11 20:45:08 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13747,
+      "failed_tests": []
+    },
+    {
+      "run_id": "4d9143a9",
+      "timestamp": "2026-08-11 22:44:04 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10769,
+      "failed_tests": []
+    },
+    {
+      "run_id": "2588bec3",
+      "timestamp": "2026-08-12 00:46:50 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10608,
+      "failed_tests": []
+    },
+    {
+      "run_id": "0f3dae56",
+      "timestamp": "2026-08-12 02:44:11 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10808,
+      "failed_tests": []
+    },
+    {
+      "run_id": "72ee8856",
+      "timestamp": "2026-08-12 04:43:59 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10640,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3d2e58cf",
+      "timestamp": "2026-08-12 06:49:11 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10629,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e98a6aa1",
+      "timestamp": "2026-08-12 08:44:37 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12137,
+      "failed_tests": []
+    },
+    {
+      "run_id": "aed3a0ca",
+      "timestamp": "2026-08-12 10:43:05 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10802,
+      "failed_tests": []
+    },
+    {
+      "run_id": "b11d63e5",
+      "timestamp": "2026-08-12 12:45:02 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10626,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3ae74506",
+      "timestamp": "2026-08-12 14:43:24 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10507,
+      "failed_tests": []
+    },
+    {
+      "run_id": "33e46d5c",
+      "timestamp": "2026-08-12 16:44:31 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10839,
+      "failed_tests": []
+    },
+    {
+      "run_id": "662ee96e",
+      "timestamp": "2026-08-12 18:45:02 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11348,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5557da1c",
+      "timestamp": "2026-08-12 20:44:35 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11788,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3882260c",
+      "timestamp": "2026-08-12 22:45:09 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10979,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f525ac99",
+      "timestamp": "2026-08-13 00:43:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10460,
+      "failed_tests": []
+    },
+    {
+      "run_id": "d2a27d7c",
+      "timestamp": "2026-08-13 02:48:32 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10337,
+      "failed_tests": []
+    },
+    {
+      "run_id": "16c1175b",
+      "timestamp": "2026-08-13 04:45:15 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10707,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ef8ee1c2",
+      "timestamp": "2026-08-13 06:44:16 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10724,
+      "failed_tests": []
+    },
+    {
+      "run_id": "417adae1",
+      "timestamp": "2026-08-13 08:45:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11962,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ca2ec4ef",
+      "timestamp": "2026-08-13 10:45:34 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10732,
+      "failed_tests": []
+    },
+    {
+      "run_id": "5274efb0",
+      "timestamp": "2026-08-13 12:43:31 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11016,
+      "failed_tests": []
+    },
+    {
+      "run_id": "3695225b",
+      "timestamp": "2026-08-13 14:45:53 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12247,
+      "failed_tests": []
+    },
+    {
+      "run_id": "28cc258c",
+      "timestamp": "2026-08-13 16:45:49 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 11373,
+      "failed_tests": []
+    },
+    {
+      "run_id": "6271d255",
+      "timestamp": "2026-08-13 18:45:31 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10810,
+      "failed_tests": []
+    },
+    {
+      "run_id": "c870fcb7",
+      "timestamp": "2026-08-13 20:49:24 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 12149,
+      "failed_tests": []
+    },
+    {
+      "run_id": "014867ec",
+      "timestamp": "2026-08-13 22:45:20 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10378,
+      "failed_tests": []
+    },
+    {
+      "run_id": "d2e1f216",
+      "timestamp": "2026-08-14 00:48:45 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10455,
+      "failed_tests": []
+    },
+    {
+      "run_id": "e958ec66",
+      "timestamp": "2026-08-14 02:48:03 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 27246,
+      "failed_tests": []
+    },
+    {
+      "run_id": "73bff4a5",
+      "timestamp": "2026-08-14 04:46:44 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10646,
+      "failed_tests": []
+    },
+    {
+      "run_id": "44f396a6",
+      "timestamp": "2026-08-14 06:46:22 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10640,
+      "failed_tests": []
+    },
+    {
+      "run_id": "ad8514bc",
+      "timestamp": "2026-08-14 08:46:17 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 13719,
+      "failed_tests": []
+    },
+    {
+      "run_id": "cb32542e",
+      "timestamp": "2026-08-14 10:46:30 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10636,
+      "failed_tests": []
+    }
+  ]
+}

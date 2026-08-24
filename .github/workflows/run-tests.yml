@@ -1,0 +1,158 @@
+name: Run Vak API Tests
+
+# Serialize overlapping API test dispatches; digest/email jobs use a unique group per run so they do not queue behind tests.
+concurrency:
+  group: ${{ (github.event.action == 'daily-digest' || github.event.action == 'send-email' || github.event.action == 'monthly-downtime') && format('side-{0}', github.run_id) || format('vak-api-tests-{0}', github.ref) }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+on:
+  repository_dispatch:
+    types: [run-tests, send-email, daily-digest, monthly-downtime]
+  workflow_dispatch:
+    inputs:
+      send_email:
+        description: 'Send email report'
+        type: boolean
+        default: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: github.event.action != 'send-email' && github.event.action != 'daily-digest' && github.event.action != 'monthly-downtime'
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create .env
+        run: |
+          cat > .env <<ENVEOF
+          ASR_BASE_URL=${{ secrets.ASR_BASE_URL }}
+          ASR_API_KEY=${{ secrets.ASR_API_KEY }}
+          TRANSLATE_BASE_URL=${{ secrets.TRANSLATE_BASE_URL }}
+          TRANSLATE_API_KEY=${{ secrets.TRANSLATE_API_KEY }}
+          TTS_BASE_URL=${{ secrets.TTS_BASE_URL }}
+          TTS_API_KEY=${{ secrets.TTS_API_KEY }}
+          ENVEOF
+          sed -i 's/^[[:space:]]*//' .env
+
+      - name: Run tests & push to sheet
+        id: tests
+        env:
+          APPS_SCRIPT_URL: ${{ secrets.APPS_SCRIPT_URL }}
+        run: python report_to_sheet.py
+        continue-on-error: true
+
+      - name: Commit & push dashboard
+        if: always() && steps.tests.outcome != 'cancelled'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout main
+          git add docs/
+          if git diff --cached --quiet; then
+            echo "No dashboard changes"
+            exit 0
+          fi
+          git commit -m "Auto-update dashboard ($(date '+%Y-%m-%d %H:%M UTC'))"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            if git rebase origin/main && git push origin main; then
+              echo "Dashboard pushed."
+              exit 0
+            fi
+            echo "Rebase/push failed (attempt $attempt/5)..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "Dashboard push failed after retries"
+          exit 1
+
+      - name: Send failure email (only if any test failed)
+        if: always() && steps.tests.outcome != 'cancelled'
+        env:
+          EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
+          EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
+          DASHBOARD_URL: https://shunyalabsai.github.io/vak-automation/
+        run: python email_report.py
+
+      - name: Fail job if tests failed
+        if: steps.tests.outcome == 'failure'
+        run: exit 1
+
+  email-only:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'send-email'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send email report
+        env:
+          EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
+          EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
+          DASHBOARD_URL: https://shunyalabsai.github.io/vak-automation/
+        run: python email_report.py
+
+  daily-digest:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'daily-digest'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send daily consolidated health report
+        env:
+          EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
+          EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
+        run: python daily_health_report.py
+
+  monthly-downtime:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'monthly-downtime'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send monthly downtime report (previous calendar month)
+        env:
+          EMAIL_WEB_APP_URL: ${{ secrets.EMAIL_WEB_APP_URL }}
+          EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
+        run: python monthly_downtime_report.py

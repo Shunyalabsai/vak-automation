@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA Downtime Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0c0d14;
+    --bg-secondary: #141522;
+    --bg-card: #1a1b2a;
+    --bg-card-hover: #1f2037;
+    --border: #26283a;
+    --border-strong: #353851;
+    --text-primary: #f8fafc;
+    --text-muted: #9ca3af;
+    --text-dimmed: #6b7280;
+    --accent: #8b5cf6;
+    --accent-soft: rgba(139, 92, 246, 0.18);
+    --accent-line: rgba(139, 92, 246, 0.4);
+    --green: #22c55e;
+    --green-soft: rgba(34, 197, 94, 0.13);
+    --green-line: rgba(34, 197, 94, 0.32);
+    --red: #ef4444;
+    --red-soft: rgba(239, 68, 68, 0.12);
+    --red-line: rgba(239, 68, 68, 0.32);
+    --amber: #f59e0b;
+    --amber-soft: rgba(245, 158, 11, 0.12);
+    --amber-line: rgba(245, 158, 11, 0.32);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 6px 20px rgba(0,0,0,.30);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, Arial, sans-serif;
+    background: radial-gradient(ellipse at 20% 0%, #1a1830 0%, #0c0d14 50%, #090a10 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  /* === Header === */
+  .header { position: sticky; top: 0; z-index: 100; background: rgba(12,13,20,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 12px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .logo { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), #6d28d9); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: #fff; }
+  .header h1 { font-size: 17px; font-weight: 700; line-height: 1.2; }
+  .header-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .last-run { font-size: 12px; color: var(--text-muted); background: var(--bg-card); padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border); }
+  .last-run strong { color: var(--text-primary); font-weight: 600; }
+  .pills { display: flex; gap: 4px; background: var(--bg-card); border: 1px solid var(--border); padding: 3px; border-radius: 20px; }
+  .pill-btn { background: transparent; border: 0; color: var(--text-muted); padding: 5px 12px; border-radius: 16px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all .15s; font-family: inherit; }
+  .pill-btn:hover { color: var(--text-primary); }
+  .pill-btn.active { background: var(--accent-soft); color: var(--accent); }
+  .btn-refresh { background: var(--accent); color: #fff; border: none; padding: 7px 14px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 600; cursor: pointer; transition: opacity .2s; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-refresh:hover { opacity: 0.9; }
+  .btn-refresh .arrow { display: inline-block; transition: transform .4s; }
+  .btn-refresh.spinning .arrow { animation: spin .6s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* === Main === */
+  .main { padding: 22px 28px 60px; max-width: 1240px; margin: 0 auto; }
+
+  /* === Stats === */
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow); transition: border-color .2s; display: flex; align-items: center; gap: 14px; }
+  .stat-card:hover { border-color: var(--border-strong); }
+  .stat-ic { width: 10px; height: 10px; border-radius: 50%; background: var(--text-dimmed); flex-shrink: 0; }
+  .stat-ic.danger { background: var(--red); box-shadow: 0 0 8px var(--red); }
+  .stat-ic.ok { background: var(--green); box-shadow: 0 0 8px var(--green); }
+  .stat-ic.accent { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .stat-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+  .stat-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--text-muted); }
+  .stat-value { font-size: 24px; font-weight: 700; line-height: 1.1; margin-top: 2px; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .stat-value .of { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-left: 3px; }
+  .stat-value.green { color: var(--green); }
+  .stat-value.red { color: var(--red); }
+  .stat-value.accent { color: var(--accent); }
+  .stat-sub { font-size: 11px; color: var(--text-dimmed); margin-top: 2px; }
+  @media (max-width: 760px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* === Healthy strip === */
+  .healthy { background: var(--bg-card); border: 1px solid var(--green-line); border-radius: var(--radius); padding: 10px 14px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .healthy-label { font-size: 11px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .6px; }
+  .healthy-pill { background: var(--green-soft); color: var(--green); padding: 4px 11px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+  .healthy-pill::before { content: "✓"; font-weight: 700; }
+  .healthy-pill .num { color: var(--text-muted); font-weight: 500; font-size: 11px; }
+
+  /* === Section title === */
+  .section-title { font-size: 14px; font-weight: 700; margin: 22px 0 12px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: .5px; }
+  .section-title::before { content: ''; width: 4px; height: 16px; background: var(--accent); border-radius: 2px; }
+  .section-title .count { color: var(--text-muted); font-weight: 500; font-size: 12px; margin-left: 4px; text-transform: none; letter-spacing: 0; }
+
+  /* === Date strip === */
+  .datestrip-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 18px; box-shadow: var(--shadow); }
+  .datestrip-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+  .datestrip-title { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; }
+  .datestrip-help { font-size: 11px; color: var(--text-dimmed); }
+  .datestrip-list { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+  .datestrip-list::-webkit-scrollbar { height: 6px; }
+  .datestrip-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  .datestrip-list::-webkit-scrollbar-track { background: transparent; }
+  .date-pill {
+    flex-shrink: 0; background: var(--bg-secondary); border: 1px solid var(--border);
+    padding: 8px 12px; border-radius: 10px; cursor: pointer;
+    display: inline-flex; flex-direction: column; align-items: flex-start;
+    gap: 2px; min-width: 92px; transition: all .15s; user-select: none;
+  }
+  .date-pill:hover { border-color: var(--accent); }
+  .date-pill.is-active { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 1px var(--accent) inset; }
+  .date-pill .dp-rel { font-size: 9px; font-weight: 700; color: var(--text-dimmed); text-transform: uppercase; letter-spacing: .5px; }
+  .date-pill.is-today .dp-rel { color: var(--accent); }
+  .date-pill .dp-date { font-size: 13px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+  .date-pill .dp-meta { display: flex; gap: 4px; align-items: center; margin-top: 4px; }
+  .date-pill .dp-fail-count { font-size: 11px; color: var(--red); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .date-pill .dp-projcount { font-size: 10px; color: var(--text-muted); font-weight: 500; }
+  .date-pill.sev-warn { border-color: rgba(245,158,11,0.32); }
+  .date-pill.sev-warn:not(.is-active) .dp-fail-count { color: var(--amber); }
+  .date-pill.sev-danger { border-color: rgba(239,68,68,0.32); }
+
+  /* === Selected day panel === */
+  .day-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .day-panel-head {
+    padding: 18px 22px; border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(139,92,246,0.06), transparent);
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .dp-title { font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+  .dp-rel-tag { font-size: 10px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 3px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: .5px; }
+  .dp-rel-tag.faint { color: var(--text-muted); background: var(--bg-card-hover); }
+  .dp-summary { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+  .dp-summary strong { color: var(--red); font-weight: 700; }
+  .dp-summary .num { color: var(--text-primary); font-weight: 700; }
+
+  .day-panel-body { padding: 4px 0; }
+
+  /* === Project block inside day === */
+  .pblock { padding: 16px 22px; border-top: 1px solid var(--border); }
+  .pblock:first-child { border-top: 0; }
+  .pblock-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+  .pblock-num {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fira Code', monospace; font-size: 14px; font-weight: 700;
+  }
+  .pblock-num.danger { background: var(--red-soft); color: var(--red); border: 1px solid var(--red-line); }
+  .pblock-num.warn { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-line); }
+  .pblock-name { font-size: 15px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+  .pblock-summary { font-size: 12px; color: var(--text-muted); }
+  .pblock-summary .red { color: var(--red); font-weight: 700; }
+  .pblock-summary .num { color: var(--text-primary); font-weight: 600; }
+  .pblock-link { margin-left: auto; font-size: 11px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 4px 9px; border-radius: 6px; background: var(--accent-soft); }
+  .pblock-link:hover { opacity: 0.85; }
+
+  /* Run rows inside project block */
+  .runs { padding-left: 44px; }
+  .run-row {
+    display: grid; grid-template-columns: 92px 1fr auto;
+    align-items: center; gap: 14px;
+    padding: 9px 12px; margin-bottom: 4px;
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); cursor: pointer; transition: all .12s;
+  }
+  .run-row:hover { border-color: var(--accent); }
+  .run-row.is-open { border-color: var(--accent); background: var(--bg-card-hover); }
+  .run-time { font-family: 'Fira Code', monospace; font-weight: 600; color: var(--red); font-size: 12px; }
+  .run-counts { font-size: 12px; color: var(--text-primary); font-weight: 500; }
+  .run-counts .x { color: var(--red); font-weight: 800; }
+  .run-counts .of { color: var(--text-muted); }
+  .run-counts .pass { font-size: 11px; color: var(--text-dimmed); margin-left: 8px; font-family: 'Fira Code', monospace; }
+  .run-counts .extra { font-size: 11px; color: var(--accent); padding: 2px 7px; border-radius: 6px; background: var(--accent-soft); margin-left: 8px; font-family: 'Fira Code', monospace; }
+  .run-chevron { color: var(--text-dimmed); font-size: 12px; transition: transform .15s; }
+  .run-row.is-open .run-chevron { transform: rotate(90deg); color: var(--accent); }
+
+  .run-detail { padding: 10px 12px 14px 50px; margin-bottom: 10px; }
+  .fails-list { margin: 0; padding: 0; list-style: none; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 14px; }
+  .fails-list li { padding: 7px 0; border-top: 1px dashed var(--border); }
+  .fails-list li:first-child { border-top: 0; padding-top: 0; }
+  .ftitle { color: var(--text-primary); font-weight: 600; font-size: 12.5px; line-height: 1.45; }
+  .fmod { color: var(--accent); font-size: 10px; margin-left: 7px; padding: 1px 7px; background: var(--accent-soft); border-radius: 5px; font-weight: 600; letter-spacing: .2px; vertical-align: 1px; }
+  .ferr { color: var(--text-muted); font-size: 11px; margin-top: 3px; word-break: break-word; line-height: 1.45; font-family: 'Fira Code', monospace; max-height: 38px; overflow: hidden; }
+  .fno-detail { color: var(--text-dimmed); font-style: italic; font-size: 11.5px; padding: 4px 0; }
+
+  .loading { display: flex; align-items: center; justify-content: center; min-height: 280px; flex-direction: column; gap: 14px; }
+  .spinner { width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+  .empty-line { padding: 32px 22px; text-align: center; color: var(--text-muted); font-size: 14px; }
+  .empty-line.ok { color: var(--green); font-weight: 600; }
+
+  .footer { margin-top: 30px; text-align: center; font-size: 11px; color: var(--text-dimmed); }
+  .footer a { color: var(--accent); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 760px) {
+    .runs { padding-left: 0; }
+    .run-detail { padding-left: 0; }
+    .pblock { padding: 14px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">⚠</div>
+    <div>
+      <h1>QA Downtime Tracker</h1>
+      <div class="header-sub">API / system downtime only (5xx, gateway, timeouts) — pick a month, then a day</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="last-run" id="lastRun">Loading...</span>
+    <div class="pills">
+      <button class="pill-btn" data-days="7">7d</button>
+      <button class="pill-btn" data-days="30">30d</button>
+      <button class="pill-btn" data-days="60">60d</button>
+      <button class="pill-btn active" data-days="90">90d</button>
+    </div>
+    <button class="btn-refresh" id="refreshBtn"><span class="arrow">↻</span> Refresh</button>
+  </div>
+</div>
+
+<div class="main">
+  <div class="stats-grid" id="statsGrid"></div>
+  <div id="content"><div class="loading"><div class="spinner"></div><span style="color:var(--text-muted);font-size:13px;">Loading project feeds...</span></div></div>
+  <div class="footer">Select a month for the monthly summary · Click a day for detail · Email report runs on the 1st (previous month) · <a href="./">Back to Vak Dashboard</a></div>
+</div>
+
+<script>
+const PROJECTS = [
+  { name: "Asksam Automation",       short: "Asksam",       dashboard: "https://saira-uwc.github.io/asksam-automation-new/",                              runs: "https://saira-uwc.github.io/asksam-automation-new/history/runs.json", format: "playwright" },
+  { name: "Website Automation",      short: "Website",      dashboard: "https://saira-uwc.github.io/Shunyalabs_website/",                                 runs: "https://saira-uwc.github.io/Shunyalabs_website/history/runs.json",     format: "playwright" },
+  { name: "Widget Automation",       short: "Widget",       dashboard: "https://saira-uwc.github.io/Shunyalabs_widget/",                                  runs: "https://saira-uwc.github.io/Shunyalabs_widget/history/runs.json",      format: "playwright" },
+  { name: "Console Dashboard",       short: "Console",      dashboard: "https://saira-uwc.github.io/Shunyalabs_console/",                                 runs: "https://saira-uwc.github.io/Shunyalabs_console/history/runs.json",     format: "playwright" },
+  { name: "Vak BE Automation",       short: "Vak BE",       dashboard: "https://shunyalabsai.github.io/vak-automation/",                                     runs: "https://shunyalabsai.github.io/vak-automation/data.json",                 format: "vak" },
+  { name: "Concurrent (Zero Indic)", short: "Concurrent",   dashboard: "https://yamini-pal-singh.github.io/automation-testing/Concurrent-Report.html",   runs: "https://yamini-pal-singh.github.io/automation-testing/concurrent-runs.json", format: "playwright" },
+  { name: "Long Audio (Zero Indic)", short: "Long Audio",   dashboard: "https://yamini-pal-singh.github.io/automation-testing/Long-Audio-Report.html",   runs: "https://yamini-pal-singh.github.io/automation-testing/long-audio-runs.json", format: "playwright" },
+  { name: "Playground",              short: "Playground",   dashboard: "https://yamini-pal-singh.github.io/playground-testing/Playground-Report.html",   runs: "https://yamini-pal-singh.github.io/playground-testing/playground-runs.json", format: "playwright" },
+];
+
+const IST_OFFSET_MS = 5.5 * 3600 * 1000;
+let currentWindow = 90;
+let cache = null;
+let activeDateKey = null;
+let activeMonthKey = null;
+let openRuns = new Set();
+
+function monthKeyIST(date) {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit" }).format(date);
+}
+function monthLabel(key) {
+  const [y, m] = key.split("-");
+  const d = new Date(`${y}-${m}-01T00:00:00+05:30`);
+  return d.toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata", month: "short", year: "numeric" });
+}
+function defaultMonthKey() {
+  const now = new Date();
+  const day = +new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", day: "numeric" }).format(now);
+  if (day === 1) {
+    const prev = new Date(now.getTime() - 86400000);
+    return monthKeyIST(prev);
+  }
+  return monthKeyIST(now);
+}
+function recentMonthKeys(n) {
+  const keys = [];
+  const d = new Date();
+  for (let i = 0; i < n; i++) {
+    keys.push(monthKeyIST(d));
+    d.setDate(d.getDate() - 28);
+  }
+  return keys;
+}
+function runInMonth(run, monthKey) {
+  return monthKeyIST(run._date) === monthKey;
+}
+
+function parseToDate(ts) {
+  if (!ts) return null;
+  if (/Z$/.test(ts)) { const d = new Date(ts); return isNaN(d) ? null : d; }
+  if (/\bIST\b/.test(ts)) {
+    const m = ts.replace(/\s*IST\s*$/, "").match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})$/);
+    if (!m) return null;
+    return new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6]) - IST_OFFSET_MS);
+  }
+  const m1 = ts.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4}),\s*(\d{1,2}):(\d{2}):(\d{2})\s*(AM|PM)/i);
+  if (m1) {
+    let [, M, D, Y, h, mn, s, ap] = m1;
+    h = +h;
+    if (ap.toUpperCase() === "PM" && h < 12) h += 12;
+    if (ap.toUpperCase() === "AM" && h === 12) h = 0;
+    return new Date(Date.UTC(+Y, +M - 1, +D, h, +mn, +s) - IST_OFFSET_MS);
+  }
+  const m2 = ts.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})$/);
+  if (m2) return new Date(Date.UTC(+m2[1], +m2[2] - 1, +m2[3], +m2[4], +m2[5], +m2[6]) - IST_OFFSET_MS);
+  const m3 = ts.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m3) return new Date(Date.UTC(+m3[1], +m3[2] - 1, +m3[3], 0, 0, 0) - IST_OFFSET_MS);
+  const d = new Date(ts);
+  return isNaN(d) ? null : d;
+}
+function dateKeyIST(date) { return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit" }).format(date); }
+function dateFromKey(k) { return new Date(k + "T00:00:00+05:30"); }
+function fmtFullDate(date) { return date.toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata", weekday: "long", day: "numeric", month: "short", year: "numeric" }); }
+function fmtShortDay(date) { return date.toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata", day: "2-digit", month: "short" }); }
+function fmtTime(date) { return date.toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", hour12: true }); }
+function todayKey() { return dateKeyIST(new Date()); }
+function relativeDay(key) {
+  const t = todayKey();
+  if (key === t) return { label: "Today", strong: true, today: true };
+  const yest = dateKeyIST(new Date(Date.now() - 86400000));
+  if (key === yest) return { label: "Yesterday", strong: true };
+  const target = dateFromKey(key);
+  const days = Math.round((Date.now() - target.getTime()) / 86400000);
+  if (days >= 2 && days <= 30) return { label: days + "d ago", strong: false };
+  return null;
+}
+
+// This dashboard is for *downtime* only (API down, gateway, 5xx, timeouts),
+// not functional test failures/assertions.
+function isDowntimeFailure(msg, statusCode) {
+  const s = String(msg || "").toLowerCase();
+  if (statusCode && Number(statusCode) >= 500) return true;
+  if (/\b5\d{2}\b/.test(s)) return true; // contains a 5xx code
+  if (s.includes("bad gateway")) return true;
+  if (s.includes("gateway timeout")) return true;
+  if (s.includes("service unavailable")) return true;
+  if (s.includes("internal server error")) return true;
+  if (s.includes("too many requests") || s.includes("429")) return true; // rate-limit is downtime-ish
+  if (s.includes("connection refused") || s.includes("connection reset")) return true;
+  if (s.includes("dns") || s.includes("enotfound") || s.includes("eai_again")) return true;
+  if (s.includes("tls") || s.includes("ssl")) return true;
+  if (s.includes("transporterror") || s.includes("transport error")) return true;
+  if (s.includes("httpx.") || s.includes("http error")) return true;
+  return false;
+}
+
+function normalize(raw, fmt) {
+  const out = [];
+  if (fmt === "vak") {
+    for (const r of raw.runs || []) {
+      const allFailed = Array.isArray(r.failed_tests) ? r.failed_tests : [];
+      const downtime = allFailed.filter((f) => isDowntimeFailure(f.error));
+      const failedItems = downtime.map((f) => ({
+        title: f.name || f.id || "(unnamed)",
+        module: f.category || f.test_type || "",
+        error: String(f.error || "").split("\n")[0].slice(0, 220),
+        status: "downtime",
+      }));
+      out.push({
+        timestamp: r.timestamp,
+        total: r.total || 0,
+        passed: r.passed || 0,
+        // Only count downtime-class failures here
+        failed: downtime.length,
+        passRate: r.pass_rate || 0,
+        avgLatency: r.avg_latency,
+        failedItems,
+      });
+    }
+    return out;
+  }
+  for (const r of raw) {
+    const summary = r.summary || {};
+    const ts = r.startedAt || r.runTimestamp || r.runDate;
+    const total = summary.total ?? r.total ?? 0;
+    const passed = summary.passed ?? r.passed ?? 0;
+    const skipped = summary.skipped ?? r.skipped ?? 0;
+    const explicitFailed = summary.failed ?? r.failed ?? 0;
+    const timedOut = summary.timedOut ?? r.timedOut ?? 0;
+    // Treat any test that didn't pass and wasn't intentionally skipped as failed
+    // (covers timedOut, flaky, etc.). Matches what each project's own UI reports.
+    const failed = total > 0 ? Math.max(total - passed - skipped, 0) : (explicitFailed + timedOut);
+    const passRate = r.passRate ?? 0;
+    const failedItems = [];
+    if (Array.isArray(r.tests)) {
+      for (const t of r.tests) {
+        const status = (t.status || "").toLowerCase();
+        // Anything that isn't passing or skipped is a failure (failed, timedout, flaky, etc.)
+        if (status && status !== "passed" && status !== "pass" && status !== "skipped" && status !== "skip") {
+          const err = (t.error || t.comment || "");
+          if (isDowntimeFailure(err)) {
+            failedItems.push({ title: t.title || t.testPoint || t.name || "(unnamed)", module: t.moduleLabel || t.module || t.moduleName || "", error: String(err).split("\n")[0].slice(0, 220), status });
+          }
+        }
+      }
+    }
+    if (failedItems.length === 0 && Array.isArray(r.suites)) {
+      for (const s of r.suites) {
+        const status = (s.status || "").toLowerCase();
+        if (status === "fail" || status === "failed") {
+          const err = s.failure_reason || "";
+          if (isDowntimeFailure(err)) {
+            failedItems.push({ title: s.name || "(unnamed suite)", module: s.category || "", error: String(err).split("\n")[0].slice(0, 220) });
+          }
+        }
+      }
+    }
+    // Only count downtime failures on this dashboard
+    out.push({ timestamp: ts, total, passed, failed: failedItems.length, passRate, timeSavedPercent: r.timeSavedPercent, avgLatencyMs: r.avgLatencyMs, failedItems });
+  }
+  return out;
+}
+
+async function fetchAll() {
+  return Promise.all(PROJECTS.map(async (p, idx) => {
+    try {
+      const resp = await fetch(p.runs, { cache: "no-cache" });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const raw = await resp.json();
+      const runs = normalize(raw, p.format).map((r) => ({ ...r, _date: parseToDate(r.timestamp) })).filter((r) => r._date);
+      runs.sort((a, b) => b._date - a._date);
+      runs.forEach((r, i) => { r._id = i; });
+      return { idx, project: p, runs, error: null };
+    } catch (e) {
+      return { idx, project: p, runs: [], error: String(e.message || e) };
+    }
+  }));
+}
+
+// Build day index: dateKey -> { byProj, totalRuns, failedRuns, failedTests, projectsAffected }
+function buildDayIndex(cutoff, monthKey) {
+  const days = new Map();
+  for (const entry of cache) {
+    if (entry.error) continue;
+    for (const r of entry.runs) {
+      if (cutoff && r._date.getTime() < cutoff) continue;
+      if (monthKey && !runInMonth(r, monthKey)) continue;
+      const k = dateKeyIST(r._date);
+      if (!days.has(k)) days.set(k, { byProj: new Map(), totalRuns: 0, failedRuns: 0, failedTests: 0, projectsAffected: new Set() });
+      const day = days.get(k);
+      if (!day.byProj.has(entry.idx)) day.byProj.set(entry.idx, []);
+      day.byProj.get(entry.idx).push(r);
+      day.totalRuns++;
+      if (r.failed > 0) {
+        day.failedRuns++;
+        day.failedTests += r.failed;
+        day.projectsAffected.add(entry.idx);
+      }
+    }
+  }
+  return days;
+}
+
+function severity(failedRuns, totalRuns) {
+  if (totalRuns === 0) return "norun";
+  if (failedRuns === 0) return "ok";
+  return failedRuns / totalRuns >= 0.5 ? "danger" : "warn";
+}
+
+function buildMonthSummary(monthKey, dayIndex) {
+  let incidents = 0, downtimeRuns = 0;
+  const projs = new Set();
+  for (const d of dayIndex.values()) {
+    incidents += d.failedTests;
+    downtimeRuns += d.failedRuns;
+    for (const p of d.projectsAffected) projs.add(p);
+  }
+  const downtimeDays = [...dayIndex.values()].filter((d) => d.failedRuns > 0).length;
+  return { incidents, downtimeRuns, downtimeDays, projectsAffected: projs.size };
+}
+
+function render() {
+  if (!cache) return;
+  if (!activeMonthKey) activeMonthKey = defaultMonthKey();
+  const cutoff = currentWindow > 0 ? Date.now() - currentWindow * 86400000 : 0;
+  const dayIndex = buildDayIndex(cutoff, activeMonthKey);
+  const monthSummary = buildMonthSummary(activeMonthKey, dayIndex);
+
+  // Aggregate stats (selected month only)
+  let totalFailedRuns = 0, totalFailedTests = 0;
+  const allProjsAffected = new Set();
+  const downtimeKeys = [];
+  for (const [k, d] of dayIndex) {
+    if (d.failedRuns > 0) {
+      downtimeKeys.push(k);
+      totalFailedRuns += d.failedRuns;
+      totalFailedTests += d.failedTests;
+      for (const p of d.projectsAffected) allProjsAffected.add(p);
+    }
+  }
+  downtimeKeys.sort().reverse();
+
+  // Healthy projects (no downtime in selected month)
+  const healthy = [];
+  for (const e of cache) {
+    if (e.error) continue;
+    const inMonth = e.runs.filter((r) => runInMonth(r, activeMonthKey));
+    if (inMonth.length > 0 && inMonth.every((r) => r.failed === 0)) healthy.push({ project: e.project, runs: inMonth.length });
+  }
+
+  const monthPills = recentMonthKeys(12).map((mk) => {
+    const isActive = mk === activeMonthKey;
+    return `<button type="button" class="pill-btn month-pill ${isActive ? "active" : ""}" data-month="${esc(mk)}">${esc(monthLabel(mk))}</button>`;
+  }).join("");
+
+  const monthBanner = monthSummary.incidents === 0
+    ? `<div class="healthy" style="border-color:var(--green-line);margin-bottom:14px;"><span class="healthy-label">${esc(monthLabel(activeMonthKey))} summary</span><span class="healthy-pill">No API downtime this month</span></div>`
+    : `<div class="datestrip-wrap" style="margin-bottom:14px;border-color:rgba(239,68,68,0.35);">
+        <div class="datestrip-head"><span class="datestrip-title">${esc(monthLabel(activeMonthKey))} — downtime highlight</span></div>
+        <p style="margin:0;font-size:14px;color:var(--text-primary);line-height:1.6;">
+          This month: <strong style="color:var(--red);">${monthSummary.incidents}</strong> outage incident(s) ·
+          <strong style="color:var(--red);">${monthSummary.downtimeRuns}</strong> affected run(s) ·
+          <strong>${monthSummary.downtimeDays}</strong> day(s) with downtime ·
+          <strong>${monthSummary.projectsAffected}</strong> project(s) impacted
+        </p>
+      </div>`;
+
+  // Stats row
+  document.getElementById("statsGrid").innerHTML = `
+    <div class="stat-card">
+      <span class="stat-ic accent"></span>
+      <div class="stat-text"><div class="stat-label">Month</div><div class="stat-value accent" style="font-size:18px;">${esc(monthLabel(activeMonthKey))}</div><div class="stat-sub">IST calendar month</div></div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-ic ${monthSummary.downtimeDays > 0 ? "danger" : "ok"}"></span>
+      <div class="stat-text"><div class="stat-label">Downtime days</div><div class="stat-value ${monthSummary.downtimeDays > 0 ? "red" : "green"}">${monthSummary.downtimeDays}</div><div class="stat-sub">days with any outage</div></div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-ic ${monthSummary.downtimeRuns > 0 ? "danger" : "ok"}"></span>
+      <div class="stat-text"><div class="stat-label">Affected runs</div><div class="stat-value ${monthSummary.downtimeRuns > 0 ? "red" : "green"}">${monthSummary.downtimeRuns}</div><div class="stat-sub">runs with API/system errors</div></div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-ic ${monthSummary.projectsAffected > 0 ? "danger" : "ok"}"></span>
+      <div class="stat-text"><div class="stat-label">Projects down</div><div class="stat-value ${monthSummary.projectsAffected > 0 ? "red" : "green"}">${monthSummary.projectsAffected}<span class="of">/${PROJECTS.length}</span></div><div class="stat-sub">had at least one outage</div></div>
+    </div>
+  `;
+
+  // Healthy strip
+  const healthyHtml = healthy.length
+    ? `<div class="healthy"><span class="healthy-label">All passing · ${healthy.length}</span>${healthy.map((h) => `<span class="healthy-pill">${esc(h.project.name)} <span class="num">${h.runs} run${h.runs === 1 ? "" : "s"}</span></span>`).join("")}</div>`
+    : "";
+
+  // Default activeDateKey: if not set or no longer in window, pick most recent downtime day
+  if (!activeDateKey || !dayIndex.has(activeDateKey) || dayIndex.get(activeDateKey).failedRuns === 0) {
+    activeDateKey = downtimeKeys[0] || null;
+  }
+
+  // Date strip
+  let datestripHtml = "";
+  if (downtimeKeys.length > 0) {
+    const pills = downtimeKeys.map((k) => {
+      const d = dayIndex.get(k);
+      const sev = severity(d.failedRuns, d.totalRuns);
+      const rel = relativeDay(k);
+      const date = dateFromKey(k);
+      const isActive = k === activeDateKey;
+      const isToday = rel && rel.today;
+      return `
+        <div class="date-pill sev-${sev} ${isActive ? "is-active" : ""} ${isToday ? "is-today" : ""}" data-key="${esc(k)}">
+          <span class="dp-rel">${rel ? esc(rel.label) : esc(date.toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata", weekday: "short" }))}</span>
+          <span class="dp-date">${esc(fmtShortDay(date))}</span>
+          <div class="dp-meta">
+            <span class="dp-fail-count">${d.failedRuns} fail${d.failedRuns === 1 ? "" : "s"}</span>
+            <span class="dp-projcount">· ${d.projectsAffected.size}p</span>
+          </div>
+        </div>`;
+    }).join("");
+    datestripHtml = `
+      <div class="datestrip-wrap">
+        <div class="datestrip-head">
+          <span class="datestrip-title">Downtime Days · ${downtimeKeys.length}</span>
+          <span class="datestrip-help">scroll horizontally · click to view that day</span>
+        </div>
+        <div class="datestrip-list" id="datestripList">${pills}</div>
+      </div>`;
+  }
+
+  // Selected day panel
+  let dayPanelHtml = "";
+  if (activeDateKey && dayIndex.has(activeDateKey)) {
+    const day = dayIndex.get(activeDateKey);
+    const date = dateFromKey(activeDateKey);
+    const rel = relativeDay(activeDateKey);
+
+    const projsHtml = PROJECTS.map((p, idx) => {
+      const runs = day.byProj.get(idx);
+      if (!runs) return "";
+      const failed = runs.filter((r) => r.failed > 0);
+      if (failed.length === 0) return "";
+      const failedTests = failed.reduce((s, r) => s + r.failed, 0);
+      const allRunsFailed = failed.length === runs.length;
+      const sev = allRunsFailed ? "danger" : "warn";
+      const runsHtml = failed.map((r) => {
+        const runKey = `${idx}-${r._id}-${activeDateKey}`;
+        const isOpen = openRuns.has(runKey);
+        let extra = "";
+        if (r.avgLatencyMs != null) extra = `${(r.avgLatencyMs / 1000).toFixed(1)}s lat`;
+        else if (r.timeSavedPercent != null) extra = `${r.timeSavedPercent}% saved`;
+        else if (r.avgLatency != null) extra = `${(r.avgLatency / 1000).toFixed(1)}s lat`;
+        return `
+          <div class="run-row ${isOpen ? "is-open" : ""}" data-run="${esc(runKey)}">
+            <span class="run-time">${esc(fmtTime(r._date))}</span>
+            <span class="run-counts"><span class="x">${r.failed}</span><span class="of"> / ${r.total}</span> failed <span class="pass">${r.passRate}% pass</span>${extra ? ` <span class="extra">${esc(extra)}</span>` : ""}</span>
+            <span class="run-chevron">▸</span>
+          </div>
+          ${isOpen ? `<div class="run-detail">${renderFailsList(r)}</div>` : ""}`;
+      }).join("");
+
+      return `
+        <div class="pblock">
+          <div class="pblock-head">
+            <div class="pblock-num ${sev}">${failed.length}</div>
+            <div>
+              <div class="pblock-name">${esc(p.name)}</div>
+              <div class="pblock-summary"><span class="red">${failed.length}</span> of ${runs.length} run${runs.length === 1 ? "" : "s"} with downtime · <span class="num">${failedTests}</span> outage incident${failedTests === 1 ? "" : "s"}</div>
+            </div>
+            <a class="pblock-link" href="${esc(p.dashboard)}" target="_blank" rel="noopener">↗ open dashboard</a>
+          </div>
+          <div class="runs">${runsHtml}</div>
+        </div>`;
+    }).join("");
+
+    dayPanelHtml = `
+      <div class="day-panel">
+        <div class="day-panel-head">
+          <span class="dp-title">${esc(fmtFullDate(date))}</span>
+          ${rel ? `<span class="dp-rel-tag ${rel.strong ? "" : "faint"}">${esc(rel.label)}</span>` : ""}
+          <span class="dp-summary"><strong>${day.failedRuns}</strong> downtime run${day.failedRuns === 1 ? "" : "s"} · <span class="num">${day.projectsAffected.size}</span> project${day.projectsAffected.size === 1 ? "" : "s"} · <span class="num">${day.failedTests}</span> outage incident${day.failedTests === 1 ? "" : "s"}</span>
+        </div>
+        <div class="day-panel-body">${projsHtml}</div>
+      </div>`;
+  }
+
+  let dayPanelHeader = "";
+  if (downtimeKeys.length > 0) dayPanelHeader = `<div class="section-title">Selected Day Detail</div>`;
+
+  const monthStripHtml = `
+    <div class="datestrip-wrap">
+      <div class="datestrip-head">
+        <span class="datestrip-title">Monthly view</span>
+        <span class="datestrip-help">pick a month · ${monthSummary.incidents} outage(s) in ${esc(monthLabel(activeMonthKey))}</span>
+      </div>
+      <div class="pills" style="flex-wrap:wrap;gap:6px;background:transparent;border:0;padding:0;">${monthPills}</div>
+    </div>`;
+
+  document.getElementById("content").innerHTML =
+    monthStripHtml +
+    monthBanner +
+    healthyHtml +
+    datestripHtml +
+    (downtimeKeys.length > 0 ? dayPanelHeader : "") +
+    (downtimeKeys.length > 0 ? dayPanelHtml : `<div class="day-panel"><div class="empty-line ok">🎉 No downtime in this window across any project.</div></div>`);
+
+  bindHandlers();
+}
+
+function renderFailsList(r) {
+  if (!r.failedItems || r.failedItems.length === 0) {
+    return `<div class="fno-detail">No per-incident detail in feed — ${r.failed} downtime incident${r.failed === 1 ? "" : "s"} in this run.</div>`;
+  }
+  const items = r.failedItems.slice(0, 30).map((f) => `<li>
+    <div><span class="ftitle">${esc(f.title)}</span>${f.module ? `<span class="fmod">${esc(f.module)}</span>` : ""}</div>
+    ${f.error ? `<div class="ferr">${esc(f.error)}</div>` : ""}
+  </li>`).join("");
+  const more = r.failedItems.length > 30 ? `<li class="fno-detail">+${r.failedItems.length - 30} more failed item${r.failedItems.length - 30 === 1 ? "" : "s"}…</li>` : "";
+  return `<ul class="fails-list">${items}${more}</ul>`;
+}
+
+function bindHandlers() {
+  document.querySelectorAll(".month-pill").forEach((p) => {
+    p.addEventListener("click", () => {
+      activeMonthKey = p.getAttribute("data-month");
+      activeDateKey = null;
+      openRuns = new Set();
+      render();
+    });
+  });
+  document.querySelectorAll(".date-pill").forEach((p) => {
+    p.addEventListener("click", () => {
+      activeDateKey = p.getAttribute("data-key");
+      openRuns = new Set();
+      render();
+    });
+  });
+  document.querySelectorAll(".run-row").forEach((row) => {
+    row.addEventListener("click", () => {
+      const k = row.getAttribute("data-run");
+      if (openRuns.has(k)) openRuns.delete(k); else openRuns.add(k);
+      render();
+    });
+  });
+}
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+async function load() {
+  const refreshBtn = document.getElementById("refreshBtn");
+  refreshBtn.classList.add("spinning");
+  document.getElementById("content").innerHTML = '<div class="loading"><div class="spinner"></div><span style="color:var(--text-muted);font-size:13px;">Loading project feeds...</span></div>';
+  document.getElementById("lastRun").textContent = "Loading...";
+  cache = await fetchAll();
+  document.getElementById("lastRun").innerHTML = `Last fetched <strong>${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit", hour12: true })} IST</strong>`;
+  activeDateKey = null; activeMonthKey = defaultMonthKey(); openRuns = new Set();
+  render();
+  setTimeout(() => refreshBtn.classList.remove("spinning"), 400);
+}
+
+document.querySelectorAll(".pill-btn[data-days]").forEach((p) => {
+  p.addEventListener("click", () => {
+    document.querySelectorAll(".pill-btn[data-days]").forEach((x) => x.classList.remove("active"));
+    p.classList.add("active");
+    currentWindow = +p.getAttribute("data-days");
+    activeDateKey = null; openRuns = new Set();
+    render();
+  });
+});
+document.getElementById("refreshBtn").addEventListener("click", load);
+load();
+</script>
+</body>
+</html>
