@@ -272,31 +272,85 @@ def period_meta(period: str, now: datetime) -> dict:
     }
 
 
+def build_overall_summary(sections: list[dict]) -> dict:
+    """Plain-English counts for the email header."""
+    total_projects = len(sections)
+    passed = sum(1 for s in sections if s["status"] == "GREEN")
+    with_failures = sum(1 for s in sections if s["status"] == "ISSUES")
+    no_run = sum(1 for s in sections if s["status"] == "NO_RUN")
+    fetch_errors = sum(1 for s in sections if s["status"] == "ERROR")
+
+    test_total = sum(s["total"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
+    test_passed = sum(s["passed"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
+    test_failed = sum(s["failed"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
+    test_rate = round(test_passed / test_total * 100, 1) if test_total else 0
+
+    if with_failures > 0:
+        headline = f"{with_failures} of {total_projects} projects have test failures — review needed"
+        headline_color = "#991b1b"
+        headline_bg = "#fef2f2"
+    elif no_run > 0 or fetch_errors > 0:
+        headline = f"{passed} of {total_projects} projects passed · {no_run} missing run · {fetch_errors} dashboard error(s)"
+        headline_color = "#92400e"
+        headline_bg = "#fffbeb"
+    elif passed == total_projects and test_total:
+        headline = f"All {total_projects} projects passed their latest run — no failures found"
+        headline_color = "#166534"
+        headline_bg = "#f0fdf4"
+    else:
+        headline = f"Snapshot for {total_projects} automation projects"
+        headline_color = "#374151"
+        headline_bg = "#f9fafb"
+
+    tests_line = ""
+    if test_total:
+        tests_line = (
+            f"Combined latest runs: <strong>{test_total}</strong> tests · "
+            f"<strong style=\"color:#22c55e;\">{test_passed} passed</strong> · "
+            f"<strong style=\"color:#ef4444;\">{test_failed} failed</strong> · "
+            f"{test_rate}% pass rate"
+        )
+
+    return {
+        "headline": headline,
+        "headline_color": headline_color,
+        "headline_bg": headline_bg,
+        "passed": passed,
+        "with_failures": with_failures,
+        "no_run": no_run,
+        "fetch_errors": fetch_errors,
+        "total_projects": total_projects,
+        "test_total": test_total,
+        "test_passed": test_passed,
+        "test_failed": test_failed,
+        "test_rate": test_rate,
+        "tests_line": tests_line,
+    }
+
+
+def status_badge(section: dict) -> str:
+    s = section
+    if s["status"] == "ERROR":
+        return '<span style="background:#fef2f2;color:#991b1b;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">⚠ Dashboard error</span>'
+    if s["status"] == "NO_RUN":
+        return '<span style="background:#f3f4f6;color:#6b7280;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">No run found</span>'
+    if s["status"] == "GREEN":
+        return '<span style="background:#dcfce7;color:#166534;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">✅ Passed · 0 failed</span>'
+    return (
+        f'<span style="background:#fef2f2;color:#991b1b;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">'
+        f'❌ {s["failed"]} test(s) failed</span>'
+    )
+
+
 def render_html(sections: list[dict], period: str, now: datetime) -> tuple[str, str]:
     meta = period_meta(period, now)
     date_str = now.strftime("%a, %b %d, %Y")
     report_time = now.strftime("%I:%M %p IST")
-
-    green = sum(1 for s in sections if s["status"] == "GREEN")
-    issues = sum(1 for s in sections if s["status"] == "ISSUES")
-    no_run = sum(1 for s in sections if s["status"] == "NO_RUN")
-    errors = sum(1 for s in sections if s["status"] == "ERROR")
-
-    overall_total = sum(s["total"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
-    overall_passed = sum(s["passed"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
-    overall_failed = sum(s["failed"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
-    overall_rate = round(overall_passed / overall_total * 100, 1) if overall_total else 0
+    summary = build_overall_summary(sections)
 
     rows = ""
     for s in sections:
-        if s["status"] == "ERROR":
-            badge = '<span style="background:#fef2f2;color:#991b1b;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">FETCH ERROR</span>'
-        elif s["status"] == "NO_RUN":
-            badge = '<span style="background:#f3f4f6;color:#6b7280;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">NO RUN</span>'
-        elif s["status"] == "GREEN":
-            badge = '<span style="background:#dcfce7;color:#166534;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">ALL GREEN</span>'
-        else:
-            badge = '<span style="background:#fef2f2;color:#991b1b;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;">ISSUES</span>'
+        badge = status_badge(s)
 
         pass_cell = str(s["passed"]) if s["total"] else "—"
         fail_cell = (
@@ -305,7 +359,10 @@ def render_html(sections: list[dict], period: str, now: datetime) -> tuple[str, 
             else (str(s["failed"]) if s["total"] else "—")
         )
         total_cell = str(s["total"]) if s["total"] else "—"
-        rate_cell = f'{s["pass_rate"]}%' if s["total"] else "—"
+        if s["total"]:
+            rate_cell = f'{round(s["passed"] / s["total"] * 100, 1)}%'
+        else:
+            rate_cell = "—"
 
         rows += f"""
         <tr>
@@ -322,6 +379,10 @@ def render_html(sections: list[dict], period: str, now: datetime) -> tuple[str, 
           <td style="padding:12px 16px;border-bottom:1px solid #f0f0f0;font-size:11px;color:#666;vertical-align:top;">{s["note"]}</td>
         </tr>"""
 
+    tests_line_html = ""
+    if summary["tests_line"]:
+        tests_line_html = f'<p style="margin:10px 0 0;font-size:13px;color:#444;">{summary["tests_line"]}</p>'
+
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="UTF-8"></head>
 <body style="margin:0;padding:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
@@ -334,48 +395,53 @@ def render_html(sections: list[dict], period: str, now: datetime) -> tuple[str, 
     </div>
 
     <div style="padding:20px 32px;">
-      <table role="presentation" cellspacing="0" cellpadding="0" style="width:100%;border-collapse:separate;border-spacing:8px 8px;">
+      <div style="background:{summary["headline_bg"]};border:1px solid #e5e7eb;border-radius:12px;padding:16px 18px;">
+        <p style="margin:0;font-size:16px;font-weight:700;color:{summary["headline_color"]};">{summary["headline"]}</p>
+        {tests_line_html}
+      </div>
+
+      <table role="presentation" cellspacing="0" cellpadding="0" style="width:100%;border-collapse:separate;border-spacing:8px 8px;margin-top:16px;">
         <tr>
-          <td width="20%" style="border:2px solid #dcfce7;border-radius:12px;padding:12px 6px;text-align:center;">
-            <div style="font-size:10px;font-weight:600;color:#888;text-transform:uppercase;">All Green</div>
-            <div style="font-size:22px;font-weight:700;color:#22c55e;margin-top:4px;">{green}</div>
+          <td width="25%" style="border:2px solid #dcfce7;border-radius:12px;padding:12px 8px;text-align:center;">
+            <div style="font-size:22px;font-weight:700;color:#22c55e;">{summary["passed"]}</div>
+            <div style="font-size:11px;font-weight:600;color:#166534;margin-top:4px;">Projects passed</div>
+            <div style="font-size:10px;color:#888;margin-top:2px;">Latest run · 0 failures</div>
           </td>
-          <td width="20%" style="border:2px solid #fecaca;border-radius:12px;padding:12px 6px;text-align:center;">
-            <div style="font-size:10px;font-weight:600;color:#888;text-transform:uppercase;">With Issues</div>
-            <div style="font-size:22px;font-weight:700;color:#ef4444;margin-top:4px;">{issues}</div>
+          <td width="25%" style="border:2px solid #fecaca;border-radius:12px;padding:12px 8px;text-align:center;">
+            <div style="font-size:22px;font-weight:700;color:#ef4444;">{summary["with_failures"]}</div>
+            <div style="font-size:11px;font-weight:600;color:#991b1b;margin-top:4px;">Projects with failures</div>
+            <div style="font-size:10px;color:#888;margin-top:2px;">Latest run had failed tests</div>
           </td>
-          <td width="20%" style="border:2px solid #e5e7eb;border-radius:12px;padding:12px 6px;text-align:center;">
-            <div style="font-size:10px;font-weight:600;color:#888;text-transform:uppercase;">No Run Yet</div>
-            <div style="font-size:22px;font-weight:700;color:#6b7280;margin-top:4px;">{no_run}</div>
+          <td width="25%" style="border:2px solid #e5e7eb;border-radius:12px;padding:12px 8px;text-align:center;">
+            <div style="font-size:22px;font-weight:700;color:#6b7280;">{summary["no_run"]}</div>
+            <div style="font-size:11px;font-weight:600;color:#6b7280;margin-top:4px;">No run found</div>
+            <div style="font-size:10px;color:#888;margin-top:2px;">Nothing on dashboard yet</div>
           </td>
-          <td width="20%" style="border:2px solid #fef2f2;border-radius:12px;padding:12px 6px;text-align:center;">
-            <div style="font-size:10px;font-weight:600;color:#888;text-transform:uppercase;">Fetch Errors</div>
-            <div style="font-size:22px;font-weight:700;color:#991b1b;margin-top:4px;">{errors}</div>
-          </td>
-          <td width="20%" style="border:2px solid #e5e7eb;border-radius:12px;padding:12px 6px;text-align:center;">
-            <div style="font-size:10px;font-weight:600;color:#888;text-transform:uppercase;">Pass Rate</div>
-            <div style="font-size:22px;font-weight:700;color:{('#22c55e' if overall_rate >= 95 else '#f59e0b' if overall_rate >= 80 else '#ef4444')};margin-top:4px;">{overall_rate if overall_total else '—'}{'%' if overall_total else ''}</div>
+          <td width="25%" style="border:2px solid #fef2f2;border-radius:12px;padding:12px 8px;text-align:center;">
+            <div style="font-size:22px;font-weight:700;color:#991b1b;">{summary["fetch_errors"]}</div>
+            <div style="font-size:11px;font-weight:600;color:#991b1b;margin-top:4px;">Dashboard errors</div>
+            <div style="font-size:10px;color:#888;margin-top:2px;">Could not load data</div>
           </td>
         </tr>
       </table>
-      <p style="margin:14px 0 0;font-size:12px;color:#666;line-height:1.5;">
-        Each row shows the <strong>latest relevant run</strong> for that project — not a full-day aggregate.
-        If a scheduled batch has not finished yet, the note column explains what was found (or missing).
+      <p style="margin:14px 0 0;font-size:12px;color:#666;line-height:1.6;">
+        <strong>How to read this report:</strong> Each row is one project. We show the <strong>latest run only</strong> (not all runs from the day).
+        The <strong>Note</strong> column explains which batch that run belongs to (morning / evening) or if a run is still missing.
       </p>
     </div>
 
     <div style="margin:0 32px 24px;">
-      <h3 style="font-size:16px;margin:0 0 12px 0;color:#333;">Project Status</h3>
+      <h3 style="font-size:16px;margin:0 0 12px 0;color:#333;">Project details ({summary["total_projects"]} projects)</h3>
       <table style="width:100%;border-collapse:collapse;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
         <thead>
           <tr style="background:#f9fafb;">
             <th style="padding:10px 16px;text-align:left;font-size:12px;font-weight:600;color:#666;">Project</th>
-            <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Status</th>
-            <th style="padding:10px 16px;text-align:left;font-size:12px;font-weight:600;color:#666;">Last Run</th>
+            <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Result</th>
+            <th style="padding:10px 16px;text-align:left;font-size:12px;font-weight:600;color:#666;">Last run time</th>
             <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Tests</th>
-            <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Pass</th>
-            <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Fail</th>
-            <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Rate</th>
+            <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Passed</th>
+            <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Failed</th>
+            <th style="padding:10px 16px;text-align:center;font-size:12px;font-weight:600;color:#666;">Pass %</th>
             <th style="padding:10px 16px;text-align:left;font-size:12px;font-weight:600;color:#666;">Note</th>
           </tr>
         </thead>
@@ -393,12 +459,22 @@ def render_html(sections: list[dict], period: str, now: datetime) -> tuple[str, 
   </div>
 </body></html>"""
 
-    if issues > 0:
-        subject = f"{meta['subject_tag']} QA Health Report – {date_str} – {issues} project(s) with issues"
-    elif no_run > 0 or errors > 0:
-        subject = f"{meta['subject_tag']} QA Health Report – {date_str} – {no_run} missing run(s), {errors} error(s)"
-    elif green == len(sections) and overall_total:
-        subject = f"{meta['subject_tag']} QA Health Report – {date_str} – All Green ({overall_rate}%)"
+    s = summary
+    if s["with_failures"] > 0:
+        subject = (
+            f"{meta['subject_tag']} QA Health Report – {date_str} – "
+            f"{s['with_failures']}/{s['total_projects']} projects have failures"
+        )
+    elif s["no_run"] > 0 or s["fetch_errors"] > 0:
+        subject = (
+            f"{meta['subject_tag']} QA Health Report – {date_str} – "
+            f"{s['passed']}/{s['total_projects']} passed · {s['no_run']} no run · {s['fetch_errors']} errors"
+        )
+    elif s["passed"] == s["total_projects"] and s["test_total"]:
+        subject = (
+            f"{meta['subject_tag']} QA Health Report – {date_str} – "
+            f"All {s['total_projects']} projects passed ({s['test_passed']} tests, 0 failed)"
+        )
     else:
         subject = f"{meta['subject_tag']} QA Health Report – {date_str}"
     return html, subject
