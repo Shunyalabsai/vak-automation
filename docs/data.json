@@ -1,14 +1,14 @@
 {
   "current": {
-    "run_id": "cb32542e",
-    "timestamp": "2026-08-14 10:46:30 IST",
+    "run_id": "f240365a",
+    "timestamp": "2026-08-24 15:26:55 IST",
     "total": 16,
     "passed": 16,
     "failed": 0,
     "errors": 0,
     "pass_rate": 100.0,
-    "avg_latency": 10636,
-    "total_ms": 170178,
+    "avg_latency": 10573,
+    "total_ms": 169167,
     "categories": [
       {
         "name": "ASR",
@@ -17,9 +17,9 @@
         "fail": 0,
         "error": 0,
         "pass_rate": 100.0,
-        "avg_latency": 14335,
-        "min_latency": 14335,
-        "max_latency": 14335
+        "avg_latency": 14096,
+        "min_latency": 14096,
+        "max_latency": 14096
       },
       {
         "name": "Translate",
@@ -28,9 +28,9 @@
         "fail": 0,
         "error": 0,
         "pass_rate": 100.0,
-        "avg_latency": 83,
-        "min_latency": 65,
-        "max_latency": 133
+        "avg_latency": 94,
+        "min_latency": 69,
+        "max_latency": 207
       },
       {
         "name": "TTS",
@@ -39,9 +39,9 @@
         "fail": 0,
         "error": 0,
         "pass_rate": 100.0,
-        "avg_latency": 1788,
-        "min_latency": 1687,
-        "max_latency": 1967
+        "avg_latency": 1576,
+        "min_latency": 964,
+        "max_latency": 1897
       },
       {
         "name": "Pipeline",
@@ -50,9 +50,9 @@
         "fail": 0,
         "error": 0,
         "pass_rate": 100.0,
-        "avg_latency": 29980,
-        "min_latency": 27028,
-        "max_latency": 35752
+        "avg_latency": 29937,
+        "min_latency": 27276,
+        "max_latency": 34501
       }
     ],
     "tests": [
@@ -61,13 +61,13 @@
         "name": "ASR - doctor.mp3",
         "category": "ASR",
         "status": "PASS",
-        "duration_ms": 14334.9,
+        "duration_ms": 14095.7,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
         "error": "",
         "notes": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई ग",
-        "response": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर एलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वल आई नॉट शुर व्हाट इट वाज एक्चु",
+        "response": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "input": "doctor.mp3",
         "source_lang": "Hindi",
         "target_lang": "-"
@@ -77,7 +77,7 @@
         "name": "Translate en→hi",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 90.0,
+        "duration_ms": 77.0,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -93,7 +93,7 @@
         "name": "Translate hi→mr",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 78.0,
+        "duration_ms": 76.0,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -109,7 +109,7 @@
         "name": "Translate hi→bn",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 65.0,
+        "duration_ms": 69.0,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -125,7 +125,7 @@
         "name": "Translate en→doi",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 73.0,
+        "duration_ms": 76.0,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -141,7 +141,7 @@
         "name": "Translate en→ta",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 70.0,
+        "duration_ms": 76.0,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -157,7 +157,7 @@
         "name": "Translate en→te",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 71.0,
+        "duration_ms": 76.0,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -173,7 +173,7 @@
         "name": "Supported Languages",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 132.9,
+        "duration_ms": 206.7,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -189,8 +189,8 @@
         "name": "TTS - tts_report_en.wav",
         "category": "TTS",
         "status": "PASS",
-        "duration_ms": 1966.6,
-        "audio_bytes": 94406,
+        "duration_ms": 1896.7,
+        "audio_bytes": 93782,
         "output_format": "wav",
         "audio_url": "audio/tts_report_en.wav",
         "error": "",
@@ -205,8 +205,8 @@
         "name": "TTS - tts_report_hi.wav",
         "category": "TTS",
         "status": "PASS",
-        "duration_ms": 1709.3,
-        "audio_bytes": 87122,
+        "duration_ms": 1867.9,
+        "audio_bytes": 87124,
         "output_format": "wav",
         "audio_url": "audio/tts_report_hi.wav",
         "error": "",
@@ -221,8 +221,8 @@
         "name": "TTS - tts_report_emotion.wav",
         "category": "TTS",
         "status": "PASS",
-        "duration_ms": 1686.9,
-        "audio_bytes": 80884,
+        "duration_ms": 964.2,
+        "audio_bytes": 88656,
         "output_format": "wav",
         "audio_url": "audio/tts_report_emotion.wav",
         "error": "",
@@ -237,8 +237,8 @@
         "name": "Pipeline hi→en",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 29718.1,
-        "audio_bytes": 5743956,
+        "duration_ms": 29196.5,
+        "audio_bytes": 5704054,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_en_doctor.wav",
         "error": "",
@@ -247,9 +247,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "en",
-        "asr_latency_ms": 14109.1,
-        "translate_latency_ms": 531.9,
-        "tts_latency_ms": 13576.9,
+        "asr_latency_ms": 13984.5,
+        "translate_latency_ms": 768.5,
+        "tts_latency_ms": 12943.3,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "Hello Mr. Phillips Take a seat Thank you Now What Seems to Be the Problem I'm Not Feeling Very Well I Got a Terrible Column One And I Keep Forring Up Have You Head and diarrhea no i have had long eve beam feeling like this sin late last night do not know if you are allergic to anything no not the i know of what eve You recently ate Well My Two Children Cook Dinner for My Wife and Me Last Night It Was Awarded in Anniversary This C&D Wanted to Surprise As Was a Nice Thought What did you have I've "
       },
@@ -258,8 +258,8 @@
         "name": "Pipeline hi→mr",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 35751.8,
-        "audio_bytes": 8505358,
+        "duration_ms": 34500.9,
+        "audio_bytes": 8502686,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_mr_doctor.wav",
         "error": "",
@@ -268,9 +268,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "mr",
-        "asr_latency_ms": 14320.3,
-        "translate_latency_ms": 1972.6,
-        "tts_latency_ms": 17958.7,
+        "asr_latency_ms": 13826.9,
+        "translate_latency_ms": 1949.4,
+        "tts_latency_ms": 17224.4,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "नमस्कार, मिस्टर फिलिप्स, सीट घ्या. धन्यवाद. मला काय वाटते? हेड अँड डायरिया नो आय हेव्हेंट हॉव लॉंग एव्हन बीम फीलिंग लाइक दिस सन्स लेट लास्ट नाइट डू नो इफ यूअर अॅलर्जी टू एनिथिंग नो नॉट द आय नो ऑफ व्हाट एव्हन आपण अलीकडेच माझ्या मुलांसाठी डिनर तयार केले आहे, माझ्या पत्नी आणि मी गेल्या रात्री ते पुरस्कार मिळवले आहेत, याबद्दल आश्चर्यचकित व्हा मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी माझ्या पत्नीला खूप आनंदी आहे, मी तिल"
       },
@@ -279,8 +279,8 @@
         "name": "Pipeline hi→bn",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 27476.5,
-        "audio_bytes": 5862300,
+        "duration_ms": 27275.8,
+        "audio_bytes": 5820576,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_bn_doctor.wav",
         "error": "",
@@ -289,9 +289,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "bn",
-        "asr_latency_ms": 14448.6,
-        "translate_latency_ms": 701.5,
-        "tts_latency_ms": 10826.3,
+        "asr_latency_ms": 13879.7,
+        "translate_latency_ms": 811.0,
+        "tts_latency_ms": 11084.8,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "হ্যালো মিস্টার ফিলিপস, একটা সিট নিন, ধন্যবাদ। এখন কি সমস্যা? আমি খুব ভালো অনুভব করছি না। হেড অ্যান্ড ডায়রিয়া নো আই হ্যাভেনট হাও লং অ্যাভেন বিম ফিলিং লাইক দ্য সিনস লেট লাস্ট নাইট ডু নো ইফ ইউ অ্যালার্জি টু এনথিং নো নো দ্য আই নো অফ হোয়াট অ্যাভেন আপনি সম্প্রতি আমার দুই সন্তানকে ভালভাবে খাওয়ালেন আমার স্ত্রী ও আমার জন্য ডিনার রান্না করা শেষ রাতে এটি একটি পুরস্কার ছিল এই সিএন্ডডি এর জন্য একটি চমৎকার ধারণা ছিল আপনি কি করেছেন তা আমি লক্ষ্য করেছি এটি আসলে একই ধরণের খাবার এবং পাস্তা ডিশ যা দীর্ঘ সময় র"
       },
@@ -300,8 +300,8 @@
         "name": "Pipeline hi→ta",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 29926.1,
-        "audio_bytes": 6528892,
+        "duration_ms": 29802.9,
+        "audio_bytes": 6621006,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_ta_doctor.wav",
         "error": "",
@@ -310,9 +310,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "ta",
-        "asr_latency_ms": 14003.8,
-        "translate_latency_ms": 798.1,
-        "tts_latency_ms": 13624.1,
+        "asr_latency_ms": 13559.5,
+        "translate_latency_ms": 880.2,
+        "tts_latency_ms": 13863.1,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "வணக்கம் திரு பிலிப்ஸ், ஒரு இருக்கை எடுத்துக்கொள்ளுங்கள். நன்றி. இப்போது என்ன பிரச்சனை? நான் நன்றாக உணரவில்லை. ஹெட் அன் டயரியா நோ ஐ ஹேவ் எவ் லொங் ஏவன் பீம் ஃபீலிங் லைக் திஸ் சின்ஸ் லேட் லாஸ்ட் நைட் டூ நோ ஐ யு ஆர் அலெர்ஜிக் டு என்ஹிதிங் நோ நோ ஐ ஹேவ் எவ் லொங் ஏவன் நீங்கள் சமீபத்தில் என் குழந்தைகளுக்கு உணவு சமைத்தீர்கள் என் மனைவி மற்றும் நான் கடைசி இரவு அதை ஆண்டுவிழாவில் விருது பெற்றோம் இந்த சி & டி விரும்பியவர் ஆச்சரியமாக இருந்தார் நீங்கள் என்ன செய்தீர்கள் என்று நான் கவனிக்கவில்லை, அது உண்மையில் ஒர"
       },
@@ -321,8 +321,8 @@
         "name": "Pipeline hi→te",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 27028.4,
-        "audio_bytes": 6190892,
+        "duration_ms": 28910.1,
+        "audio_bytes": 6168072,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_te_doctor.wav",
         "error": "",
@@ -331,9 +331,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "te",
-        "asr_latency_ms": 14040.1,
-        "translate_latency_ms": 1055.1,
-        "tts_latency_ms": 10433.1,
+        "asr_latency_ms": 13905.2,
+        "translate_latency_ms": 1315.9,
+        "tts_latency_ms": 12188.8,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "హలో మిస్టర్ ఫిలిప్స్ టేక్ ఎ సీట్ థాంక్స్ యు నో వాట్ సీమ్స్ టూ బీ ది ప్రోబ్లం ఐ నో ఫీలింగ్ వెరీ వెల్ ఐ గట్ ఎ టెర్రర్ కోల్బమ్ వన్ అండ్ ఐ కీప్ ఫోర్రింగ్ అప్ హవ్ యు హెడ్ అండ్ డైరియా నో ఐ హేవెంట్ హోవ్ లాంగ్ ఎవెన్స్ బీమ్ ఫీలింగ్ లైక్ ది సిన్స్ లేట్ లాస్ట్ నైట్ డూ నో ఐ యు ఆర్ అలెర్జిక్ టు ఎనిథింగ్ నో నో ఐ నో ఆఫ్ వాట్ ఎవెన్స్ మీరు ఇటీవల నా పిల్లలకు వంటకం తయారు చేశారు నా భార్య మరియు నాకు చివరి రాత్రి అది వార్ వార్ అవార్డు వార్షికోత్సవం ఈ సీ & డి వంటకం నాకు ఆశ్చర్యం కలిగించింది వాట్ డిడ్ యు హవ్ వాల్ ఐ నోట"
       }
@@ -341,1936 +341,6 @@
     "failed_tests": []
   },
   "runs": [
-    {
-      "run_id": "b70e6abf",
-      "timestamp": "2026-07-15 12:40:19 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10321,
-      "failed_tests": []
-    },
-    {
-      "run_id": "0c09d470",
-      "timestamp": "2026-07-15 14:40:09 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 13798,
-      "failed_tests": [
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "25264c9b",
-      "timestamp": "2026-07-15 18:39:44 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 22623,
-      "failed_tests": [
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "a48170cf",
-      "timestamp": "2026-07-15 20:39:57 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8906,
-      "failed_tests": []
-    },
-    {
-      "run_id": "55fa3dcf",
-      "timestamp": "2026-07-15 22:40:09 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9883,
-      "failed_tests": []
-    },
-    {
-      "run_id": "e546e775",
-      "timestamp": "2026-07-16 00:40:14 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11204,
-      "failed_tests": []
-    },
-    {
-      "run_id": "ac50a576",
-      "timestamp": "2026-07-16 02:40:01 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9240,
-      "failed_tests": []
-    },
-    {
-      "run_id": "a74bb13f",
-      "timestamp": "2026-07-16 04:40:29 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9877,
-      "failed_tests": []
-    },
-    {
-      "run_id": "0a8ac2c7",
-      "timestamp": "2026-07-16 06:40:18 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10260,
-      "failed_tests": []
-    },
-    {
-      "run_id": "b080130d",
-      "timestamp": "2026-07-16 08:40:21 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9612,
-      "failed_tests": []
-    },
-    {
-      "run_id": "3df73815",
-      "timestamp": "2026-07-16 10:40:33 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8642,
-      "failed_tests": []
-    },
-    {
-      "run_id": "7db01d3c",
-      "timestamp": "2026-07-16 12:40:11 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10185,
-      "failed_tests": []
-    },
-    {
-      "run_id": "784e22eb",
-      "timestamp": "2026-07-16 14:40:12 IST",
-      "total": 16,
-      "passed": 15,
-      "failed": 1,
-      "pass_rate": 93.8,
-      "avg_latency": 9203,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "740f8705",
-      "timestamp": "2026-07-16 16:40:29 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8686,
-      "failed_tests": []
-    },
-    {
-      "run_id": "0954143d",
-      "timestamp": "2026-07-16 18:40:19 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10969,
-      "failed_tests": []
-    },
-    {
-      "run_id": "218c4757",
-      "timestamp": "2026-07-16 20:42:00 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10114,
-      "failed_tests": []
-    },
-    {
-      "run_id": "f94bb169",
-      "timestamp": "2026-07-17 00:38:22 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 12010,
-      "failed_tests": []
-    },
-    {
-      "run_id": "d5c8a81f",
-      "timestamp": "2026-07-17 02:40:39 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9334,
-      "failed_tests": []
-    },
-    {
-      "run_id": "b9e766a7",
-      "timestamp": "2026-07-17 04:40:03 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9405,
-      "failed_tests": []
-    },
-    {
-      "run_id": "6a8b136e",
-      "timestamp": "2026-07-17 06:40:10 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10193,
-      "failed_tests": []
-    },
-    {
-      "run_id": "73a46ddc",
-      "timestamp": "2026-07-17 08:40:43 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9170,
-      "failed_tests": []
-    },
-    {
-      "run_id": "cff8ce17",
-      "timestamp": "2026-07-17 10:40:05 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9169,
-      "failed_tests": []
-    },
-    {
-      "run_id": "66578a98",
-      "timestamp": "2026-07-17 12:39:58 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9754,
-      "failed_tests": []
-    },
-    {
-      "run_id": "73f844b5",
-      "timestamp": "2026-07-17 14:40:10 IST",
-      "total": 16,
-      "passed": 15,
-      "failed": 1,
-      "pass_rate": 93.8,
-      "avg_latency": 16242,
-      "failed_tests": [
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "ca58a2d0",
-      "timestamp": "2026-07-17 16:39:44 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8700,
-      "failed_tests": []
-    },
-    {
-      "run_id": "6fc2cec0",
-      "timestamp": "2026-07-17 18:40:01 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 14957,
-      "failed_tests": [
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "3c021a16",
-      "timestamp": "2026-07-17 20:40:00 IST",
-      "total": 16,
-      "passed": 15,
-      "failed": 1,
-      "pass_rate": 93.8,
-      "avg_latency": 9847,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "57be36b9",
-      "timestamp": "2026-07-17 22:41:09 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8693,
-      "failed_tests": []
-    },
-    {
-      "run_id": "74dd380b",
-      "timestamp": "2026-07-18 00:40:12 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9520,
-      "failed_tests": []
-    },
-    {
-      "run_id": "ff0d4261",
-      "timestamp": "2026-07-18 02:40:30 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8957,
-      "failed_tests": []
-    },
-    {
-      "run_id": "755a3385",
-      "timestamp": "2026-07-18 04:39:39 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8885,
-      "failed_tests": []
-    },
-    {
-      "run_id": "f3a5c993",
-      "timestamp": "2026-07-18 06:39:16 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8979,
-      "failed_tests": []
-    },
-    {
-      "run_id": "c25f7ac3",
-      "timestamp": "2026-07-18 08:40:59 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8166,
-      "failed_tests": []
-    },
-    {
-      "run_id": "6cf24c1b",
-      "timestamp": "2026-07-18 10:40:00 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9628,
-      "failed_tests": []
-    },
-    {
-      "run_id": "0866e2bb",
-      "timestamp": "2026-07-18 12:40:33 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9193,
-      "failed_tests": []
-    },
-    {
-      "run_id": "fd2eeb0c",
-      "timestamp": "2026-07-18 14:40:36 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8972,
-      "failed_tests": []
-    },
-    {
-      "run_id": "e046589c",
-      "timestamp": "2026-07-18 16:40:38 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10380,
-      "failed_tests": []
-    },
-    {
-      "run_id": "73b6b4c7",
-      "timestamp": "2026-07-18 18:39:41 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8779,
-      "failed_tests": []
-    },
-    {
-      "run_id": "22b66997",
-      "timestamp": "2026-07-18 20:40:41 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 15431,
-      "failed_tests": [
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "c6cb52ce",
-      "timestamp": "2026-07-18 22:40:16 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9318,
-      "failed_tests": []
-    },
-    {
-      "run_id": "f57dea61",
-      "timestamp": "2026-07-19 00:40:28 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11776,
-      "failed_tests": []
-    },
-    {
-      "run_id": "a7d58b76",
-      "timestamp": "2026-07-19 02:40:41 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9759,
-      "failed_tests": []
-    },
-    {
-      "run_id": "ff721827",
-      "timestamp": "2026-07-19 04:40:20 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8836,
-      "failed_tests": []
-    },
-    {
-      "run_id": "0f45d7ff",
-      "timestamp": "2026-07-19 06:40:26 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8885,
-      "failed_tests": []
-    },
-    {
-      "run_id": "6333c438",
-      "timestamp": "2026-07-19 08:39:52 IST",
-      "total": 16,
-      "passed": 15,
-      "failed": 1,
-      "pass_rate": 93.8,
-      "avg_latency": 9231,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "33ce8156",
-      "timestamp": "2026-07-19 10:41:12 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9508,
-      "failed_tests": []
-    },
-    {
-      "run_id": "db350f7d",
-      "timestamp": "2026-07-19 12:39:10 IST",
-      "total": 16,
-      "passed": 10,
-      "failed": 6,
-      "pass_rate": 62.5,
-      "avg_latency": 123540,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "c7fbbffe",
-      "timestamp": "2026-07-19 14:40:36 IST",
-      "total": 16,
-      "passed": 10,
-      "failed": 6,
-      "pass_rate": 62.5,
-      "avg_latency": 123922,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "cdb3cc4b",
-      "timestamp": "2026-07-19 16:40:40 IST",
-      "total": 16,
-      "passed": 10,
-      "failed": 6,
-      "pass_rate": 62.5,
-      "avg_latency": 94410,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "a37f1b49",
-      "timestamp": "2026-07-19 18:40:18 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11332,
-      "failed_tests": []
-    },
-    {
-      "run_id": "c3adf082",
-      "timestamp": "2026-07-19 20:40:13 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8688,
-      "failed_tests": []
-    },
-    {
-      "run_id": "190b4707",
-      "timestamp": "2026-07-19 22:39:59 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9360,
-      "failed_tests": []
-    },
-    {
-      "run_id": "a22c1418",
-      "timestamp": "2026-07-20 00:40:39 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10386,
-      "failed_tests": []
-    },
-    {
-      "run_id": "3ece8e16",
-      "timestamp": "2026-07-20 02:39:05 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9658,
-      "failed_tests": []
-    },
-    {
-      "run_id": "73e9e659",
-      "timestamp": "2026-07-20 04:40:35 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9198,
-      "failed_tests": []
-    },
-    {
-      "run_id": "8be3883a",
-      "timestamp": "2026-07-20 08:38:45 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 13592,
-      "failed_tests": [
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "a3bff980",
-      "timestamp": "2026-07-20 10:40:10 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8614,
-      "failed_tests": []
-    },
-    {
-      "run_id": "6e5aca62",
-      "timestamp": "2026-07-20 12:38:01 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10182,
-      "failed_tests": []
-    },
-    {
-      "run_id": "7ebce5da",
-      "timestamp": "2026-07-20 16:40:16 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9950,
-      "failed_tests": []
-    },
-    {
-      "run_id": "da3d0ca2",
-      "timestamp": "2026-07-20 18:40:27 IST",
-      "total": 16,
-      "passed": 10,
-      "failed": 6,
-      "pass_rate": 62.5,
-      "avg_latency": 123886,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "b3a75370",
-      "timestamp": "2026-07-20 20:39:31 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9613,
-      "failed_tests": []
-    },
-    {
-      "run_id": "4a4f2f9b",
-      "timestamp": "2026-07-20 22:40:42 IST",
-      "total": 16,
-      "passed": 10,
-      "failed": 6,
-      "pass_rate": 62.5,
-      "avg_latency": 82111,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "64b4dc59",
-      "timestamp": "2026-07-21 00:40:49 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11585,
-      "failed_tests": []
-    },
-    {
-      "run_id": "3876d5c4",
-      "timestamp": "2026-07-21 02:40:24 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 14459,
-      "failed_tests": [
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "e7ad85be",
-      "timestamp": "2026-07-21 04:40:28 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8527,
-      "failed_tests": []
-    },
-    {
-      "run_id": "d69eb7ee",
-      "timestamp": "2026-07-21 06:40:53 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9402,
-      "failed_tests": []
-    },
-    {
-      "run_id": "4d3d6248",
-      "timestamp": "2026-07-21 08:41:04 IST",
-      "total": 16,
-      "passed": 15,
-      "failed": 1,
-      "pass_rate": 93.8,
-      "avg_latency": 9290,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "Server error '502 Bad Gateway' for url 'https://asr.shunyalabs.ai/v1/audio/transcriptions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-        }
-      ]
-    },
-    {
-      "run_id": "8ed0c1f8",
-      "timestamp": "2026-07-21 10:40:13 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9074,
-      "failed_tests": []
-    },
-    {
-      "run_id": "3a6ce74b",
-      "timestamp": "2026-07-21 12:41:01 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10394,
-      "failed_tests": []
-    },
-    {
-      "run_id": "8371097f",
-      "timestamp": "2026-07-21 14:39:34 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9983,
-      "failed_tests": []
-    },
-    {
-      "run_id": "8f61609e",
-      "timestamp": "2026-07-21 16:40:48 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9200,
-      "failed_tests": []
-    },
-    {
-      "run_id": "c014db33",
-      "timestamp": "2026-07-21 18:39:57 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10907,
-      "failed_tests": []
-    },
-    {
-      "run_id": "75f4ee25",
-      "timestamp": "2026-07-21 20:40:50 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9031,
-      "failed_tests": []
-    },
-    {
-      "run_id": "e5d0e158",
-      "timestamp": "2026-07-21 22:41:10 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10329,
-      "failed_tests": []
-    },
-    {
-      "run_id": "673e9f69",
-      "timestamp": "2026-07-22 00:41:47 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10425,
-      "failed_tests": []
-    },
-    {
-      "run_id": "15ea4f41",
-      "timestamp": "2026-07-22 02:40:40 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10307,
-      "failed_tests": []
-    },
-    {
-      "run_id": "4660ab24",
-      "timestamp": "2026-07-22 04:43:35 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10833,
-      "failed_tests": []
-    },
-    {
-      "run_id": "d9c7bd2d",
-      "timestamp": "2026-07-22 06:40:51 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 9030,
-      "failed_tests": []
-    },
-    {
-      "run_id": "608e38ea",
-      "timestamp": "2026-07-22 08:40:20 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8712,
-      "failed_tests": []
-    },
-    {
-      "run_id": "6663facf",
-      "timestamp": "2026-07-22 10:43:45 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10190,
-      "failed_tests": []
-    },
-    {
-      "run_id": "15dc0715",
-      "timestamp": "2026-07-22 12:39:39 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 15186,
-      "failed_tests": []
-    },
-    {
-      "run_id": "937fc045",
-      "timestamp": "2026-07-22 14:40:42 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 8812,
-      "failed_tests": []
-    },
-    {
-      "run_id": "1b85f88d",
-      "timestamp": "2026-07-22 16:40:08 IST",
-      "total": 16,
-      "passed": 10,
-      "failed": 6,
-      "pass_rate": 62.5,
-      "avg_latency": 123372,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "0c3ed0f5",
-      "timestamp": "2026-07-22 18:40:46 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 14967,
-      "failed_tests": []
-    },
-    {
-      "run_id": "5c3f9638",
-      "timestamp": "2026-07-22 20:43:48 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 15076,
-      "failed_tests": []
-    },
-    {
-      "run_id": "0dcb36a6",
-      "timestamp": "2026-07-22 22:38:24 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11460,
-      "failed_tests": []
-    },
-    {
-      "run_id": "430249dc",
-      "timestamp": "2026-07-23 00:41:07 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 18288,
-      "failed_tests": []
-    },
-    {
-      "run_id": "a37a1ad0",
-      "timestamp": "2026-07-23 02:40:16 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 12892,
-      "failed_tests": []
-    },
-    {
-      "run_id": "3c1b5a09",
-      "timestamp": "2026-07-23 04:40:25 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 12706,
-      "failed_tests": []
-    },
-    {
-      "run_id": "81dbff85",
-      "timestamp": "2026-07-23 06:40:31 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 79914,
-      "failed_tests": [
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "420b6935",
-      "timestamp": "2026-07-23 08:48:22 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 12749,
-      "failed_tests": []
-    },
-    {
-      "run_id": "6d975a3c",
-      "timestamp": "2026-07-23 10:40:50 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 13694,
-      "failed_tests": []
-    },
-    {
-      "run_id": "57c41158",
-      "timestamp": "2026-07-23 12:40:58 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 18116,
-      "failed_tests": []
-    },
-    {
-      "run_id": "9d1c6fb4",
-      "timestamp": "2026-07-23 14:42:51 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10955,
-      "failed_tests": []
-    },
-    {
-      "run_id": "05ba9e7b",
-      "timestamp": "2026-07-23 16:40:37 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 64213,
-      "failed_tests": [
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "c04d4a76",
-      "timestamp": "2026-07-23 19:08:34 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 12782,
-      "failed_tests": []
-    },
-    {
-      "run_id": "c094fb16",
-      "timestamp": "2026-07-23 20:40:08 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 14286,
-      "failed_tests": []
-    },
-    {
-      "run_id": "f362ee7d",
-      "timestamp": "2026-07-23 22:41:10 IST",
-      "total": 16,
-      "passed": 11,
-      "failed": 5,
-      "pass_rate": 68.8,
-      "avg_latency": 120349,
-      "failed_tests": [
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "da9a2c7b",
-      "timestamp": "2026-07-24 00:42:26 IST",
-      "total": 16,
-      "passed": 15,
-      "failed": 1,
-      "pass_rate": 93.8,
-      "avg_latency": 16784,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "b6151c47",
-      "timestamp": "2026-07-24 02:40:33 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 13492,
-      "failed_tests": []
-    },
-    {
-      "run_id": "832daae7",
-      "timestamp": "2026-07-24 04:44:34 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 12713,
-      "failed_tests": []
-    },
-    {
-      "run_id": "06c4e13f",
-      "timestamp": "2026-07-24 06:40:49 IST",
-      "total": 16,
-      "passed": 13,
-      "failed": 3,
-      "pass_rate": 81.2,
-      "avg_latency": 80558,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "390f8a85",
-      "timestamp": "2026-07-24 08:40:22 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11121,
-      "failed_tests": []
-    },
-    {
-      "run_id": "f0e87563",
-      "timestamp": "2026-07-24 10:40:49 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 12595,
-      "failed_tests": []
-    },
-    {
-      "run_id": "890a0302",
-      "timestamp": "2026-07-24 12:40:40 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 19389,
-      "failed_tests": []
-    },
-    {
-      "run_id": "8ee8021e",
-      "timestamp": "2026-07-24 14:41:36 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11076,
-      "failed_tests": []
-    },
-    {
-      "run_id": "203875da",
-      "timestamp": "2026-07-24 16:40:40 IST",
-      "total": 16,
-      "passed": 14,
-      "failed": 2,
-      "pass_rate": 87.5,
-      "avg_latency": 53750,
-      "failed_tests": [
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "15375845",
-      "timestamp": "2026-07-24 20:52:29 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 13814,
-      "failed_tests": []
-    },
-    {
-      "run_id": "69fdefe9",
-      "timestamp": "2026-07-24 22:43:04 IST",
-      "total": 16,
-      "passed": 15,
-      "failed": 1,
-      "pass_rate": 93.8,
-      "avg_latency": 38831,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "46b6edac",
-      "timestamp": "2026-07-25 00:40:45 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 13740,
-      "failed_tests": []
-    },
-    {
-      "run_id": "ef53a44c",
-      "timestamp": "2026-07-25 02:41:27 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 15989,
-      "failed_tests": []
-    },
-    {
-      "run_id": "18a94fe7",
-      "timestamp": "2026-07-25 04:41:00 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11237,
-      "failed_tests": []
-    },
-    {
-      "run_id": "0293ec1f",
-      "timestamp": "2026-07-25 06:40:13 IST",
-      "total": 16,
-      "passed": 13,
-      "failed": 3,
-      "pass_rate": 81.2,
-      "avg_latency": 71808,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "d46852d3",
-      "timestamp": "2026-07-25 08:40:55 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10806,
-      "failed_tests": []
-    },
-    {
-      "run_id": "79fa627e",
-      "timestamp": "2026-07-25 10:40:52 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 11542,
-      "failed_tests": []
-    },
-    {
-      "run_id": "f2ad025b",
-      "timestamp": "2026-07-25 12:40:56 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 15433,
-      "failed_tests": []
-    },
-    {
-      "run_id": "a28b6b87",
-      "timestamp": "2026-07-25 14:38:38 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 12915,
-      "failed_tests": []
-    },
     {
       "run_id": "b6ffa339",
       "timestamp": "2026-07-25 16:40:58 IST",
@@ -5095,6 +3165,16 @@
       "failed": 0,
       "pass_rate": 100.0,
       "avg_latency": 10636,
+      "failed_tests": []
+    },
+    {
+      "run_id": "f240365a",
+      "timestamp": "2026-08-24 15:26:55 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10573,
       "failed_tests": []
     }
   ]
