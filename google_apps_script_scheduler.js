@@ -1,38 +1,37 @@
 /**
- * Google Apps Script — Scheduled Test Runner & Email Report
+ * Google Apps Script — Scheduled Test Runner & Health Reports
  *
- * This file is a REFERENCE for Google Apps Script (not executed locally).
- * Copy this code into a new Google Apps Script project at https://script.google.com
+ * Copy into your Scheduler Apps Script project at https://script.google.com
  *
- * Setup:
- * 1. Create a new Google Apps Script project
- * 2. Paste this code into Code.gs
- * 3. Go to Project Settings > Script Properties and add:
- *    - GITHUB_OWNER  → Shunyalabsai
- *    - GITHUB_REPO   → vak-automation
- *    - GITHUB_PAT    → your GitHub Personal Access Token (needs "repo" scope)
- * 4. Go to Triggers > Add Trigger:
+ * Script properties:
+ *   GITHUB_OWNER  → Shunyalabsai
+ *   GITHUB_REPO   → vak-automation
+ *   GITHUB_PAT    → classic token with repo scope
  *
- *    Trigger 1 — Run Tests (scheduled):
- *      Function: triggerRunTests
- *      Event source: Time-driven
- *      Type: choose your frequency (e.g., every 6 hours)
+ * ── Vak test schedule (IST) ──
+ *   Morning batch: ~4:00–5:00 AM
+ *   Evening batch: ~5:00–6:00 PM
  *
- *    IMPORTANT — avoid firing exactly at xx:58 IST:
- *    Several automations (Asksam, Website, Widget, Console, Zero Indic suites) are
- *    often scheduled on the same clock minute (:58). That aligns API load and causes
- *    intermittent failures on shared ASR/Translate/TTS backends. Prefer an odd minute
- *    offset for this repo (e.g. :03 or :17 past the hour) so Vak does not collide with
- *    the herd. The runner also staggers CI when it detects the xx:56–:01 IST window.
+ * ── Triggers to add (Time-driven, timezone = Asia/Kolkata if available) ──
  *
- *    Trigger 2 — Send Email (scheduled, after tests):
- *      Function: triggerSendEmail
- *      Event source: Time-driven
- *      Type: Day timer → e.g., 6pm to 7pm
+ * 1) triggerRunTestsMorning
+ *    Day timer → 4am to 5am   (runs Vak API tests after morning window starts)
  *
- * How it works:
- * - triggerRunTests()   → dispatches GitHub Actions to run tests, update sheet & dashboard
- * - triggerSendEmail()  → dispatches GitHub Actions to send email report only
+ * 2) triggerRunTestsEvening
+ *    Day timer → 5pm to 6pm   (runs Vak API tests after evening window starts)
+ *
+ * 3) triggerDailyDigestMorning
+ *    Day timer → 5am to 6am   (health email: start-of-day snapshot)
+ *
+ * 4) triggerDailyDigestEvening
+ *    Day timer → 6pm to 7pm   (health email: end-of-day snapshot)
+ *
+ * 5) triggerMonthlyDowntime (optional)
+ *    Month timer → 1st day, 9am–10am IST
+ *
+ * Health report covers all projects (Widget, Console, Asksam, Vak BE).
+ * Vak triggers above only run tests for this repo; other repos need the same
+ * morning/evening triggers in their own scheduler scripts.
  */
 
 function postDispatch(eventType) {
@@ -67,39 +66,42 @@ function postDispatch(eventType) {
   Logger.log("Dispatched '" + eventType + "' to " + owner + "/" + repo);
 }
 
-/** Trigger: Run tests + update sheet + update dashboard */
-function triggerRunTests() {
+/** Vak API tests — morning batch */
+function triggerRunTestsMorning() {
   postDispatch("run-tests");
 }
 
-/** Trigger: Send email report only (uses latest test data) */
+/** Vak API tests — evening batch */
+function triggerRunTestsEvening() {
+  postDispatch("run-tests");
+}
+
+/** Legacy alias */
+function triggerRunTests() {
+  triggerRunTestsMorning();
+}
+
+/** Vak failure email only (optional; per-run emails fire from CI when tests fail) */
 function triggerSendEmail() {
   postDispatch("send-email");
 }
 
-/**
- * Trigger: Send daily consolidated health report email.
- * Aggregates yesterday's test runs from ALL automation projects:
- *   - Asksam, Website, Widget, Console Dashboard, Vak BE
- *
- * Add a Time-driven trigger:
- *   Function: triggerDailyDigest
- *   Event source: Time-driven
- *   Type: Day timer → 9am to 10am (IST)
- */
-function triggerDailyDigest() {
-  postDispatch("daily-digest");
+/** Twice-daily health digest — morning (after 4–5 AM project runs) */
+function triggerDailyDigestMorning() {
+  postDispatch("daily-digest-morning");
 }
 
-/**
- * Trigger: Send monthly downtime report (previous calendar month).
- * Runs on the 1st — e.g. 1 Jun emails the full May outage summary.
- *
- * Add a Time-driven trigger:
- *   Function: triggerMonthlyDowntime
- *   Event source: Time-driven
- *   Type: Month timer → 1st day of month, morning (e.g. 9am–10am IST)
- */
+/** Twice-daily health digest — evening (after 5–6 PM project runs) */
+function triggerDailyDigestEvening() {
+  postDispatch("daily-digest-evening");
+}
+
+/** Legacy alias → morning digest */
+function triggerDailyDigest() {
+  triggerDailyDigestMorning();
+}
+
+/** Monthly downtime report — previous calendar month */
 function triggerMonthlyDowntime() {
   postDispatch("monthly-downtime");
 }

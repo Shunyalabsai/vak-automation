@@ -21,27 +21,21 @@ IST = timezone(timedelta(hours=5, minutes=30))
 
 PROJECTS = [
     {
-        "name": "Asksam Automation",
-        "dashboard": "https://saira-uwc.github.io/asksam-datascience-automation/",
-        "runs_url": "https://saira-uwc.github.io/asksam-datascience-automation/history/runs.json",
-        "format": "playwright",
-    },
-    {
-        "name": "Website Automation",
-        "dashboard": "https://saira-uwc.github.io/Shunyalabs_website/",
-        "runs_url": "https://saira-uwc.github.io/Shunyalabs_website/history/runs.json",
-        "format": "playwright",
-    },
-    {
         "name": "Widget Automation",
-        "dashboard": "https://saira-uwc.github.io/Shunyalabs_widget/",
-        "runs_url": "https://saira-uwc.github.io/Shunyalabs_widget/history/runs.json",
+        "dashboard": "https://shunyalabsai.github.io/widgets-automation/",
+        "runs_url": "https://shunyalabsai.github.io/widgets-automation/history/runs.json",
         "format": "playwright",
     },
     {
-        "name": "Console Dashboard",
-        "dashboard": "https://saira-uwc.github.io/Shunyalabs_console/",
-        "runs_url": "https://saira-uwc.github.io/Shunyalabs_console/history/runs.json",
+        "name": "Console Automation",
+        "dashboard": "https://shunyalabsai.github.io/console-automation/",
+        "runs_url": "https://shunyalabsai.github.io/console-automation/history/runs.json",
+        "format": "playwright",
+    },
+    {
+        "name": "Asksam Automation",
+        "dashboard": "https://shunyalabsai.github.io/asksam-automation/",
+        "runs_url": "https://shunyalabsai.github.io/asksam-automation/history/runs.json",
         "format": "playwright",
     },
     {
@@ -50,25 +44,6 @@ PROJECTS = [
         "runs_url": "https://shunyalabsai.github.io/vak-automation/data.json",
         "format": "vak",
     },
-    # Temporarily hidden — dashboards returning 404
-    # {
-    #     "name": "Concurrent (Zero Indic)",
-    #     "dashboard": "https://yamini-pal-singh.github.io/automation-testing/Concurrent-Report.html",
-    #     "runs_url": "https://yamini-pal-singh.github.io/automation-testing/concurrent-runs.json",
-    #     "format": "playwright",
-    # },
-    # {
-    #     "name": "Long Audio (Zero Indic)",
-    #     "dashboard": "https://yamini-pal-singh.github.io/automation-testing/Long-Audio-Report.html",
-    #     "runs_url": "https://yamini-pal-singh.github.io/automation-testing/long-audio-runs.json",
-    #     "format": "playwright",
-    # },
-    # {
-    #     "name": "Playground",
-    #     "dashboard": "https://yamini-pal-singh.github.io/playground-testing/Playground-Report.html",
-    #     "runs_url": "https://yamini-pal-singh.github.io/playground-testing/playground-runs.json",
-    #     "format": "playwright",
-    # },
 ]
 
 FAILURES_DASHBOARD = "https://shunyalabsai.github.io/vak-automation/failures.html"
