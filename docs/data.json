@@ -1,14 +1,14 @@
 {
   "current": {
-    "run_id": "9b89d2f0",
-    "timestamp": "2026-08-28 17:03:53 IST",
+    "run_id": "8475414e",
+    "timestamp": "2026-08-29 04:19:46 IST",
     "total": 16,
     "passed": 16,
     "failed": 0,
     "errors": 0,
     "pass_rate": 100.0,
-    "avg_latency": 10682,
-    "total_ms": 170911,
+    "avg_latency": 10586,
+    "total_ms": 169384,
     "categories": [
       {
         "name": "ASR",
@@ -17,9 +17,9 @@
         "fail": 0,
         "error": 0,
         "pass_rate": 100.0,
-        "avg_latency": 14088,
-        "min_latency": 14088,
-        "max_latency": 14088
+        "avg_latency": 13613,
+        "min_latency": 13613,
+        "max_latency": 13613
       },
       {
         "name": "Translate",
@@ -30,7 +30,7 @@
         "pass_rate": 100.0,
         "avg_latency": 90,
         "min_latency": 69,
-        "max_latency": 178
+        "max_latency": 176
       },
       {
         "name": "TTS",
@@ -39,9 +39,9 @@
         "fail": 0,
         "error": 0,
         "pass_rate": 100.0,
-        "avg_latency": 1951,
-        "min_latency": 1124,
-        "max_latency": 2501
+        "avg_latency": 1758,
+        "min_latency": 1000,
+        "max_latency": 2194
       },
       {
         "name": "Pipeline",
@@ -50,9 +50,9 @@
         "fail": 0,
         "error": 0,
         "pass_rate": 100.0,
-        "avg_latency": 30069,
-        "min_latency": 27535,
-        "max_latency": 35097
+        "avg_latency": 29974,
+        "min_latency": 26608,
+        "max_latency": 35666
       }
     ],
     "tests": [
@@ -61,7 +61,7 @@
         "name": "ASR - doctor.mp3",
         "category": "ASR",
         "status": "PASS",
-        "duration_ms": 14087.9,
+        "duration_ms": 13613.2,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -77,7 +77,7 @@
         "name": "Translate en→hi",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 76.0,
+        "duration_ms": 78.0,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -93,7 +93,7 @@
         "name": "Translate hi→mr",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 76.0,
+        "duration_ms": 77.0,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -173,7 +173,7 @@
         "name": "Supported Languages",
         "category": "Translate",
         "status": "PASS",
-        "duration_ms": 177.6,
+        "duration_ms": 176.3,
         "audio_bytes": 0,
         "output_format": "-",
         "audio_url": "",
@@ -189,8 +189,8 @@
         "name": "TTS - tts_report_en.wav",
         "category": "TTS",
         "status": "PASS",
-        "duration_ms": 2501.4,
-        "audio_bytes": 86648,
+        "duration_ms": 2193.7,
+        "audio_bytes": 94204,
         "output_format": "wav",
         "audio_url": "audio/tts_report_en.wav",
         "error": "",
@@ -205,8 +205,8 @@
         "name": "TTS - tts_report_hi.wav",
         "category": "TTS",
         "status": "PASS",
-        "duration_ms": 1123.5,
-        "audio_bytes": 87282,
+        "duration_ms": 2080.1,
+        "audio_bytes": 86934,
         "output_format": "wav",
         "audio_url": "audio/tts_report_hi.wav",
         "error": "",
@@ -221,8 +221,8 @@
         "name": "TTS - tts_report_emotion.wav",
         "category": "TTS",
         "status": "PASS",
-        "duration_ms": 2227.4,
-        "audio_bytes": 78692,
+        "duration_ms": 999.7,
+        "audio_bytes": 88440,
         "output_format": "wav",
         "audio_url": "audio/tts_report_emotion.wav",
         "error": "",
@@ -237,8 +237,8 @@
         "name": "Pipeline hi→en",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 29847.3,
-        "audio_bytes": 5755646,
+        "duration_ms": 28487.0,
+        "audio_bytes": 5757740,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_en_doctor.wav",
         "error": "",
@@ -247,9 +247,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "en",
-        "asr_latency_ms": 13945.8,
-        "translate_latency_ms": 862.3,
-        "tts_latency_ms": 13538.9,
+        "asr_latency_ms": 13324.1,
+        "translate_latency_ms": 590.4,
+        "tts_latency_ms": 13072.3,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "Hello Mr. Phillips Take a seat Thank you Now What Seems to Be the Problem I'm Not Feeling Very Well I Got a Terrible Column One And I Keep Forring Up Have You Head and diarrhea no i have had long eve beam feeling like this sin late last night do not know if you are allergic to anything no not the i know of what eve You recently ate Well My Two Children Cook Dinner for My Wife and Me Last Night It Was Awarded in Anniversary This C&D Wanted to Surprise As Was a Nice Thought What did you have I've "
       },
@@ -258,8 +258,8 @@
         "name": "Pipeline hi→mr",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 35096.9,
-        "audio_bytes": 8493758,
+        "duration_ms": 35665.5,
+        "audio_bytes": 8482202,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_mr_doctor.wav",
         "error": "",
@@ -268,9 +268,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "mr",
-        "asr_latency_ms": 13673.6,
-        "translate_latency_ms": 2004.3,
-        "tts_latency_ms": 17918.7,
+        "asr_latency_ms": 13516.2,
+        "translate_latency_ms": 2171.0,
+        "tts_latency_ms": 18478.1,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "नमस्कार, मिस्टर फिलिप्स, सीट घ्या. धन्यवाद. मला काय वाटते? हेड अँड डायरिया नो आय हेव्हेंट हॉव लॉंग एव्हन बीम फीलिंग लाइक दिस सन्स लेट लास्ट नाइट डू नो इफ यूअर अॅलर्जी टू एनिथिंग नो नॉट द आय नो ऑफ व्हाट एव्हन आपण अलीकडेच माझ्या मुलांसाठी डिनर तयार केले आहे, माझ्या पत्नी आणि मी गेल्या रात्री ते पुरस्कार मिळवले आहेत, याबद्दल आश्चर्यचकित व्हा मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी काय केले ते मी नोंदवले आहे मी माझ्या पत्नीला खूप आनंदी आहे, मी तिल"
       },
@@ -279,8 +279,8 @@
         "name": "Pipeline hi→bn",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 27677.4,
-        "audio_bytes": 5910368,
+        "duration_ms": 26783.0,
+        "audio_bytes": 5878260,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_bn_doctor.wav",
         "error": "",
@@ -289,9 +289,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "bn",
-        "asr_latency_ms": 13814.6,
-        "translate_latency_ms": 982.2,
-        "tts_latency_ms": 11380.4,
+        "asr_latency_ms": 13456.1,
+        "translate_latency_ms": 772.3,
+        "tts_latency_ms": 11054.4,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "হ্যালো মিস্টার ফিলিপস, একটা সিট নিন, ধন্যবাদ। এখন কি সমস্যা? আমি খুব ভালো অনুভব করছি না। হেড অ্যান্ড ডায়রিয়া নো আই হ্যাভেনট হাও লং অ্যাভেন বিম ফিলিং লাইক দ্য সিনস লেট লাস্ট নাইট ডু নো ইফ ইউ অ্যালার্জি টু এনথিং নো নো দ্য আই নো অফ হোয়াট অ্যাভেন আপনি সম্প্রতি আমার দুই সন্তানকে ভালভাবে খাওয়ালেন আমার স্ত্রী ও আমার জন্য ডিনার রান্না করা শেষ রাতে এটি একটি পুরস্কার ছিল এই সিএন্ডডি এর জন্য একটি চমৎকার ধারণা ছিল আপনি কি করেছেন তা আমি লক্ষ্য করেছি এটি আসলে একই ধরণের খাবার এবং পাস্তা ডিশ যা দীর্ঘ সময় র"
       },
@@ -300,8 +300,8 @@
         "name": "Pipeline hi→ta",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 30187.7,
-        "audio_bytes": 6525150,
+        "duration_ms": 32325.5,
+        "audio_bytes": 6651396,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_ta_doctor.wav",
         "error": "",
@@ -310,9 +310,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "ta",
-        "asr_latency_ms": 13653.4,
-        "translate_latency_ms": 1003.1,
-        "tts_latency_ms": 14030.9,
+        "asr_latency_ms": 13540.9,
+        "translate_latency_ms": 867.3,
+        "tts_latency_ms": 16417.0,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "வணக்கம் திரு பிலிப்ஸ், ஒரு இருக்கை எடுத்துக்கொள்ளுங்கள். நன்றி. இப்போது என்ன பிரச்சனை? நான் நன்றாக உணரவில்லை. ஹெட் அன் டயரியா நோ ஐ ஹேவ் எவ் லொங் ஏவன் பீம் ஃபீலிங் லைக் திஸ் சின்ஸ் லேட் லாஸ்ட் நைட் டூ நோ ஐ யு ஆர் அலெர்ஜிக் டு என்ஹிதிங் நோ நோ ஐ ஹேவ் எவ் லொங் ஏவன் நீங்கள் சமீபத்தில் என் குழந்தைகளுக்கு உணவு சமைத்தீர்கள் என் மனைவி மற்றும் நான் கடைசி இரவு அதை ஆண்டுவிழாவில் விருது பெற்றோம் இந்த சி & டி விரும்பியவர் ஆச்சரியமாக இருந்தார் நீங்கள் என்ன செய்தீர்கள் என்று நான் கவனிக்கவில்லை, அது உண்மையில் ஒர"
       },
@@ -321,8 +321,8 @@
         "name": "Pipeline hi→te",
         "category": "Pipeline",
         "status": "PASS",
-        "duration_ms": 27534.7,
-        "audio_bytes": 6180762,
+        "duration_ms": 26607.5,
+        "audio_bytes": 6228596,
         "output_format": "wav",
         "audio_url": "audio/pipeline_hi_te_doctor.wav",
         "error": "",
@@ -331,9 +331,9 @@
         "input": "doctor.mp3",
         "source_lang": "hi",
         "target_lang": "te",
-        "asr_latency_ms": 13811.6,
-        "translate_latency_ms": 1238.2,
-        "tts_latency_ms": 10984.7,
+        "asr_latency_ms": 13485.9,
+        "translate_latency_ms": 1119.5,
+        "tts_latency_ms": 10502.0,
         "asr_text": "हेलो मिस्टर फ़िलिप्स टेक अ सीट थैंक यू नाओ व्हाट सीम्स टू बे द प्रॉब्लम आई नॉट फ़ीलिंग वेरी वेल आई गॉट अ टेरबल स्तम्भ एक एंड आई कीप फ़ॉरिंग अप हैव यू हैड अनी डायरिया नो आई हैवेन्ट हॉव लॉन्ग एवेन बीम फ़ीलिंग लाइक दिस सिंस लेट लास्ट नाइट डू नो इफ यू आर अलर्जिक टू एनीथिंग नो नॉट द आई नो ऑफ़ व्हाट एवेन यू एटन रिसेंटली वेल माय टू चिल्ड्रन कुक डिनर फॉर माय वाइफ एंड मी लास्ट नाइट इट वाज आवर्ड इन अनवर्सरी इस सी एंड दे वांटेड टू सरप्राइज अस वाज अ नाइस थॉट व्हाट डिड यू हैव वॉल आई नोट शर व्हाट इट वाज एक्चु",
         "translated_text": "హలో మిస్టర్ ఫిలిప్స్ టేక్ ఎ సీట్ థాంక్స్ యు నో వాట్ సీమ్స్ టూ బీ ది ప్రోబ్లం ఐ నో ఫీలింగ్ వెరీ వెల్ ఐ గట్ ఎ టెర్రర్ కోల్బమ్ వన్ అండ్ ఐ కీప్ ఫోర్రింగ్ అప్ హవ్ యు హెడ్ అండ్ డైరియా నో ఐ హేవెంట్ హోవ్ లాంగ్ ఎవెన్స్ బీమ్ ఫీలింగ్ లైక్ ది సిన్స్ లేట్ లాస్ట్ నైట్ డూ నో ఐ యు ఆర్ అలెర్జిక్ టు ఎనిథింగ్ నో నో ఐ నో ఆఫ్ వాట్ ఎవెన్స్ మీరు ఇటీవల నా పిల్లలకు వంటకం తయారు చేశారు నా భార్య మరియు నాకు చివరి రాత్రి అది వార్ వార్ అవార్డు వార్షికోత్సవం ఈ సీ & డి వంటకం నాకు ఆశ్చర్యం కలిగించింది వాట్ డిడ్ యు హవ్ వాల్ ఐ నోట"
       }
@@ -341,123 +341,6 @@
     "failed_tests": []
   },
   "runs": [
-    {
-      "run_id": "b4b374b9",
-      "timestamp": "2026-07-29 18:40:45 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10802,
-      "failed_tests": []
-    },
-    {
-      "run_id": "d4439727",
-      "timestamp": "2026-07-29 20:41:58 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10767,
-      "failed_tests": []
-    },
-    {
-      "run_id": "8f4a40c1",
-      "timestamp": "2026-07-29 22:41:36 IST",
-      "total": 16,
-      "passed": 10,
-      "failed": 6,
-      "pass_rate": 62.5,
-      "avg_latency": 123851,
-      "failed_tests": [
-        {
-          "id": "T001",
-          "name": "ASR - doctor.mp3",
-          "category": "ASR",
-          "test_type": "Individual",
-          "input": "doctor.mp3",
-          "source_lang": "Hindi",
-          "target_lang": "-",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T012",
-          "name": "Pipeline hi→en",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "en",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T013",
-          "name": "Pipeline hi→mr",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "mr",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T014",
-          "name": "Pipeline hi→bn",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "bn",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T015",
-          "name": "Pipeline hi→ta",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "ta",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        },
-        {
-          "id": "T016",
-          "name": "Pipeline hi→te",
-          "category": "Pipeline",
-          "test_type": "Pipeline",
-          "input": "doctor.mp3",
-          "source_lang": "hi",
-          "target_lang": "te",
-          "error": "ASR transient failure after retries: The read operation timed out",
-          "response": "ASR transient failure after retries: The read operation timed out"
-        }
-      ]
-    },
-    {
-      "run_id": "b825e209",
-      "timestamp": "2026-07-30 00:45:04 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 15523,
-      "failed_tests": []
-    },
-    {
-      "run_id": "073df765",
-      "timestamp": "2026-07-30 02:41:14 IST",
-      "total": 16,
-      "passed": 16,
-      "failed": 0,
-      "pass_rate": 100.0,
-      "avg_latency": 10633,
-      "failed_tests": []
-    },
     {
       "run_id": "44337a77",
       "timestamp": "2026-07-30 04:41:33 IST",
@@ -2435,6 +2318,16 @@
       "failed": 0,
       "pass_rate": 100.0,
       "avg_latency": 10682,
+      "failed_tests": []
+    },
+    {
+      "run_id": "8475414e",
+      "timestamp": "2026-08-29 04:19:46 IST",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "pass_rate": 100.0,
+      "avg_latency": 10586,
       "failed_tests": []
     }
   ]
