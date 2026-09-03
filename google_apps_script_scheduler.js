@@ -29,7 +29,7 @@
  * 5) triggerMonthlyDowntime (optional)
  *    Month timer → 1st day, 9am–10am IST
  *
- * Health report covers all projects (Widget, Console, Asksam, Vak BE).
+ * Health report covers: Widget, Console, Asksam, Vak BE, Playground QA, Meera QA, ASR/TTS Backend QA.
  * Vak triggers above only run tests for this repo; other repos need the same
  * morning/evening triggers in their own scheduler scripts.
  */

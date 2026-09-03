@@ -16,7 +16,9 @@ Environment:
 
 from __future__ import annotations
 
+import json
 import os
+import re
 import sys
 from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
@@ -54,6 +56,27 @@ PROJECTS = [
         "dashboard": "https://shunyalabsai.github.io/vak-automation/",
         "runs_url": "https://shunyalabsai.github.io/vak-automation/data.json",
         "format": "vak",
+    },
+    {
+        "name": "Playground QA",
+        "dashboard": "https://shunyalabsai.github.io/shunya-playground-qa-automation/",
+        # Run history is embedded in the dashboard HTML (const historyData = [...])
+        "runs_url": "https://shunyalabsai.github.io/shunya-playground-qa-automation/",
+        "format": "embedded_html",
+    },
+    {
+        "name": "Meera QA",
+        "dashboard": "https://shunyalabsai.github.io/Meera-qa-automation/",
+        # Run history is embedded as DASHBOARD_DATA.runs in the HTML
+        "runs_url": "https://shunyalabsai.github.io/Meera-qa-automation/",
+        "format": "embedded_html",
+    },
+    {
+        "name": "ASR/TTS Backend QA",
+        "dashboard": "https://shunyalabsai.github.io/asr-tts-backend-qa/",
+        # Run history is embedded in the dashboard HTML (const historyData = [...])
+        "runs_url": "https://shunyalabsai.github.io/asr-tts-backend-qa/",
+        "format": "embedded_html",
     },
 ]
 
@@ -94,28 +117,73 @@ def parse_iso_to_ist(ts: str) -> datetime | None:
         return None
 
 
+def _normalize_playwright_runs(raw: list) -> list[dict]:
+    out: list[dict] = []
+    for r in raw:
+        summary = r.get("summary") or {}
+        ts = r.get("startedAt") or r.get("runDate")
+        total = summary.get("total", r.get("total", 0))
+        passed = summary.get("passed", r.get("passed", 0))
+        skipped = summary.get("skipped", r.get("skipped", 0))
+        explicit_failed = summary.get("failed", r.get("failed", 0))
+        timed_out = summary.get("timedOut", r.get("timedOut", 0))
+        failed = max(total - passed - skipped, 0) if total else explicit_failed + timed_out
+        dt = parse_iso_to_ist(ts or "")
+        out.append({
+            "timestamp": ts,
+            "total": total,
+            "passed": passed,
+            "failed": failed,
+            "pass_rate": r.get("passRate", 0),
+            "_dt": dt,
+        })
+    return out
+
+
+def extract_embedded_runs(html: str) -> list[dict]:
+    """
+    Extract run history from GitHub Pages dashboards that embed JSON in HTML.
+
+    Supported shapes:
+      - const historyData = [ ... ]
+      - const DASHBOARD_DATA = { ..., "runs": [ ... ] }
+    """
+    decoder = json.JSONDecoder()
+
+    def _decode_after(match: re.Match | None):
+        if not match:
+            return None
+        rest = html[match.end():].lstrip()
+        if not rest or rest[0] not in "[{":
+            return None
+        obj, _ = decoder.raw_decode(rest)
+        return obj
+
+    # Prefer DASHBOARD_DATA (Meera) — historyData there is often `DASHBOARD_DATA.runs || []`
+    obj = _decode_after(re.search(r"(?:const|let|var)\s+DASHBOARD_DATA\s*=\s*", html))
+    if isinstance(obj, dict):
+        runs = obj.get("runs") or []
+        if isinstance(runs, list) and runs:
+            return runs
+
+    obj = _decode_after(re.search(r"const\s+historyData\s*=\s*", html))
+    if isinstance(obj, list) and obj:
+        return obj
+
+    obj = _decode_after(re.search(r"const\s+latestData\s*=\s*", html))
+    if isinstance(obj, dict):
+        return [obj]
+
+    raise ValueError("No embedded historyData / DASHBOARD_DATA.runs found in dashboard HTML")
+
+
 def normalize_runs(raw, fmt: str) -> list[dict]:
     """Normalize project feeds into {timestamp, total, passed, failed, pass_rate, _dt}."""
     out: list[dict] = []
-    if fmt == "playwright":
-        for r in raw:
-            summary = r.get("summary") or {}
-            ts = r.get("startedAt") or r.get("runDate")
-            total = summary.get("total", r.get("total", 0))
-            passed = summary.get("passed", r.get("passed", 0))
-            skipped = summary.get("skipped", r.get("skipped", 0))
-            explicit_failed = summary.get("failed", r.get("failed", 0))
-            timed_out = summary.get("timedOut", r.get("timedOut", 0))
-            failed = max(total - passed - skipped, 0) if total else explicit_failed + timed_out
-            dt = parse_iso_to_ist(ts or "")
-            out.append({
-                "timestamp": ts,
-                "total": total,
-                "passed": passed,
-                "failed": failed,
-                "pass_rate": r.get("passRate", 0),
-                "_dt": dt,
-            })
+    if fmt in {"playwright", "embedded_html"}:
+        if isinstance(raw, dict):
+            raw = raw.get("runs") or []
+        out = _normalize_playwright_runs(raw if isinstance(raw, list) else [])
     elif fmt == "vak":
         for r in raw.get("runs", []):
             ts = r.get("timestamp")
@@ -197,9 +265,15 @@ def describe_run_context(run: dict | None, period: str, now: datetime) -> str:
 
 def fetch_project(project: dict) -> dict:
     try:
-        r = httpx.get(project["runs_url"], timeout=15, follow_redirects=True)
+        fmt = project["format"]
+        timeout = 90.0 if fmt == "embedded_html" else 20.0
+        r = httpx.get(project["runs_url"], timeout=timeout, follow_redirects=True)
         r.raise_for_status()
-        runs = normalize_runs(r.json(), project["format"])
+        if fmt == "embedded_html":
+            raw_runs = extract_embedded_runs(r.text)
+            runs = normalize_runs(raw_runs, "playwright")
+        else:
+            runs = normalize_runs(r.json(), fmt)
         return {"ok": True, "runs": runs, "error": ""}
     except Exception as e:
         return {"ok": False, "runs": [], "error": str(e)[:200]}

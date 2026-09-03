@@ -8,6 +8,7 @@ Usage:
 """
 from __future__ import annotations
 
+import json
 import os
 import re
 import sys
@@ -43,6 +44,24 @@ PROJECTS = [
         "dashboard": "https://shunyalabsai.github.io/vak-automation/",
         "runs_url": "https://shunyalabsai.github.io/vak-automation/data.json",
         "format": "vak",
+    },
+    {
+        "name": "Playground QA",
+        "dashboard": "https://shunyalabsai.github.io/shunya-playground-qa-automation/",
+        "runs_url": "https://shunyalabsai.github.io/shunya-playground-qa-automation/",
+        "format": "embedded_html",
+    },
+    {
+        "name": "Meera QA",
+        "dashboard": "https://shunyalabsai.github.io/Meera-qa-automation/",
+        "runs_url": "https://shunyalabsai.github.io/Meera-qa-automation/",
+        "format": "embedded_html",
+    },
+    {
+        "name": "ASR/TTS Backend QA",
+        "dashboard": "https://shunyalabsai.github.io/asr-tts-backend-qa/",
+        "runs_url": "https://shunyalabsai.github.io/asr-tts-backend-qa/",
+        "format": "embedded_html",
     },
 ]
 
@@ -228,11 +247,45 @@ def month_bounds(year: int, month: int) -> tuple[datetime, datetime]:
     return start, end
 
 
+def extract_embedded_runs(html: str) -> list:
+    """Extract run arrays embedded in GitHub Pages dashboard HTML."""
+    decoder = json.JSONDecoder()
+
+    def _decode_after(match):
+        if not match:
+            return None
+        rest = html[match.end():].lstrip()
+        if not rest or rest[0] not in "[{":
+            return None
+        obj, _ = decoder.raw_decode(rest)
+        return obj
+
+    obj = _decode_after(re.search(r"(?:const|let|var)\s+DASHBOARD_DATA\s*=\s*", html))
+    if isinstance(obj, dict) and isinstance(obj.get("runs"), list) and obj["runs"]:
+        return obj["runs"]
+
+    obj = _decode_after(re.search(r"const\s+historyData\s*=\s*", html))
+    if isinstance(obj, list) and obj:
+        return obj
+
+    obj = _decode_after(re.search(r"const\s+latestData\s*=\s*", html))
+    if isinstance(obj, dict):
+        return [obj]
+
+    raise ValueError("No embedded run history found in dashboard HTML")
+
+
 def fetch_project(project: dict) -> dict:
     try:
-        r = httpx.get(project["runs_url"], timeout=20, follow_redirects=True)
+        fmt = project["format"]
+        timeout = 90.0 if fmt == "embedded_html" else 20.0
+        r = httpx.get(project["runs_url"], timeout=timeout, follow_redirects=True)
         r.raise_for_status()
-        runs = normalize_runs(r.json(), project["format"])
+        if fmt == "embedded_html":
+            raw = extract_embedded_runs(r.text)
+            runs = normalize_runs(raw, "playwright")
+        else:
+            runs = normalize_runs(r.json(), fmt)
         return {"ok": True, "runs": runs, "error": ""}
     except Exception as e:
         return {"ok": False, "runs": [], "error": str(e)[:200]}

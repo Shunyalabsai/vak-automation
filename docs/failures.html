@@ -233,6 +233,9 @@ const PROJECTS = [
   { name: "Console Automation",      short: "Console",      dashboard: "https://shunyalabsai.github.io/console-automation/",                            runs: "https://shunyalabsai.github.io/console-automation/history/runs.json", format: "playwright" },
   { name: "Asksam Automation",       short: "Asksam",       dashboard: "https://shunyalabsai.github.io/asksam-automation/",                             runs: "https://shunyalabsai.github.io/asksam-automation/history/runs.json", format: "playwright" },
   { name: "Vak BE Automation",       short: "Vak BE",       dashboard: "https://shunyalabsai.github.io/vak-automation/",                                runs: "https://shunyalabsai.github.io/vak-automation/data.json", format: "vak" },
+  { name: "Playground QA",           short: "Playground",   dashboard: "https://shunyalabsai.github.io/shunya-playground-qa-automation/",               runs: "https://shunyalabsai.github.io/shunya-playground-qa-automation/", format: "embedded_html" },
+  { name: "Meera QA",                short: "Meera",        dashboard: "https://shunyalabsai.github.io/Meera-qa-automation/",                          runs: "https://shunyalabsai.github.io/Meera-qa-automation/", format: "embedded_html" },
+  { name: "ASR/TTS Backend QA",      short: "ASR/TTS",      dashboard: "https://shunyalabsai.github.io/asr-tts-backend-qa/",                            runs: "https://shunyalabsai.github.io/asr-tts-backend-qa/", format: "embedded_html" },
 ];
 
 const IST_OFFSET_MS = 5.5 * 3600 * 1000;
@@ -331,6 +334,45 @@ function isDowntimeFailure(msg, statusCode) {
   return false;
 }
 
+function extractEmbeddedRuns(html) {
+  const markers = [
+    "const DASHBOARD_DATA =",
+    "let DASHBOARD_DATA =",
+    "var DASHBOARD_DATA =",
+    "const historyData =",
+    "const latestData =",
+  ];
+  for (const marker of markers) {
+    const idx = html.indexOf(marker);
+    if (idx < 0) continue;
+    let i = idx + marker.length;
+    while (i < html.length && /\s/.test(html[i])) i++;
+    if (html[i] !== "{" && html[i] !== "[") continue;
+    let depth = 0, inStr = false, esc = false;
+    for (let j = i; j < html.length; j++) {
+      const c = html[j];
+      if (inStr) {
+        if (esc) { esc = false; continue; }
+        if (c === "\\") { esc = true; continue; }
+        if (c === '"') inStr = false;
+        continue;
+      }
+      if (c === '"') { inStr = true; continue; }
+      if (c === "{" || c === "[") depth++;
+      else if (c === "}" || c === "]") {
+        depth--;
+        if (depth === 0) {
+          const obj = JSON.parse(html.slice(i, j + 1));
+          if (Array.isArray(obj) && obj.length) return obj;
+          if (obj && Array.isArray(obj.runs) && obj.runs.length) return obj.runs;
+          if (obj && typeof obj === "object" && !Array.isArray(obj)) return [obj];
+        }
+      }
+    }
+  }
+  throw new Error("No embedded run history found in dashboard HTML");
+}
+
 function normalize(raw, fmt) {
   const out = [];
   if (fmt === "vak") {
@@ -403,8 +445,15 @@ async function fetchAll() {
     try {
       const resp = await fetch(p.runs, { cache: "no-cache" });
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const raw = await resp.json();
-      const runs = normalize(raw, p.format).map((r) => ({ ...r, _date: parseToDate(r.timestamp) })).filter((r) => r._date);
+      let raw;
+      let fmt = p.format;
+      if (p.format === "embedded_html") {
+        raw = extractEmbeddedRuns(await resp.text());
+        fmt = "playwright";
+      } else {
+        raw = await resp.json();
+      }
+      const runs = normalize(raw, fmt).map((r) => ({ ...r, _date: parseToDate(r.timestamp) })).filter((r) => r._date);
       runs.sort((a, b) => b._date - a._date);
       runs.forEach((r, i) => { r._id = i; });
       return { idx, project: p, runs, error: null };
