@@ -51,12 +51,13 @@ PROJECTS = [
         "runs_url": "https://shunyalabsai.github.io/asksam-automation/history/runs.json",
         "format": "playwright",
     },
-    {
-        "name": "Vak BE Automation",
-        "dashboard": "https://shunyalabsai.github.io/vak-automation/",
-        "runs_url": "https://shunyalabsai.github.io/vak-automation/data.json",
-        "format": "vak",
-    },
+    # Temporarily hidden — Vak endpoint/project changes in progress; re-enable after next update
+    # {
+    #     "name": "Vak BE Automation",
+    #     "dashboard": "https://shunyalabsai.github.io/vak-automation/",
+    #     "runs_url": "https://shunyalabsai.github.io/vak-automation/data.json",
+    #     "format": "vak",
+    # },
     # Temporarily hidden — projects still changing; re-enable when ready
     # {
     #     "name": "Playground QA",
