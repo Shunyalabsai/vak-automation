@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent / ".env")
 
 # ASR / STT
-ASR_BASE_URL = os.getenv("ASR_BASE_URL", "https://asr.shunyalabs.ai")
+ASR_BASE_URL = os.getenv("ASR_BASE_URL", "https://asrv2prod.shunyalabs.ai")
 ASR_API_KEY = os.getenv("ASR_API_KEY", "")
 
 # Translation
