@@ -12,6 +12,9 @@ Run manually:
 
 Environment:
     DIGEST_PERIOD  — morning | evening (optional; inferred from clock if unset)
+
+Kill switch:
+    DIGEST_ENABLED below — set True to resume sending after confirmation.
 """
 
 from __future__ import annotations
@@ -24,6 +27,9 @@ from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 
 import httpx
+
+# Pause morning/evening health emails until explicitly re-enabled.
+DIGEST_ENABLED = False
 
 IST = timezone(timedelta(hours=5, minutes=30))
 
@@ -585,6 +591,13 @@ def send_email(html: str, subject: str) -> bool:
 
 def main():
     preview = "--preview" in sys.argv
+    if not DIGEST_ENABLED and not preview:
+        print(
+            "Daily health report is PAUSED (DIGEST_ENABLED=False). "
+            "No email will be sent until re-enabled."
+        )
+        return
+
     period_arg = None
     for i, arg in enumerate(sys.argv):
         if arg == "--period" and i + 1 < len(sys.argv):

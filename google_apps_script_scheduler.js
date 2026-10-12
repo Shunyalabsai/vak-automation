@@ -22,9 +22,11 @@
  *
  * 3) triggerDailyDigestMorning
  *    Day timer → 5am to 6am   (health email: start-of-day snapshot)
+ *    NOTE: currently PAUSED in code (DIGEST_ENABLED=False) — no email until re-enabled
  *
  * 4) triggerDailyDigestEvening
  *    Day timer → 6pm to 7pm   (health email: end-of-day snapshot)
+ *    NOTE: currently PAUSED in code (DIGEST_ENABLED=False) — no email until re-enabled
  *
  * 5) triggerMonthlyDowntime (optional)
  *    Month timer → 1st day, 9am–10am IST
