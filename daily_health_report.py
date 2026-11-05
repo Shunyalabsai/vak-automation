@@ -40,7 +40,7 @@ EVENING_RUN_END = time(18, 59)
 
 PROJECTS = [
     {
-        "name": "Widget Automation",
+        "name": "Website Widget Automation",
         "dashboard": "https://shunyalabsai.github.io/widgets-automation/",
         "runs_url": "https://shunyalabsai.github.io/widgets-automation/history/runs.json",
         "format": "playwright",
@@ -101,13 +101,18 @@ def _normalize_playwright_runs(raw: list) -> list[dict]:
         explicit_failed = summary.get("failed", r.get("failed", 0))
         timed_out = summary.get("timedOut", r.get("timedOut", 0))
         failed = max(total - passed - skipped, 0) if total else explicit_failed + timed_out
+        # Prefer dashboard passRate (excludes skipped); fall back to passed/(passed+failed).
+        dash_rate = r.get("passRate")
+        if dash_rate is None:
+            executed = passed + failed
+            dash_rate = round(passed / executed * 100, 1) if executed else 0
         dt = parse_iso_to_ist(ts or "")
         out.append({
             "timestamp": ts,
             "total": total,
             "passed": passed,
             "failed": failed,
-            "pass_rate": r.get("passRate", 0),
+            "pass_rate": dash_rate,
             "_dt": dt,
         })
     return out
@@ -280,8 +285,9 @@ def build_project_section(project: dict, run: dict | None, note: str, fetch_erro
 
     failed = run["failed"]
     pass_rate = run["pass_rate"]
-    if not pass_rate and run["total"]:
-        pass_rate = round(run["passed"] / run["total"] * 100, 1)
+    if pass_rate is None or pass_rate == "":
+        executed = run["passed"] + failed
+        pass_rate = round(run["passed"] / executed * 100, 1) if executed else 0
 
     if failed == 0 and run["total"] > 0:
         status = "GREEN"
@@ -330,7 +336,9 @@ def build_overall_summary(sections: list[dict]) -> dict:
     test_total = sum(s["total"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
     test_passed = sum(s["passed"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
     test_failed = sum(s["failed"] for s in sections if s["status"] in {"GREEN", "ISSUES", "NO_DATA"})
-    test_rate = round(test_passed / test_total * 100, 1) if test_total else 0
+    # Match dashboards: pass rate ignores skipped (passed / passed+failed).
+    executed = test_passed + test_failed
+    test_rate = round(test_passed / executed * 100, 1) if executed else 0
 
     if with_failures > 0:
         headline = f"{with_failures} of {total_projects} projects have test failures — review needed"
@@ -406,8 +414,9 @@ def render_html(sections: list[dict], period: str, now: datetime) -> tuple[str, 
             else (str(s["failed"]) if s["total"] else "—")
         )
         total_cell = str(s["total"]) if s["total"] else "—"
-        if s["total"]:
-            rate_cell = f'{round(s["passed"] / s["total"] * 100, 1)}%'
+        # Use the same pass % the project dashboard reports (not passed/total with skips).
+        if s["total"] or s["pass_rate"]:
+            rate_cell = f'{s["pass_rate"]}%'
         else:
             rate_cell = "—"
 

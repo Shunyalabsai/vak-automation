@@ -22,7 +22,7 @@ IST = timezone(timedelta(hours=5, minutes=30))
 
 PROJECTS = [
     {
-        "name": "Widget Automation",
+        "name": "Website Widget Automation",
         "dashboard": "https://shunyalabsai.github.io/widgets-automation/",
         "runs_url": "https://shunyalabsai.github.io/widgets-automation/history/runs.json",
         "format": "playwright",

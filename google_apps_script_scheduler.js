@@ -31,7 +31,7 @@
  * 5) triggerMonthlyDowntime (optional)
  *    Month timer → 1st day, 9am–10am IST
  *
- * Health report covers: Widget Automation, Asksam Automation only.
+ * Health report covers: Website Widget Automation, Asksam Automation only.
  * Vak triggers above only run tests for this repo; other repos need the same
  * morning/evening triggers in their own scheduler scripts.
  */
