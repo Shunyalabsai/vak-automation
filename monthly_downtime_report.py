@@ -28,42 +28,11 @@ PROJECTS = [
         "format": "playwright",
     },
     {
-        "name": "Console Automation",
-        "dashboard": "https://shunyalabsai.github.io/console-automation/",
-        "runs_url": "https://shunyalabsai.github.io/console-automation/history/runs.json",
-        "format": "playwright",
-    },
-    {
         "name": "Asksam Automation",
         "dashboard": "https://shunyalabsai.github.io/asksam-automation/",
         "runs_url": "https://shunyalabsai.github.io/asksam-automation/history/runs.json",
         "format": "playwright",
     },
-    {
-        "name": "Vak BE Automation",
-        "dashboard": "https://shunyalabsai.github.io/vak-automation/",
-        "runs_url": "https://shunyalabsai.github.io/vak-automation/data.json",
-        "format": "vak",
-    },
-    # Temporarily hidden — projects still changing; re-enable when ready
-    # {
-    #     "name": "Playground QA",
-    #     "dashboard": "https://shunyalabsai.github.io/shunya-playground-qa-automation/",
-    #     "runs_url": "https://shunyalabsai.github.io/shunya-playground-qa-automation/",
-    #     "format": "embedded_html",
-    # },
-    # {
-    #     "name": "Meera QA",
-    #     "dashboard": "https://shunyalabsai.github.io/Meera-qa-automation/",
-    #     "runs_url": "https://shunyalabsai.github.io/Meera-qa-automation/",
-    #     "format": "embedded_html",
-    # },
-    # {
-    #     "name": "ASR/TTS Backend QA",
-    #     "dashboard": "https://shunyalabsai.github.io/asr-tts-backend-qa/",
-    #     "runs_url": "https://shunyalabsai.github.io/asr-tts-backend-qa/",
-    #     "format": "embedded_html",
-    # },
 ]
 
 FAILURES_DASHBOARD = "https://shunyalabsai.github.io/vak-automation/failures.html"
