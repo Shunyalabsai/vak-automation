@@ -28,8 +28,8 @@ from pathlib import Path
 
 import httpx
 
-# Pause morning/evening health emails until explicitly re-enabled.
-DIGEST_ENABLED = False
+# Morning/evening health emails are enabled.
+DIGEST_ENABLED = True
 
 IST = timezone(timedelta(hours=5, minutes=30))
 
